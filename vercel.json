@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "forkcast.tech" }],
+      "destination": "https://www.forkcast.tech/$1",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForkCast — Documentación de Webhooks</title>
+  <meta name="description" content="Documentación técnica de los webhooks de ForkCast. Integrá tu sistema de facturación, ERP o cualquier servicio externo.">
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    pre { overflow-x: auto; }
+    pre code { font-size: 0.85rem; line-height: 1.7; }
+    code { font-family: 'Menlo', 'Consolas', monospace; }
+  </style>
+</head>
+<body class="font-sans text-gray-200 bg-brand-darker antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="flex items-center gap-4 text-sm">
+        <span class="text-gray-400">Documentación</span>
+        <a href="/" class="text-brand-gold hover:text-brand-gold-light transition-colors">← Volver</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-16">
+
+    <!-- Title -->
+    <div class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Webhooks</h1>
+      <p class="text-lg text-gray-400">Integrá ForkCast con tu sistema de facturación, ERP o cualquier servicio externo.</p>
+    </div>
+
+    <!-- TOC -->
+    <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5 mb-12">
+      <p class="text-sm font-semibold text-brand-gold mb-3">En esta página</p>
+      <ul class="text-sm space-y-1.5 text-gray-300">
+        <li><a href="#overview" class="hover:text-brand-gold transition-colors">Descripción general</a></li>
+        <li><a href="#config" class="hover:text-brand-gold transition-colors">Configuración</a></li>
+        <li><a href="#verification" class="hover:text-brand-gold transition-colors">Verificación de firma</a></li>
+        <li><a href="#events" class="hover:text-brand-gold transition-colors">Eventos disponibles</a></li>
+        <li><a href="#payload" class="hover:text-brand-gold transition-colors">Payload</a></li>
+        <li><a href="#fields" class="hover:text-brand-gold transition-colors">Campos del payload</a></li>
+        <li><a href="#statuses" class="hover:text-brand-gold transition-colors">Estados del pedido</a></li>
+        <li><a href="#billing" class="hover:text-brand-gold transition-colors">Caso de uso: Facturación</a></li>
+        <li><a href="#examples" class="hover:text-brand-gold transition-colors">Ejemplos de código</a></li>
+        <li><a href="#retry" class="hover:text-brand-gold transition-colors">Retry policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Descripción general</h2>
+      <p class="text-gray-300 leading-relaxed">ForkCast dispara webhooks HTTP POST cuando ocurren eventos en la plataforma. Los webhooks permiten integrar sistemas externos — facturación, ERP, notificaciones, analytics — sin modificar ForkCast.</p>
+    </section>
+
+    <!-- Config -->
+    <section id="config" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Configuración</h2>
+      <p class="text-gray-300 mb-4">Los webhooks se configuran por usuario (restaurante o proveedor) desde <span class="text-white font-medium">Configuración</span> o via API:</p>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300">POST /api/webhooks
+{
+  <span class="text-brand-gold">"url"</span>: <span class="text-brand-green">"https://tu-sistema.com/webhook"</span>,
+  <span class="text-brand-gold">"events"</span>: [<span class="text-brand-green">"order.created"</span>, <span class="text-brand-green">"order.status_updated"</span>]
+}</code></pre>
+      <div class="bg-brand-dark rounded-xl border border-brand-gold/30 p-4 mt-4">
+        <p class="text-sm text-gray-300"><span class="text-brand-gold font-semibold">Seguridad:</span> El <code class="text-brand-gold bg-brand-darker px-1.5 py-0.5 rounded text-xs">secret</code> se genera automáticamente (64 caracteres hex) y se retorna en el response de creación. Guardalo de forma segura — no se puede recuperar después. La URL debe usar <span class="text-white font-medium">HTTPS</span> (excepto localhost en desarrollo).</p>
+      </div>
+    </section>
+
+    <!-- Verification -->
+    <section id="verification" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Verificación de firma</h2>
+      <p class="text-gray-300 mb-4">Cada request incluye dos headers de seguridad:</p>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden mb-4">
+        <table class="w-full text-sm">
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">X-Webhook-Signature</code></td><td class="px-5 py-2.5">HMAC-SHA256 del payload firmado con el secret</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">X-Webhook-Timestamp</code></td><td class="px-5 py-2.5">Unix timestamp (segundos) del momento del dispatch</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5 mb-4"><code class="text-gray-300">X-Webhook-Signature: sha256=a1b2c3d4e5f6...
+X-Webhook-Timestamp: 1743456789</code></pre>
+      <p class="text-gray-300 mb-4">La firma se calcula sobre <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">"${timestamp}.${body}"</code> (timestamp + punto + body JSON) para prevenir replay attacks.</p>
+      <p class="text-gray-300 mb-4">Para verificar en Node.js:</p>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300"><span class="text-brand-green">const</span> crypto = require(<span class="text-brand-gold">'crypto'</span>);
+
+<span class="text-brand-green">function</span> verifyWebhook(req, secret) {
+  <span class="text-brand-green">const</span> timestamp = req.headers[<span class="text-brand-gold">'x-webhook-timestamp'</span>];
+  <span class="text-brand-green">const</span> receivedSig = req.headers[<span class="text-brand-gold">'x-webhook-signature'</span>];
+
+  <span class="text-gray-500">// Rechazar si el timestamp tiene más de 5 minutos</span>
+  <span class="text-brand-green">const</span> now = Math.floor(Date.now() / <span class="text-white">1000</span>);
+  <span class="text-brand-green">if</span> (Math.abs(now - parseInt(timestamp, <span class="text-white">10</span>)) > <span class="text-white">300</span>) {
+    <span class="text-brand-green">throw new</span> Error(<span class="text-brand-gold">'Timestamp demasiado antiguo (posible replay attack)'</span>);
+  }
+
+  <span class="text-gray-500">// Verificar firma con timingSafeEqual</span>
+  <span class="text-brand-green">const</span> body = JSON.stringify(req.body);
+  <span class="text-brand-green">const</span> signaturePayload = <span class="text-brand-gold">`${timestamp}.${body}`</span>;
+  <span class="text-brand-green">const</span> expected = <span class="text-brand-gold">'sha256='</span> + crypto
+    .createHmac(<span class="text-brand-gold">'sha256'</span>, secret)
+    .update(signaturePayload)
+    .digest(<span class="text-brand-gold">'hex'</span>);
+
+  <span class="text-brand-green">const</span> a = Buffer.from(receivedSig);
+  <span class="text-brand-green">const</span> b = Buffer.from(expected);
+  <span class="text-brand-green">if</span> (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {
+    <span class="text-brand-green">throw new</span> Error(<span class="text-brand-gold">'Firma inválida'</span>);
+  }
+}</code></pre>
+      <div class="bg-brand-dark rounded-xl border border-red-900/40 p-4 mt-4">
+        <p class="text-sm text-gray-300"><span class="text-red-400 font-semibold">Importante:</span> Usá siempre <code class="text-brand-gold bg-brand-darker px-1.5 py-0.5 rounded text-xs">crypto.timingSafeEqual()</code> para comparar firmas, no <code class="text-brand-gold bg-brand-darker px-1.5 py-0.5 rounded text-xs">===</code>. La comparación directa es vulnerable a timing attacks.</p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Eventos disponibles</h2>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-brand-circle/30">
+              <th class="text-left px-5 py-3 text-brand-gold font-semibold">Evento</th>
+              <th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th>
+              <th class="text-left px-5 py-3 text-brand-gold font-semibold hidden sm:table-cell">Se dispara cuando</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20">
+              <td class="px-5 py-3"><code class="text-brand-green text-xs">order.created</code></td>
+              <td class="px-5 py-3">Pedido creado</td>
+              <td class="px-5 py-3 hidden sm:table-cell">Un restaurante crea un nuevo pedido de compra</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3"><code class="text-brand-green text-xs">order.status_updated</code></td>
+              <td class="px-5 py-3">Estado actualizado</td>
+              <td class="px-5 py-3 hidden sm:table-cell">El pedido cambia de estado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Payload -->
+    <section id="payload" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Payload</h2>
+      <p class="text-gray-300 mb-4">Ambos eventos envían el mismo formato:</p>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300">{
+  <span class="text-brand-gold">"event"</span>: <span class="text-brand-green">"order.status_updated"</span>,
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"orderId"</span>: <span class="text-white">123</span>,
+    <span class="text-brand-gold">"restaurantId"</span>: <span class="text-white">1</span>,
+    <span class="text-brand-gold">"supplierId"</span>: <span class="text-white">5</span>,
+    <span class="text-brand-gold">"priceListId"</span>: <span class="text-white">4</span>,
+    <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"delivered"</span>,
+    <span class="text-brand-gold">"date"</span>: <span class="text-brand-green">"2026-04-01T00:00:00.000Z"</span>,
+    <span class="text-brand-gold">"items"</span>: [
+      {
+        <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"GIN BOSQUE NATIVO 500ML"</span>,
+        <span class="text-brand-gold">"quantity"</span>: <span class="text-white">10</span>,
+        <span class="text-brand-gold">"unit"</span>: <span class="text-brand-green">"un"</span>,
+        <span class="text-brand-gold">"price"</span>: <span class="text-white">4407.81</span>
+      }
+    ],
+    <span class="text-brand-gold">"isBillable"</span>: <span class="text-white">true</span>,
+    <span class="text-brand-gold">"client"</span>: {
+      <span class="text-brand-gold">"forkcastId"</span>: <span class="text-white">1</span>,
+      <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"CAMINANTES S.R.L"</span>,
+      <span class="text-brand-gold">"externalMappings"</span>: [
+        {
+          <span class="text-brand-gold">"provider"</span>: <span class="text-brand-green">"contabilium"</span>,
+          <span class="text-brand-gold">"externalId"</span>: <span class="text-brand-green">"91003015"</span>,
+          <span class="text-brand-gold">"externalName"</span>: <span class="text-brand-green">"CAMINANTES S.R.L"</span>
+        }
+      ]
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- Fields -->
+    <section id="fields" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-6">Campos del payload</h2>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">data</h3>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead><tr class="border-b border-brand-circle/30"><th class="text-left px-5 py-3 text-brand-gold font-semibold">Campo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Tipo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th></tr></thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">orderId</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">ID del pedido en ForkCast</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">restaurantId</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">ID del restaurante</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">supplierId</code></td><td class="px-5 py-2.5">number | null</td><td class="px-5 py-2.5">ID del proveedor</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">priceListId</code></td><td class="px-5 py-2.5">number | null</td><td class="px-5 py-2.5">ID de la lista de precios</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">status</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">pending, approved, rejected, delivered</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">date</code></td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Fecha del pedido</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">items</code></td><td class="px-5 py-2.5">array</td><td class="px-5 py-2.5">Productos del pedido</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">isBillable</code></td><td class="px-5 py-2.5">boolean</td><td class="px-5 py-2.5">Si la lista es facturable</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">client</code></td><td class="px-5 py-2.5">object</td><td class="px-5 py-2.5">Datos del cliente</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">items[]</h3>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead><tr class="border-b border-brand-circle/30"><th class="text-left px-5 py-3 text-brand-gold font-semibold">Campo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Tipo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th></tr></thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">name</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">Nombre del producto</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">quantity</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">Cantidad pedida</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">unit</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">Unidad (kg, un, l, etc.)</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">price</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">Precio unitario</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">client</h3>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead><tr class="border-b border-brand-circle/30"><th class="text-left px-5 py-3 text-brand-gold font-semibold">Campo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Tipo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th></tr></thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">forkcastId</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">ID del restaurante en ForkCast</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">name</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">Nombre del restaurante</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">externalMappings</code></td><td class="px-5 py-2.5">array</td><td class="px-5 py-2.5">Mappings con sistemas externos</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">externalMappings[]</h3>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead><tr class="border-b border-brand-circle/30"><th class="text-left px-5 py-3 text-brand-gold font-semibold">Campo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Tipo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th></tr></thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">provider</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">Sistema externo (contabilium, xubio, etc.)</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">externalId</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">ID del cliente en el sistema externo</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">externalName</code></td><td class="px-5 py-2.5">string | null</td><td class="px-5 py-2.5">Razón social en el sistema externo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Statuses -->
+    <section id="statuses" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Estados del pedido</h2>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm font-medium">
+        <span class="px-3 py-1.5 rounded-full bg-yellow-900/40 text-yellow-300 border border-yellow-700/30">pending</span>
+        <span class="text-gray-500">→</span>
+        <span class="px-3 py-1.5 rounded-full bg-blue-900/40 text-blue-300 border border-blue-700/30">approved</span>
+        <span class="text-gray-500">→</span>
+        <span class="px-3 py-1.5 rounded-full bg-green-900/40 text-green-300 border border-green-700/30">delivered</span>
+      </div>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-6 mt-3 flex items-center justify-center gap-3 text-sm font-medium">
+        <span class="px-3 py-1.5 rounded-full bg-yellow-900/40 text-yellow-300 border border-yellow-700/30">pending</span>
+        <span class="text-gray-500">→</span>
+        <span class="px-3 py-1.5 rounded-full bg-red-900/40 text-red-300 border border-red-700/30">rejected</span>
+      </div>
+    </section>
+
+    <!-- Billing -->
+    <section id="billing" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Caso de uso: Facturación automática</h2>
+      <p class="text-gray-300 mb-4">Cuando un pedido se marca como entregado y la lista de precios es facturable:</p>
+      <ol class="space-y-3 text-gray-300">
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-sm font-bold">1</span><span>Recibir webhook <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">order.status_updated</code> con <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">status: "delivered"</code></span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-sm font-bold">2</span><span>Verificar <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">isBillable: true</code></span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-sm font-bold">3</span><span>Usar <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">client.externalMappings</code> para encontrar el ID del cliente en tu ERP</span></li>
+        <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-sm font-bold">4</span><span>Crear el comprobante en el ERP con los <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">items</code> del pedido</span></li>
+      </ol>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-6">Ejemplos de código</h2>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">Node.js (Express)</h3>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5 mb-6"><code class="text-gray-300"><span class="text-brand-green">const</span> crypto = require(<span class="text-brand-gold">'crypto'</span>);
+<span class="text-brand-green">const</span> WEBHOOK_SECRET = process.env.FORKCAST_WEBHOOK_SECRET;
+
+app.post(<span class="text-brand-green">'/webhook/forkcast'</span>, (req, res) => {
+  <span class="text-gray-500">// 1. Verificar firma y timestamp</span>
+  <span class="text-brand-green">const</span> timestamp = req.headers[<span class="text-brand-gold">'x-webhook-timestamp'</span>];
+  <span class="text-brand-green">const</span> sig = req.headers[<span class="text-brand-gold">'x-webhook-signature'</span>];
+  <span class="text-brand-green">const</span> now = Math.floor(Date.now() / <span class="text-white">1000</span>);
+
+  <span class="text-brand-green">if</span> (Math.abs(now - parseInt(timestamp)) > <span class="text-white">300</span>) {
+    <span class="text-brand-green">return</span> res.status(<span class="text-white">403</span>).json({ error: <span class="text-brand-gold">'Timestamp expired'</span> });
+  }
+
+  <span class="text-brand-green">const</span> expected = <span class="text-brand-gold">'sha256='</span> + crypto
+    .createHmac(<span class="text-brand-gold">'sha256'</span>, WEBHOOK_SECRET)
+    .update(<span class="text-brand-gold">`${timestamp}.${JSON.stringify(req.body)}`</span>)
+    .digest(<span class="text-brand-gold">'hex'</span>);
+
+  <span class="text-brand-green">if</span> (!crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expected))) {
+    <span class="text-brand-green">return</span> res.status(<span class="text-white">403</span>).json({ error: <span class="text-brand-gold">'Invalid signature'</span> });
+  }
+
+  <span class="text-gray-500">// 2. Procesar evento</span>
+  <span class="text-brand-green">const</span> { event, data } = req.body;
+
+  <span class="text-brand-green">if</span> (event === <span class="text-brand-gold">'order.status_updated'</span>
+    && data.status === <span class="text-brand-gold">'delivered'</span>
+    && data.isBillable) {
+
+    <span class="text-brand-green">const</span> mapping = data.client.externalMappings
+      .find(m => m.provider === <span class="text-brand-gold">'contabilium'</span>);
+
+    <span class="text-brand-green">if</span> (mapping) {
+      crearComprobante({
+        clienteId: mapping.externalId,
+        items: data.items.map(i => ({
+          concepto: i.name,
+          cantidad: i.quantity,
+          precioUnitario: i.price,
+        })),
+      });
+    }
+  }
+
+  res.status(<span class="text-white">200</span>).json({ ok: <span class="text-white">true</span> });
+});</code></pre>
+
+      <h3 class="text-lg font-semibold text-brand-gold mb-3">Python (FastAPI)</h3>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300"><span class="text-brand-green">import</span> hmac, hashlib, time, os
+
+WEBHOOK_SECRET = os.environ[<span class="text-brand-gold">"FORKCAST_WEBHOOK_SECRET"</span>]
+
+<span class="text-brand-green">@app.post</span>(<span class="text-brand-gold">"/webhook/forkcast"</span>)
+<span class="text-brand-green">async def</span> webhook(request: Request):
+    raw_body = <span class="text-brand-green">await</span> request.body()
+    timestamp = request.headers.get(<span class="text-brand-gold">"x-webhook-timestamp"</span>, <span class="text-brand-gold">""</span>)
+    received_sig = request.headers.get(<span class="text-brand-gold">"x-webhook-signature"</span>, <span class="text-brand-gold">""</span>)
+
+    <span class="text-gray-500"># Verificar timestamp (max 5 min)</span>
+    <span class="text-brand-green">if</span> abs(time.time() - int(timestamp)) > <span class="text-white">300</span>:
+        <span class="text-brand-green">return</span> {<span class="text-brand-gold">"error"</span>: <span class="text-brand-gold">"Timestamp expired"</span>}, <span class="text-white">403</span>
+
+    <span class="text-gray-500"># Verificar firma</span>
+    signature_payload = f<span class="text-brand-gold">"{timestamp}.{raw_body.decode()}"</span>
+    expected = <span class="text-brand-gold">"sha256="</span> + hmac.new(
+        WEBHOOK_SECRET.encode(), signature_payload.encode(), hashlib.sha256
+    ).hexdigest()
+
+    <span class="text-brand-green">if not</span> hmac.compare_digest(received_sig, expected):
+        <span class="text-brand-green">return</span> {<span class="text-brand-gold">"error"</span>: <span class="text-brand-gold">"Invalid signature"</span>}, <span class="text-white">403</span>
+
+    <span class="text-gray-500"># Procesar evento</span>
+    body = <span class="text-brand-green">await</span> request.json()
+    event = body.get(<span class="text-brand-gold">"event"</span>)
+    data = body.get(<span class="text-brand-gold">"data"</span>, {})
+
+    <span class="text-brand-green">if</span> (event == <span class="text-brand-gold">"order.status_updated"</span>
+        <span class="text-brand-green">and</span> data.get(<span class="text-brand-gold">"status"</span>) == <span class="text-brand-gold">"delivered"</span>
+        <span class="text-brand-green">and</span> data.get(<span class="text-brand-gold">"isBillable"</span>)):
+
+        mappings = data[<span class="text-brand-gold">"client"</span>][<span class="text-brand-gold">"externalMappings"</span>]
+        contabilium = next(
+            (m <span class="text-brand-green">for</span> m <span class="text-brand-green">in</span> mappings <span class="text-brand-green">if</span> m[<span class="text-brand-gold">"provider"</span>] == <span class="text-brand-gold">"contabilium"</span>),
+            None
+        )
+
+        <span class="text-brand-green">if</span> contabilium:
+            crear_comprobante(
+                cliente_id=contabilium[<span class="text-brand-gold">"externalId"</span>],
+                items=[{
+                    <span class="text-brand-gold">"concepto"</span>: i[<span class="text-brand-gold">"name"</span>],
+                    <span class="text-brand-gold">"cantidad"</span>: i[<span class="text-brand-gold">"quantity"</span>],
+                    <span class="text-brand-gold">"precio_unitario"</span>: i[<span class="text-brand-gold">"price"</span>],
+                } <span class="text-brand-green">for</span> i <span class="text-brand-green">in</span> data[<span class="text-brand-gold">"items"</span>]]
+            )
+
+    <span class="text-brand-green">return</span> {<span class="text-brand-gold">"ok"</span>: True}</code></pre>
+    </section>
+
+    <!-- Retry -->
+    <section id="retry" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Retry policy</h2>
+      <p class="text-gray-300 mb-3">Los webhooks se envían una vez (fire-and-forget). Si tu servidor no responde o devuelve error, el webhook no se reintenta.</p>
+      <p class="text-gray-300">Recomendamos implementar un mecanismo de reconciliación consultando <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">GET /api/purchase-orders</code> periódicamente para detectar pedidos que no fueron procesados.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-10 border-t border-brand-circle/30 text-sm text-gray-500">
+      <p class="mb-2">ForkCast — Documentación de Webhooks</p>
+      <p>¿Necesitás ayuda con la integración? <a href="mailto:leandro@forkcast.tech" class="text-brand-gold hover:text-brand-gold-light transition-colors">leandro@forkcast.tech</a></p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

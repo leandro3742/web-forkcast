@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForkCast — Gestión inteligente para restaurantes, franquicias y proveedores</title>
+  <meta name="description" content="ForkCast: plataforma SaaS para restaurantes, franquicias y proveedores gastronómicos en Argentina. Costeo automático de platos (CAC), compras inteligentes con IA, gestión centralizada de sucursales y proveedores. Probá gratis.">
+  <meta name="keywords" content="software restaurantes argentina, gestión gastronómica, control costos restaurante, food cost, CMV, costeo de platos, compras inteligentes, franquicias gastronomía, proveedores gastronómicos, SaaS restaurantes, IA gastronomía, lista de compras automática, gestión proveedores">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.forkcast.tech">
+  <meta property="og:title" content="ForkCast — Gestión inteligente para restaurantes">
+  <meta property="og:description" content="Controlá costos, gestioná proveedores y optimizá compras con IA. Para restaurantes, franquicias y proveedores gastronómicos en Argentina.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ForkCast — Gestión inteligente para restaurantes">
+  <meta name="twitter:description" content="Controlá costos, gestioná proveedores y optimizá compras con IA. Para restaurantes, franquicias y proveedores.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="forkcast-logo.png">
+  <link rel="apple-touch-icon" href="forkcast-logo.png">
+
+  <!-- Structured Data — Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ForkCast",
+    "url": "https://www.forkcast.tech",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Plataforma SaaS de gestión para restaurantes, franquicias y proveedores gastronómicos. Control de costos, compras inteligentes con IA y gestión centralizada de sucursales.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Plan Básico",
+        "price": "60",
+        "priceCurrency": "USD",
+        "description": "Control de compras: dashboard, proveedores, órdenes de compra, inventario",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Standard",
+        "price": "85",
+        "priceCurrency": "USD",
+        "description": "Control de margen: recetas con costeo CAC, ventas, reportes CMV, food cost",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan IA Pro",
+        "price": "110",
+        "priceCurrency": "USD",
+        "description": "Optimización inteligente: chat IA, lista de compras automática, comparación de proveedores",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Proveedores",
+        "price": "80",
+        "priceCurrency": "USD",
+        "description": "Para distribuidores y proveedores gastronómicos: catálogo digital, pedidos estructurados",
+        "billingDuration": "P1M"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "24"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "email": "leandro@forkcast.tech",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+598-98-361-013",
+        "contactType": "sales",
+        "availableLanguage": ["Spanish"]
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Argentina"
+      }
+    }
+  }
+  </script>
+
+  <!-- Structured Data — FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es ForkCast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ForkCast es una plataforma SaaS de gestión para restaurantes, franquicias y proveedores gastronómicos. Permite controlar costos por plato (CAC), gestionar proveedores, optimizar compras con inteligencia artificial y centralizar la operación de múltiples sucursales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta ForkCast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ForkCast tiene 3 planes para restaurantes: Básico (USD 60/mes) para control de compras, Standard (USD 85/mes) con costeo de recetas y reportes CMV, e IA Pro (USD 110/mes) con asistente de inteligencia artificial. Para franquicias el fee corporativo es USD 350/mes más un costo por local. Para proveedores USD 80/mes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo funciona el asistente de IA de ForkCast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El asistente de IA de ForkCast es un agente conversacional que analiza tus ventas, calcula el costo de cada plato, genera tu lista de compras automáticamente cruzando ventas con recetas e inventario, compara precios entre proveedores y envía pedidos con un click."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es el CAC en gastronomía?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El CAC (Costo de Artículo Cocinado) es el costo de producción de cada plato. ForkCast lo calcula automáticamente sumando el costo de cada ingrediente según los precios de tus proveedores. Si un proveedor actualiza un precio, el CAC se recalcula solo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿ForkCast sirve para franquicias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. ForkCast permite gestionar múltiples sucursales desde un dashboard centralizado. El master controla proveedores, listas de precios con herencia y ajuste porcentual por sucursal, y tiene visibilidad total de inventario, ventas y compras de toda la red."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es el food cost y cómo lo calcula ForkCast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El food cost es el porcentaje del ingreso que se gasta en insumos. ForkCast lo calcula automáticamente cruzando ventas con costos de recetas (CAC). Muestra un semáforo de salud: excelente (<30%), saludable (<35%), alerta (<40%) o crítico (>40%)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Staggered delays for grid children */
+    .animate-on-scroll.visible:nth-child(2) { transition-delay: 0.1s; }
+    .animate-on-scroll.visible:nth-child(3) { transition-delay: 0.2s; }
+    .animate-on-scroll.visible:nth-child(4) { transition-delay: 0.3s; }
+    .animate-on-scroll.visible:nth-child(5) { transition-delay: 0.35s; }
+    .animate-on-scroll.visible:nth-child(6) { transition-delay: 0.4s; }
+    .animate-on-scroll.visible:nth-child(7) { transition-delay: 0.45s; }
+    .animate-on-scroll.visible:nth-child(8) { transition-delay: 0.5s; }
+
+    .hero-fade { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .hero-fade-delay { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+    .hero-fade-delay-2 { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; opacity: 0; }
+    .hero-fade-delay-3 { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards; opacity: 0; }
+
+    /* WhatsApp floating button */
+    .wpp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Pricing tabs */
+    .pricing-tab {
+      color: #999;
+      background: transparent;
+    }
+    .pricing-tab.active {
+      background: #C9A84C;
+      color: #2A3C2E;
+    }
+    .pricing-tab:not(.active):hover {
+      color: #C9A84C;
+    }
+    .pricing-panel {
+      animation: fade-in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Decorative circles like brochure */
+    .circle-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(74, 140, 92, 0.12);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="#hero" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="#ia" class="hover:text-brand-gold transition-colors">IA</a>
+        <a href="#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="#ia" class="block hover:text-brand-gold transition-colors">IA</a>
+        <a href="#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-brand-dark overflow-hidden">
+    <div class="circle-deco w-72 h-72 -top-20 -right-20 sm:w-96 sm:h-96 sm:-top-24 sm:-right-24"></div>
+    <div class="circle-deco w-48 h-48 bottom-10 -left-16 sm:w-64 sm:h-64"></div>
+    <div class="circle-deco w-32 h-32 top-1/3 right-1/4 opacity-60"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="hero-fade inline-flex items-center gap-3 text-brand-gold text-sm font-semibold mb-6">
+        <img src="forkcast-logo.png" alt="ForkCast" class="h-10 w-10 rounded">
+        <span class="text-white text-lg">ForkCast</span>
+      </div>
+      <h1 class="hero-fade text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+        Gestión inteligente<br class="hidden sm:block"> para tu restaurante
+      </h1>
+      <p class="hero-fade-delay mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Controlá costos, gestioná proveedores, optimizá recetas y tomá mejores decisiones con inteligencia artificial. Todo en una sola plataforma.
+      </p>
+      <div class="hero-fade-delay-2 mt-4 inline-flex items-center gap-2 text-sm text-gray-400 border border-gray-600 px-4 py-2 rounded-full">
+        Restaurantes &bull; Franquicias &bull; Proveedores
+      </div>
+      <div class="hero-fade-delay-3 mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors shadow-lg shadow-brand-gold/20">
+          Solicitá una demo
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#restaurantes" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+          Conocé las funcionalidades
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Restaurante -->
+  <section id="restaurantes" class="py-20 sm:py-28 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Para Restaurantes</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-dark">Todo lo que necesitás para gestionar tu operación</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Desde el control de costos hasta un asistente de IA que responde tus consultas en tiempo real.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="layout-dashboard" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Dashboard</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">KPIs en tiempo real: ventas del día, CMV, compras pendientes y estado de proveedores.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="bot-message-square" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Chat IA Asistente</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Agente conversacional que consulta recetas, analiza ventas, calcula costos y responde al instante.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Recetas y Costeo (CAC)</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Creá recetas con ingredientes detallados. Cálculo automático del costo (CAC) según precios de tus proveedores.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="trending-up" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Ventas y CMV</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Registrá ventas diarias por plato. Reporte CMV con food cost %, margen y semáforo de salud financiera.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Compras</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Órdenes de compra con workflow completo: pendiente, aprobada y entregada. Control total del abastecimiento.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="users" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Mis Proveedores</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Listas de precios asignadas. Compará precios entre proveedores para tomar mejores decisiones de compra.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="package" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Inventario</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Control de stock en tiempo real. Carga masiva desde Excel, actualización automática con pedidos y ventas.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg hover:shadow-brand-green/10 transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Reportes</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">CMV detallado por receta, food cost %, análisis de rentabilidad. Datos concretos para maximizar tu margen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA Section -->
+  <section id="ia" class="relative py-20 sm:py-28 bg-brand-dark overflow-hidden">
+    <div class="circle-deco w-64 h-64 -top-16 -left-16"></div>
+    <div class="circle-deco w-48 h-48 bottom-10 right-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Inteligencia Artificial</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Asistente de IA integrado</h2>
+        <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Un agente inteligente que entiende tu negocio. Preguntale lo que necesites.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-darker border border-brand-circle/30">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="brain" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-gold">Analiza tus ventas</h3>
+          <p class="mt-2 text-sm text-gray-400 leading-relaxed">"¿Cuál es mi plato más rentable?" "¿Cuánto gasté en verduras este mes?" Respuestas instantáneas basadas en tus datos.</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-darker border border-brand-circle/30">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="clipboard-list" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-gold">Arma tu lista de compras</h3>
+          <p class="mt-2 text-sm text-gray-400 leading-relaxed">Analiza ventas de la semana, cruza con recetas, descuenta inventario y genera la lista exacta de lo que necesitás comprar.</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-darker border border-brand-circle/30">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="send" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-gold">Optimiza tus compras</h3>
+          <p class="mt-2 text-sm text-gray-400 leading-relaxed">Compara precios entre proveedores, recomienda a quién comprarle cada cosa y envía los pedidos con un click.</p>
+        </div>
+      </div>
+      <div class="mt-12 animate-on-scroll max-w-2xl mx-auto">
+        <div class="p-6 rounded-2xl bg-brand-darker border border-brand-circle/30 text-center">
+          <p class="text-gray-400 text-sm italic">"Armame una orden de compra" &bull; "¿Cuánto gasté en verduras este mes?" &bull; "¿Cuál es mi plato más rentable?"</p>
+          <p class="mt-3 text-brand-gold font-semibold text-sm">Un agente inteligente que entiende tu negocio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Franquicia -->
+  <section id="franquicias" class="py-20 sm:py-28 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Para Franquicias</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-dark">Control centralizado de todas tus sucursales</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Administrá múltiples locales, estandarizá proveedores y mantené visibilidad total.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <h3 class="text-lg font-semibold text-brand-gold">Dashboard Master</h3>
+          <p class="mt-2 text-sm text-gray-300 leading-relaxed">Vista consolidada de KPIs de todas las franquicias. Rendimiento global de la red. Drill-down por sucursal: inventario, ventas y pedidos.</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <h3 class="text-lg font-semibold text-brand-gold">Gestión de Franquicias</h3>
+          <p class="mt-2 text-sm text-gray-300 leading-relaxed">Alta de sucursales, gestión de accesos y administración centralizada de cada local. Estadísticas individuales por franquicia.</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <h3 class="text-lg font-semibold text-brand-gold">Asignación de Proveedores</h3>
+          <p class="mt-2 text-sm text-gray-300 leading-relaxed">Vinculá proveedores aprobados a cada franquicia con una matriz visual. Bulk assign para asignar a múltiples sucursales de golpe.</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <h3 class="text-lg font-semibold text-brand-gold">Herencia de Precios</h3>
+          <p class="mt-2 text-sm text-gray-300 leading-relaxed">Listas de precios derivadas con ajuste porcentual por sucursal. Sincronización automática cuando el proveedor actualiza precios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Proveedor -->
+  <section id="proveedores" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Para Proveedores</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-dark">Conectá directamente con tus clientes</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Publicá listas de precios, gestioná stock y hacé seguimiento de ventas a restaurantes.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="file-text" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Listas de Precios</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Creá listas con todos tus productos. Actualizá precios cuando necesites. Se sincronizan automáticamente a tus clientes.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="link" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Asignación de Listas</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Vinculá listas a restaurantes. Cada cliente ve solo lo que le corresponde. Carga masiva desde Excel.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="warehouse" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Stock</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Gestioná inventario y disponibilidad. Tus clientes ven qué tenés disponible en tiempo real.</p>
+        </div>
+        <div class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="receipt" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Ventas</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Historial de ventas a restaurantes. Seguí facturación y estado de pedidos. Notificaciones automáticas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section id="como-funciona" class="relative py-20 sm:py-28 bg-brand-dark overflow-hidden">
+    <div class="circle-deco w-64 h-64 -top-20 right-20"></div>
+    <div class="circle-deco w-40 h-40 bottom-10 left-1/4"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Cómo funciona</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Empezá en 3 simples pasos</h2>
+      </div>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-brand-gold text-brand-dark rounded-2xl flex items-center justify-center mx-auto text-2xl font-bold shadow-lg">1</div>
+          <h3 class="mt-6 text-xl font-semibold text-white">Registrate</h3>
+          <p class="mt-3 text-gray-400 leading-relaxed">Creá tu cuenta en minutos. El proceso es simple y podés estar operativo el mismo día.</p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-brand-gold text-brand-dark rounded-2xl flex items-center justify-center mx-auto text-2xl font-bold shadow-lg">2</div>
+          <h3 class="mt-6 text-xl font-semibold text-white">Configurá tu restaurante</h3>
+          <p class="mt-3 text-gray-400 leading-relaxed">Cargá recetas, conectá con proveedores y personalizá tu operación.</p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-brand-gold text-brand-dark rounded-2xl flex items-center justify-center mx-auto text-2xl font-bold shadow-lg">3</div>
+          <h3 class="mt-6 text-xl font-semibold text-white">Empezá a gestionar</h3>
+          <p class="mt-3 text-gray-400 leading-relaxed">Controlá costos, hacé compras y tomá decisiones con datos reales e IA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section id="precios" class="py-20 sm:py-28 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Precios</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-dark">Planes para cada etapa</h2>
+      </div>
+      <!-- Tabs -->
+      <div class="mt-12 flex justify-center">
+        <div class="inline-flex bg-brand-dark rounded-xl p-1 gap-1">
+          <button data-tab="restaurantes" class="pricing-tab active px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300">Restaurantes</button>
+          <button data-tab="franquicias" class="pricing-tab px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300">Franquicias</button>
+          <button data-tab="proveedores" class="pricing-tab px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300">Proveedores</button>
+        </div>
+      </div>
+
+      <!-- Restaurantes pricing -->
+      <div id="pricing-restaurantes" class="pricing-panel mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <span class="text-sm text-brand-gold font-semibold">Plan Básico</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 60</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Control de Compras</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Dashboard con KPIs</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Proveedores y listas de precios</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Órdenes de compra</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Inventario</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Configuración</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20B%C3%A1sico%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold text-sm font-semibold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300">Elegir plan</a>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white ring-2 ring-brand-gold relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Más elegido</span>
+          <span class="text-sm text-brand-gold font-semibold">Plan Standard</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 85</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Control de Margen</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Básico</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recetas con costeo (CAC)</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Registro de ventas</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Reportes CMV y food cost %</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Análisis de rentabilidad por plato</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Standard%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Elegir plan</a>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+          <span class="text-sm text-brand-gold font-semibold">Plan IA Pro</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 110</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Optimización Inteligente</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Standard</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Chat IA Asistente</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Lista de compras inteligente</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Comparación de proveedores por IA</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Pedidos automáticos a proveedores</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20IA%20Pro%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold text-sm font-semibold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300">Elegir plan</a>
+        </div>
+      </div>
+
+      <!-- Franquicias pricing -->
+      <div id="pricing-franquicias" class="pricing-panel hidden mt-12 max-w-3xl mx-auto">
+        <div class="animate-on-scroll p-8 rounded-2xl bg-brand-dark text-white text-center">
+          <span class="text-sm text-brand-gold font-semibold">Fee Corporativo</span>
+          <div class="mt-3">
+            <span class="text-5xl font-bold">USD 350</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Gestión centralizada de toda la red</p>
+          <hr class="my-6 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300 text-left max-w-md mx-auto">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Dashboard Master con métricas de toda la red</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Alta y gestión de sucursales</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Asignación de proveedores (bulk)</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Herencia de precios con ajuste por sucursal</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Sincronización automática de listas</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Control de permisos por rol</li>
+          </ul>
+          <div class="mt-8 p-4 rounded-xl bg-brand-darker">
+            <p class="text-brand-gold font-semibold text-sm mb-3">Costo adicional por local</p>
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <p class="text-white font-bold text-lg">+USD 20</p>
+                <p class="text-gray-400 text-xs">Básico</p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-lg">+USD 35</p>
+                <p class="text-gray-400 text-xs">Standard</p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-lg">+USD 45</p>
+                <p class="text-gray-400 text-xs">IA Pro</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20plan%20de%20Franquicias" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Agendar reunión</a>
+        </div>
+      </div>
+
+      <!-- Proveedores pricing -->
+      <div id="pricing-proveedores" class="pricing-panel hidden mt-12 max-w-lg mx-auto">
+        <div class="animate-on-scroll p-8 rounded-2xl bg-brand-dark text-white text-center">
+          <span class="text-sm text-brand-gold font-semibold">Plan Proveedores</span>
+          <div class="mt-3">
+            <span class="text-5xl font-bold">USD 80</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Para distribuidores y proveedores gastronómicos</p>
+          <hr class="my-6 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300 text-left max-w-sm mx-auto">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Catálogo digital de productos</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Listas de precios por cliente</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Asignación a restaurantes</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recepción de pedidos estructurados</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Gestión de stock</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Historial de ventas y facturación</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Notificaciones automáticas</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Carga masiva desde Excel</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Proveedores" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Elegir plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <!-- FAQ -->
+  <section id="faq" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Preguntas frecuentes</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-brand-dark">Todo lo que necesitás saber</h2>
+      </div>
+      <div class="mt-12 space-y-4">
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Qué es ForkCast?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            ForkCast es una plataforma SaaS de gestión para restaurantes, franquicias y proveedores gastronómicos. Permite controlar costos por plato (CAC), gestionar proveedores, optimizar compras con inteligencia artificial y centralizar la operación de múltiples sucursales.
+          </div>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Cómo funciona el asistente de IA?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            El asistente de IA analiza tus ventas, calcula el costo de cada plato, genera tu lista de compras automáticamente cruzando ventas con recetas e inventario, compara precios entre proveedores y envía pedidos con un click. Funciona como un chat: le preguntás y te responde con datos reales de tu negocio.
+          </div>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Qué es el CAC y el food cost?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            El CAC (Costo de Artículo Cocinado) es cuánto te cuesta producir cada plato. El food cost es el porcentaje de tus ingresos que gastás en insumos. ForkCast calcula ambos automáticamente y te muestra un semáforo: excelente (&lt;30%), saludable (&lt;35%), alerta (&lt;40%) o crítico (&gt;40%).
+          </div>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Sirve para franquicias con múltiples sucursales?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            Sí. El master controla toda la red desde un dashboard centralizado: asigna proveedores a sucursales con un click, crea listas de precios con ajuste porcentual por local (ej: +5% para zona norte), y tiene visibilidad total de inventario, ventas y compras de cada franquicia.
+          </div>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Cuánto cuesta ForkCast?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            Para restaurantes: Plan Básico USD 60/mes (compras), Standard USD 85/mes (costeo y reportes) o IA Pro USD 110/mes (asistente inteligente). Para franquicias: USD 350/mes fee corporativo + costo por local. Para proveedores: USD 80/mes. <a href="#precios" class="text-brand-gold hover:underline">Ver planes completos</a>.
+          </div>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-brand-light transition-colors">
+            <h3 class="text-base font-semibold text-brand-dark pr-4">¿Cómo empiezo?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+            Escribinos por <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="text-brand-gold hover:underline">WhatsApp</a> o a <a href="mailto:leandro@forkcast.tech" class="text-brand-gold hover:underline">leandro@forkcast.tech</a> para agendar una demo de 30 minutos. Te mostramos la plataforma con datos de tu negocio y podés estar operativo el mismo día.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section id="contacto" class="relative py-20 sm:py-28 bg-brand-dark overflow-hidden">
+    <div class="circle-deco w-72 h-72 -bottom-20 right-20"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white">Llevá tu restaurante al siguiente nivel</h2>
+      <p class="mt-4 text-lg text-gray-400 leading-relaxed">Sumate a ForkCast y empezá a tomar decisiones basadas en datos. Sin complicaciones.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:leandro@forkcast.tech" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-brand-dark font-semibold rounded-xl hover:bg-brand-light transition-colors shadow-lg">
+          <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          leandro@forkcast.tech
+        </a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors shadow-lg shadow-brand-gold/20">
+          <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Scroll animation observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Pricing tabs
+    document.querySelectorAll('.pricing-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        // Update tabs
+        document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        // Update panels
+        document.querySelectorAll('.pricing-panel').forEach(p => p.classList.add('hidden'));
+        const panel = document.getElementById('pricing-' + target);
+        panel.classList.remove('hidden');
+        // Re-trigger animation on children
+        panel.querySelectorAll('.animate-on-scroll').forEach(el => {
+          el.classList.remove('visible');
+          requestAnimationFrame(() => el.classList.add('visible'));
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

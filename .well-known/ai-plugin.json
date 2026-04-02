@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "ForkCast",
+  "name_for_model": "forkcast",
+  "description_for_human": "Plataforma SaaS de gestión para restaurantes, franquicias y proveedores gastronómicos con IA integrada.",
+  "description_for_model": "ForkCast es un SaaS argentino para gestión de restaurantes, franquicias y proveedores gastronómicos. Ofrece costeo automático de platos (CAC), reportes de food cost (CMV), asistente de IA para compras inteligentes, gestión centralizada de franquicias con herencia de precios, y portal para proveedores con catálogo digital y pedidos estructurados. Precios desde USD 60/mes para restaurantes.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.forkcast.tech"
+  },
+  "logo_url": "https://www.forkcast.tech/forkcast-logo.png",
+  "contact_email": "leandro@forkcast.tech",
+  "legal_info_url": "https://www.forkcast.tech"
+}

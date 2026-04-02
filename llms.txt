@@ -1,0 +1,51 @@
+# ForkCast
+
+> Plataforma SaaS de gestión inteligente para restaurantes, franquicias y proveedores gastronómicos en Argentina.
+
+## Qué es ForkCast
+
+ForkCast es un sistema de gestión para la industria gastronómica que conecta restaurantes, franquicias y proveedores en una sola plataforma. Incluye un asistente de inteligencia artificial que optimiza compras, calcula costos y genera listas de compras automáticamente.
+
+## Para Restaurantes
+
+- **Costeo automático por plato (CAC)**: Cargás recetas con ingredientes y el sistema calcula el costo de cada plato cruzando con precios de proveedores. Si un precio cambia, el CAC se recalcula solo.
+- **Reportes CMV y food cost**: Registrás ventas y ves el food cost por plato con semáforo de salud: excelente (<30%), saludable (<35%), alerta (<40%), crítico (>40%).
+- **Asistente IA de compras**: Un agente conversacional que analiza ventas de la semana, cruza con recetas, descuenta inventario y genera la lista de compras exacta. Compara precios entre proveedores y envía pedidos con un click.
+- **Gestión de proveedores**: Listas de precios asignadas, comparación entre proveedores, órdenes de compra con workflow (pendiente → aprobada → entregada).
+- **Inventario**: Control de stock con carga masiva desde Excel y actualización automática con pedidos.
+
+## Para Franquicias
+
+- **Dashboard Master**: Métricas consolidadas de toda la red de sucursales. Drill-down por franquicia.
+- **Herencia de precios**: El master crea la lista de precios base del proveedor y deriva versiones por sucursal con ajuste porcentual (ej: +5% para zona norte). Sincronización automática.
+- **Asignación de proveedores**: Matriz visual para asignar proveedores a franquicias. Bulk assign para múltiples sucursales.
+- **Control de permisos**: Las franquicias solo ven proveedores y listas aprobados por el master.
+
+## Para Proveedores
+
+- **Catálogo digital**: Carga de productos individual o masiva desde Excel con SKU, marca, categoría, unidad y precio.
+- **Listas de precios**: Múltiples listas por cliente/zona. Actualización de precios con sincronización automática.
+- **Pedidos estructurados**: Recepción de órdenes claras con items, cantidades y precios. Sin WhatsApps ambiguos.
+- **Notificaciones**: Email y notificaciones in-app cuando un restaurante hace un pedido o actualiza estado.
+
+## Precios
+
+- Plan Básico (restaurantes): USD 60/mes — Dashboard, proveedores, compras, inventario
+- Plan Standard (restaurantes): USD 85/mes — + recetas CAC, ventas, reportes CMV
+- Plan IA Pro (restaurantes): USD 110/mes — + chat IA, lista de compras inteligente, comparación proveedores
+- Plan Franquicias: USD 350/mes fee corporativo + USD 20-45/mes por local
+- Plan Proveedores: USD 80/mes
+
+## Stack tecnológico
+
+- Frontend: React 19, Vite, Zustand, TanStack Query, Tailwind CSS
+- Backend: Node.js, Express, Sequelize, PostgreSQL
+- IA: Vercel AI SDK v6, OpenAI, Anthropic, Google (multi-provider)
+- Arquitectura: Hexagonal (features/domain/infrastructure)
+
+## Contacto
+
+- Web: https://www.forkcast.tech
+- Email: leandro@forkcast.tech
+- WhatsApp: +598 98 361 013
+- País: Argentina
