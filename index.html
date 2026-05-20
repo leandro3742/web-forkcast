@@ -268,6 +268,7 @@
         <a href="#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
         <a href="#ia" class="hover:text-brand-gold transition-colors">IA</a>
         <a href="#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="#api" class="hover:text-brand-gold transition-colors">API</a>
         <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menú">
@@ -281,6 +282,7 @@
         <a href="#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
         <a href="#ia" class="block hover:text-brand-gold transition-colors">IA</a>
         <a href="#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="#api" class="block hover:text-brand-gold transition-colors">API</a>
         <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
       </div>
     </div>
@@ -701,6 +703,90 @@
     </div>
   </section>
 
+  <!-- API Pública -->
+  <section id="api" class="py-20 sm:py-28 bg-brand-darker">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 animate-on-scroll">
+        <div class="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          API Pública v1.0
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Conectá tu sistema con ForkCast</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">Si ya tenés un ERP, sistema de facturación o cualquier herramienta propia, podés integrarla directamente. Sin intermediarios, sin trabajo manual.</p>
+      </div>
+
+      <!-- Casos de uso -->
+      <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16 animate-on-scroll">
+        <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-6">
+          <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Facturación automática</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Cuando un pedido se marca como entregado, tu sistema de facturación lo recibe automáticamente vía webhook y genera el comprobante.</p>
+        </div>
+        <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-6">
+          <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Dashboard propio</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Consultá el historial de órdenes de compra desde tu propio sistema de reportes o BI sin depender de la app de ForkCast.</p>
+        </div>
+        <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-6">
+          <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          </div>
+          <h3 class="text-white font-semibold mb-2">Importación masiva</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Creá múltiples órdenes de compra en una sola llamada desde tu ERP o sistema de gestión, sin carga manual.</p>
+        </div>
+      </div>
+
+      <!-- Snippet + CTA -->
+      <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-10 items-center animate-on-scroll">
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-3">Simple de integrar</h3>
+          <p class="text-gray-300 leading-relaxed mb-4">Autenticación por API key, respuestas en JSON estándar. Podés consultar tus pedidos en dos líneas de código.</p>
+          <p class="text-gray-300 leading-relaxed mb-6">Las API keys se generan desde la app en <span class="text-white font-medium">Configuración → API & Desarrolladores</span>, con scopes de solo lectura o lectura/escritura.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="docs/api.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-dark font-semibold px-5 py-2.5 rounded-xl hover:bg-brand-gold-light transition-colors text-sm">
+              Ver documentación completa
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="docs/webhooks.html" class="inline-flex items-center gap-2 border border-brand-circle/50 text-gray-200 font-medium px-5 py-2.5 rounded-xl hover:border-brand-gold/50 hover:text-brand-gold transition-colors text-sm">
+              Guía de Webhooks
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
+            <span class="text-xs text-gray-400 ml-2">Listar tus pedidos</span>
+          </div>
+          <pre style="font-family:'Menlo','Consolas',monospace;font-size:0.8rem;line-height:1.75;color:#e2e8f0;overflow-x:auto"><code><span style="color:#94a3b8">curl</span> https://app.forkcast.tech/api/v1/purchase-orders \
+  <span style="color:#94a3b8">-H</span> <span style="color:#C9A84C">"X-API-Key: sk_live_xxxxxxxxxxxx"</span>
+
+<span style="color:#6b7280">// Response</span>
+{
+  <span style="color:#C9A84C">"data"</span>: [
+    {
+      <span style="color:#C9A84C">"id"</span>: <span style="color:#93c5fd">42</span>,
+      <span style="color:#C9A84C">"status"</span>: <span style="color:#4A8C5C">"delivered"</span>,
+      <span style="color:#C9A84C">"items"</span>: [
+        { <span style="color:#C9A84C">"name"</span>: <span style="color:#4A8C5C">"Harina 000"</span>,
+          <span style="color:#C9A84C">"quantity"</span>: <span style="color:#93c5fd">10</span>, <span style="color:#C9A84C">"unit"</span>: <span style="color:#4A8C5C">"kg"</span> }
+      ]
+    }
+  ]
+}</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CTA Final -->
   <section id="contacto" class="relative py-20 sm:py-28 bg-brand-dark overflow-hidden">
     <div class="circle-deco w-72 h-72 -bottom-20 right-20"></div>
@@ -734,6 +820,8 @@
         <a href="#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
         <a href="#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
         <a href="#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+        <a href="docs/api.html" class="hover:text-brand-gold transition-colors">API</a>
+        <a href="docs/webhooks.html" class="hover:text-brand-gold transition-colors">Webhooks</a>
       </div>
     </div>
   </footer>
