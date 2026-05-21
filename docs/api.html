@@ -108,6 +108,26 @@
         </div>
 
         <div class="mb-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Perfil</p>
+          <a href="#profile-me" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Mi perfil
+          </a>
+          <a href="#profile-supplier" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Ver proveedor
+          </a>
+          <a href="#profile-restaurant" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Ver restaurante
+          </a>
+          <a href="#profile-franchises" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Franquicias
+          </a>
+        </div>
+
+        <div class="mb-6">
           <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Webhooks</p>
           <a href="#wh-list" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
             <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
@@ -820,6 +840,249 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
       { <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">44</span>, <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>, ... }
     ]
   }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="border-t border-brand-circle/20"></div>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 -mt-8">Perfil</h2>
+
+        <!-- PROFILE ME -->
+        <section id="profile-me">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/me</code>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Retorna el perfil público del owner del API key. No requiere parámetros — la identidad se toma de la key.</p>
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Campos del response</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">id</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5">ID del owner</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">name</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Nombre comercial</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">username</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Identificador único</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">address</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Dirección</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">email</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Email de contacto</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">phone</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Teléfono</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Estado de la cuenta</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">deliveryZone <span class="text-gray-400">(supplier)</span></td><td class="px-4 py-2.5">object | null</td><td class="px-4 py-2.5">Zona de entrega (solo proveedores)</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Perfil del owner</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">401</span><span class="text-gray-200">API key inválida o ausente</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 overflow-hidden">
+                <div class="p-5">
+                  <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/me" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+                </div>
+              </div>
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200 — restaurante</p>
+                <pre><code>{
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">6</span>,
+    <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"La Parrilla"</span>,
+    <span class="text-brand-gold">"username"</span>: <span class="text-brand-green">"laparrilla"</span>,
+    <span class="text-brand-gold">"address"</span>: <span class="text-brand-green">"Av. 9 de Julio 100"</span>,
+    <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"info@laparrilla.com"</span>,
+    <span class="text-brand-gold">"phone"</span>: <span class="text-brand-green">"+54911234567"</span>,
+    <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE SUPPLIER -->
+        <section id="profile-supplier">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/suppliers/:id</code>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Retorna el perfil público de un proveedor. <strong class="text-white">Solo disponible para restaurantes</strong> que hayan realizado al menos una orden de compra con ese proveedor.</p>
+              <div class="bg-brand-dark rounded-xl border border-yellow-500/20 p-4 mb-6 text-sm text-yellow-200/80">
+                <span class="font-semibold text-yellow-300">Permiso requerido:</span> debe existir al menos una orden de compra entre el restaurante caller y el proveedor solicitado.
+              </div>
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Campos del response</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">id</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5">ID del proveedor</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">name</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Nombre comercial</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">username</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Identificador único</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">address</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Dirección</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">phone</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Teléfono</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">email</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Email de contacto</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">deliveryZone</td><td class="px-4 py-2.5">object | null</td><td class="px-4 py-2.5">Zona de entrega</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">leadTimeDays</td><td class="px-4 py-2.5">integer | null</td><td class="px-4 py-2.5">Días de entrega</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">minOrderAmount</td><td class="px-4 py-2.5">number | null</td><td class="px-4 py-2.5">Monto mínimo de pedido</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Estado de la cuenta</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Perfil del proveedor</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso (caller es supplier, o nunca hubo órdenes con este proveedor)</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Proveedor no encontrado</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 overflow-hidden">
+                <div class="p-5">
+                  <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/suppliers/5" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+                </div>
+              </div>
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">5</span>,
+    <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"Distribuidora Sur"</span>,
+    <span class="text-brand-gold">"username"</span>: <span class="text-brand-green">"distsur"</span>,
+    <span class="text-brand-gold">"address"</span>: <span class="text-brand-green">"Ruta 3 km 20, GBA Sur"</span>,
+    <span class="text-brand-gold">"phone"</span>: <span class="text-brand-green">"+54911000000"</span>,
+    <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"ventas@distsur.com"</span>,
+    <span class="text-brand-gold">"deliveryZone"</span>: { <span class="text-brand-gold">"region"</span>: <span class="text-brand-green">"GBA Sur"</span> },
+    <span class="text-brand-gold">"leadTimeDays"</span>: <span class="text-blue-300">2</span>,
+    <span class="text-brand-gold">"minOrderAmount"</span>: <span class="text-blue-300">5000</span>,
+    <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE RESTAURANT -->
+        <section id="profile-restaurant">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/restaurants/:id</code>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Retorna el perfil público de un restaurante. <strong class="text-white">Solo disponible para proveedores</strong> que hayan recibido al menos una orden de compra de ese restaurante.</p>
+              <div class="bg-brand-dark rounded-xl border border-yellow-500/20 p-4 mb-6 text-sm text-yellow-200/80">
+                <span class="font-semibold text-yellow-300">Permiso requerido:</span> debe existir al menos una orden de compra del restaurante solicitado hacia el proveedor caller.
+              </div>
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Campos del response</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">id</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5">ID del restaurante</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">name</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Nombre comercial</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">username</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Identificador único</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">address</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Dirección</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">email</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Email de contacto</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">phone</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Teléfono</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Estado de la cuenta</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Perfil del restaurante</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso (caller es restaurante, o no hay órdenes de este restaurante)</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Restaurante no encontrado</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 overflow-hidden">
+                <div class="p-5">
+                  <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/restaurants/6" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+                </div>
+              </div>
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">6</span>,
+    <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"La Parrilla"</span>,
+    <span class="text-brand-gold">"username"</span>: <span class="text-brand-green">"laparrilla"</span>,
+    <span class="text-brand-gold">"address"</span>: <span class="text-brand-green">"Av. 9 de Julio 100"</span>,
+    <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"info@laparrilla.com"</span>,
+    <span class="text-brand-gold">"phone"</span>: <span class="text-brand-green">"+54911234567"</span>,
+    <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE FRANCHISES -->
+        <section id="profile-franchises">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/franchises</code>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Lista las franquicias activas de un restaurante master. <strong class="text-white">Solo disponible para restaurantes con rol master.</strong></p>
+              <div class="bg-brand-dark rounded-xl border border-yellow-500/20 p-4 mb-6 text-sm text-yellow-200/80">
+                <span class="font-semibold text-yellow-300">Permiso requerido:</span> el API key debe pertenecer a un restaurante configurado como master.
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Array de franquicias (puede ser vacío)</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Caller no es master (o es supplier)</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 overflow-hidden">
+                <div class="p-5">
+                  <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/franchises" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+                </div>
+              </div>
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"data"</span>: [
+    {
+      <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">10</span>,
+      <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"Sucursal Norte"</span>,
+      <span class="text-brand-gold">"username"</span>: <span class="text-brand-green">"norte"</span>,
+      <span class="text-brand-gold">"address"</span>: <span class="text-brand-green">"Av. Norte 100"</span>,
+      <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"norte@parrilla.com"</span>,
+      <span class="text-brand-gold">"phone"</span>: <span class="text-brand-green">"+54911111111"</span>,
+      <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+    }
+  ]
 }</code></pre>
               </div>
             </div>
