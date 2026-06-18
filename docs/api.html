@@ -137,6 +137,10 @@
             <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
             Crear webhook
           </a>
+          <a href="#wh-test" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Probar webhook
+          </a>
           <a href="#wh-delete" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
             <span class="text-xs font-bold text-red-400 bg-red-400/10 px-1.5 py-0.5 rounded font-mono">DEL</span>
             Eliminar webhook
@@ -148,6 +152,7 @@
 
         <div class="mb-6">
           <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Referencia</p>
+          <a href="#order-window" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Ventana de recepción</a>
           <a href="#errors" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Errores</a>
           <a href="#rate-limits" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Rate limits</a>
           <a href="#objects" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Objetos</a>
@@ -422,6 +427,7 @@ orders = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           <span class="text-brand-gold">"price"</span>: <span class="text-blue-300">850.00</span>
         }
       ],
+      <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>,
       <span class="text-brand-gold">"createdAt"</span>: <span class="text-brand-green">"2026-05-20T10:00:00Z"</span>
     }
   ],
@@ -625,9 +631,22 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
     <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">43</span>,
     <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>,
     <span class="text-brand-gold">"date"</span>: <span class="text-brand-green">"2026-05-20T12:00:00Z"</span>,
-    <span class="text-brand-gold">"items"</span>: [...]
+    <span class="text-brand-gold">"items"</span>: [...],
+    <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>
   }
 }</code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-red-500/20 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-red-300/80 mb-3">Response 422 · ORDER_OUT_OF_WINDOW</p>
+                <pre><code>{
+  <span class="text-brand-gold">"code"</span>: <span class="text-brand-green">"ORDER_OUT_OF_WINDOW"</span>,
+  <span class="text-brand-gold">"message"</span>: <span class="text-brand-green">"Este proveedor solo recibe pedidos los días: 1, 2."</span>,
+  <span class="text-brand-gold">"supplierId"</span>: <span class="text-blue-300">5</span>,
+  <span class="text-brand-gold">"allowedDays"</span>: [<span class="text-blue-300">1</span>, <span class="text-blue-300">2</span>],
+  <span class="text-brand-gold">"nextAllowedDate"</span>: <span class="text-brand-green">"2026-06-22"</span>
+}</code></pre>
+                <p class="text-xs text-gray-300 mt-3">Se dispara cuando el proveedor (o su lista de precios) tiene <code>orderWindowDays</code> configurado y hoy no entra. Ver <a href="#order-window" class="text-brand-gold underline">Ventana de recepción</a>.</p>
               </div>
             </div>
           </div>
@@ -836,11 +855,24 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
   <span class="text-brand-gold">"data"</span>: {
     <span class="text-brand-gold">"message"</span>: <span class="text-brand-green">"2 órdenes de compra creadas exitosamente"</span>,
     <span class="text-brand-gold">"orders"</span>: [
-      { <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">43</span>, <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>, ... },
-      { <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">44</span>, <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>, ... }
+      { <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">43</span>, <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>, <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>, ... },
+      { <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">44</span>, <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>, <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>, ... }
     ]
   }
 }</code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-red-500/20 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-red-300/80 mb-3">Response 422 · BULK_ORDER_OUT_OF_WINDOW</p>
+                <pre><code>{
+  <span class="text-brand-gold">"code"</span>: <span class="text-brand-green">"BULK_ORDER_OUT_OF_WINDOW"</span>,
+  <span class="text-brand-gold">"message"</span>: <span class="text-brand-green">"2 proveedor(es) fuera de ventana de recepción."</span>,
+  <span class="text-brand-gold">"offenders"</span>: [
+    { <span class="text-brand-gold">"supplierId"</span>: <span class="text-blue-300">5</span>, <span class="text-brand-gold">"allowedDays"</span>: [<span class="text-blue-300">1</span>, <span class="text-blue-300">2</span>], <span class="text-brand-gold">"nextAllowedDate"</span>: <span class="text-brand-green">"2026-06-22"</span> },
+    { <span class="text-brand-gold">"supplierId"</span>: <span class="text-blue-300">8</span>, <span class="text-brand-gold">"allowedDays"</span>: [<span class="text-blue-300">3</span>], <span class="text-brand-gold">"nextAllowedDate"</span>: <span class="text-brand-green">"2026-06-24"</span> }
+  ]
+}</code></pre>
+                <p class="text-xs text-gray-300 mt-3">El batch se rechaza <strong>completo</strong> (atomicidad) si al menos un proveedor cae fuera. <code>offenders</code> lista los proveedores ofensores con su próxima fecha disponible.</p>
               </div>
             </div>
           </div>
@@ -937,6 +969,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">deliveryZone</td><td class="px-4 py-2.5">object | null</td><td class="px-4 py-2.5">Zona de entrega</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">leadTimeDays</td><td class="px-4 py-2.5">integer | null</td><td class="px-4 py-2.5">Días de entrega</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">minOrderAmount</td><td class="px-4 py-2.5">number | null</td><td class="px-4 py-2.5">Monto mínimo de pedido</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">orderWindowDays</td><td class="px-4 py-2.5">integer[] | null</td><td class="px-4 py-2.5">Días en los que el proveedor recibe pedidos (0=domingo, 6=sábado). <code>null</code> o array vacío = sin restricción. Ver <a href="#order-window" class="text-brand-gold underline">Ventana de recepción</a>.</td></tr>
                       <tr><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Estado de la cuenta</td></tr>
                     </tbody>
                   </table>
@@ -971,6 +1004,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
     <span class="text-brand-gold">"deliveryZone"</span>: { <span class="text-brand-gold">"region"</span>: <span class="text-brand-green">"GBA Sur"</span> },
     <span class="text-brand-gold">"leadTimeDays"</span>: <span class="text-blue-300">2</span>,
     <span class="text-brand-gold">"minOrderAmount"</span>: <span class="text-blue-300">5000</span>,
+    <span class="text-brand-gold">"orderWindowDays"</span>: [<span class="text-blue-300">1</span>, <span class="text-blue-300">2</span>],
     <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
   }
 }</code></pre>
@@ -1165,6 +1199,62 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           </div>
         </section>
 
+        <!-- WH TEST -->
+        <section id="wh-test">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-gold bg-brand-gold/10 rounded-lg font-mono border border-brand-gold/20">POST</span>
+            <code class="text-white text-lg font-mono">/webhooks/test</code>
+          </div>
+          <p class="text-xs text-yellow-400/80 mb-6 ml-1">Requiere scope <code class="text-xs font-mono">write</code></p>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Dispara un evento de prueba a una URL para validar la integración antes de registrar un webhook permanente. Útil para verificar la verificación HMAC, la conectividad y el parseo del payload del lado del receptor.</p>
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">url</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">URL destino del test</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">event</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Evento simulado (ej: <code>order.created</code>)</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Test enviado. Incluye <code>statusCode</code> recibido del destino.</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">URL inválida o evento desconocido</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <pre><code><span class="text-slate-400">curl</span> https://app.forkcast.tech/api/v1/webhooks/test \
+  <span class="text-slate-400">-X</span> POST \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "url": "https://tu-sistema.com/webhook",
+    "event": "order.created"
+  }'</span></code></pre>
+              </div>
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"delivered"</span>: <span class="text-blue-300">true</span>,
+    <span class="text-brand-gold">"statusCode"</span>: <span class="text-blue-300">200</span>,
+    <span class="text-brand-gold">"event"</span>: <span class="text-brand-green">"order.created"</span>
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- WH DELETE -->
         <section id="wh-delete">
           <div class="flex items-center gap-3 mb-2">
@@ -1189,6 +1279,54 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
         <div class="border-t border-brand-circle/20"></div>
         <h2 class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 -mt-8">Referencia</h2>
 
+        <!-- ORDER WINDOW -->
+        <section id="order-window">
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 class="text-2xl font-semibold text-white mb-4">Ventana de recepción de pedidos</h2>
+              <p class="text-gray-200 leading-relaxed mb-4">Los proveedores y las listas de precios pueden configurar <strong class="text-white">días de recepción</strong> (<code>orderWindowDays</code>). Si se intenta crear un pedido fuera de esos días, la API responde con <span class="text-red-400 font-mono">422 ORDER_OUT_OF_WINDOW</span>.</p>
+
+              <h3 class="text-sm font-semibold text-white mb-3">Formato de <code>orderWindowDays</code></h3>
+              <p class="text-gray-200 text-sm leading-relaxed mb-4">Array de enteros 0–6 donde <strong class="text-white">0 = domingo</strong> y <strong class="text-white">6 = sábado</strong> (criterio JavaScript <code>Date.getDay()</code>). <code>null</code> o array vacío significan <em>sin restricción</em>.</p>
+
+              <h3 class="text-sm font-semibold text-white mb-3">Precedencia</h3>
+              <p class="text-gray-200 text-sm leading-relaxed mb-3">Cuando un pedido referencia una <strong class="text-white">lista de precios</strong>, la ventana efectiva se calcula recorriendo la cadena de listas (de la hoja hacia las padres) buscando la primera <code>orderWindowDays</code> no nula. Si nadie en la cadena la define y la raíz es un proveedor, cae a la ventana del proveedor.</p>
+              <ol class="text-gray-200 text-sm leading-relaxed list-decimal list-inside space-y-1 mb-4">
+                <li>Lista hoja (la del pedido) — si tiene <code>orderWindowDays</code>, gana.</li>
+                <li>Cadena de listas padre — primera lista con <code>orderWindowDays</code> no nula.</li>
+                <li>Proveedor raíz — fallback a <code>supplier.orderWindowDays</code>.</li>
+                <li>Si nadie define ventana → sin restricción.</li>
+              </ol>
+
+              <h3 class="text-sm font-semibold text-white mb-3">Zona horaria</h3>
+              <p class="text-gray-200 text-sm leading-relaxed">El cálculo del "día actual" se hace en <code>America/Argentina/Buenos_Aires</code>.</p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo · Proveedor con ventana</p>
+                <pre><code>{
+  <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">5</span>,
+  <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"Distribuidora Sur"</span>,
+  <span class="text-brand-gold">"orderWindowDays"</span>: [<span class="text-blue-300">1</span>, <span class="text-blue-300">2</span>]
+}</code></pre>
+                <p class="text-xs text-gray-300 mt-3">Solo acepta pedidos lunes y martes.</p>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-red-500/20 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-red-300/80 mb-3">Respuesta · pedido fuera de ventana</p>
+                <pre><code>{
+  <span class="text-brand-gold">"code"</span>: <span class="text-brand-green">"ORDER_OUT_OF_WINDOW"</span>,
+  <span class="text-brand-gold">"message"</span>: <span class="text-brand-green">"Este proveedor solo recibe pedidos los días: 1, 2."</span>,
+  <span class="text-brand-gold">"supplierId"</span>: <span class="text-blue-300">5</span>,
+  <span class="text-brand-gold">"allowedDays"</span>: [<span class="text-blue-300">1</span>, <span class="text-blue-300">2</span>],
+  <span class="text-brand-gold">"nextAllowedDate"</span>: <span class="text-brand-green">"2026-06-22"</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- ERRORS -->
         <section id="errors">
           <div class="grid lg:grid-cols-2 gap-10 items-start">
@@ -1204,8 +1342,20 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                     <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-red-400">401</td><td class="px-4 py-3">API key ausente o inválida</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-red-400">403</td><td class="px-4 py-3">Scope insuficiente o sin acceso al recurso</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-red-400">404</td><td class="px-4 py-3">Recurso no encontrado</td></tr>
+                    <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-red-400">422</td><td class="px-4 py-3">Regla de negocio rechaza la operación (ej: ventana de recepción del proveedor cerrada)</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-red-400">429</td><td class="px-4 py-3">Rate limit excedido</td></tr>
                     <tr><td class="px-4 py-3 font-mono text-red-400">500</td><td class="px-4 py-3">Error interno</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 class="text-sm font-semibold text-white mt-6 mb-3">Códigos de error específicos (422)</h3>
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                <table class="w-full text-sm">
+                  <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">code</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Significado</th></tr></thead>
+                  <tbody class="text-gray-200 text-xs">
+                    <tr class="border-b border-brand-circle/10"><td class="px-4 py-3 font-mono text-brand-gold">ORDER_OUT_OF_WINDOW</td><td class="px-4 py-3">El proveedor o su lista de precios tiene <code>orderWindowDays</code> configurado y hoy no entra. Incluye <code>supplierId</code>, <code>allowedDays</code> y <code>nextAllowedDate</code>.</td></tr>
+                    <tr><td class="px-4 py-3 font-mono text-brand-gold">BULK_ORDER_OUT_OF_WINDOW</td><td class="px-4 py-3">En un batch (<code>/bulk</code>), uno o más proveedores caen fuera de ventana. Incluye <code>offenders</code> con un objeto por proveedor ofensor. El batch se rechaza completo.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1278,9 +1428,10 @@ X-RateLimit-Reset: <span class="text-blue-300">1748347260</span></code></pre>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">id</td><td class="px-5 py-2.5">integer</td><td class="px-5 py-2.5">ID único</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">restaurantId</td><td class="px-5 py-2.5">integer</td><td class="px-5 py-2.5">ID del restaurante</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">supplierId</td><td class="px-5 py-2.5">integer | null</td><td class="px-5 py-2.5">ID del proveedor</td></tr>
-                    <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">status</td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5"><code>pending</code> | <code>approved</code> | <code>rejected</code> | <code>delivered</code></td></tr>
+                    <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">status</td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5"><code>pending</code> | <code>approved</code> | <code>rejected</code> | <code>delivered</code> | <code>cancelled</code></td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">date</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Fecha del pedido</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">items</td><td class="px-5 py-2.5">Item[]</td><td class="px-5 py-2.5">Productos incluidos</td></tr>
+                    <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">isBillable</td><td class="px-5 py-2.5">boolean</td><td class="px-5 py-2.5">Si la orden es facturable. Se siembra de la lista de precios al crear y solo el vendedor o el master pueden cambiarlo (vía endpoint interno) mientras la orden esté en <code>pending</code>.</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">createdAt</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Timestamp de creación</td></tr>
                     <tr><td class="px-5 py-2.5 font-mono text-brand-green">updatedAt</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Última actualización</td></tr>
                   </tbody>
