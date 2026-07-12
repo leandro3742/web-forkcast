@@ -164,10 +164,25 @@ X-Webhook-Timestamp: 1743456789</code></pre>
               <td class="px-5 py-3">Pedido creado</td>
               <td class="px-5 py-3 hidden sm:table-cell">Un restaurante crea un nuevo pedido de compra</td>
             </tr>
-            <tr>
+            <tr class="border-b border-brand-circle/20">
               <td class="px-5 py-3"><code class="text-brand-green text-xs">order.status_updated</code></td>
               <td class="px-5 py-3">Estado actualizado</td>
               <td class="px-5 py-3 hidden sm:table-cell">El pedido cambia de estado</td>
+            </tr>
+            <tr class="border-b border-brand-circle/20">
+              <td class="px-5 py-3"><code class="text-brand-green text-xs">supplier.created</code></td>
+              <td class="px-5 py-3">Proveedor creado</td>
+              <td class="px-5 py-3 hidden sm:table-cell">Se crea un supplier (registro público / alta desde admin). NO se dispara para altas hechas por el propio satélite via Ingest.</td>
+            </tr>
+            <tr class="border-b border-brand-circle/20">
+              <td class="px-5 py-3"><code class="text-brand-green text-xs">restaurant.created</code></td>
+              <td class="px-5 py-3">Restaurante creado</td>
+              <td class="px-5 py-3 hidden sm:table-cell">Análogo a supplier.created para restaurants (incluye isMaster, isFranchise).</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3"><code class="text-brand-green text-xs">stock.updated</code></td>
+              <td class="px-5 py-3">Stock actualizado</td>
+              <td class="px-5 py-3 hidden sm:table-cell">ForkCast decrementa stock al crear un pedido (ORDER_DEDUCT) o lo restaura al cancelar/rechazar (ORDER_RESTORE). Permite al satélite reflejar el cambio en el ERP externo.</td>
             </tr>
           </tbody>
         </table>
@@ -176,8 +191,8 @@ X-Webhook-Timestamp: 1743456789</code></pre>
 
     <!-- Payload -->
     <section id="payload" class="mb-12">
-      <h2 class="text-2xl font-bold text-white mb-4">Payload</h2>
-      <p class="text-gray-300 mb-4">Ambos eventos envían el mismo formato:</p>
+      <h2 class="text-2xl font-bold text-white mb-4">Payload — eventos de pedido</h2>
+      <p class="text-gray-300 mb-4"><code class="text-brand-green text-xs">order.created</code> y <code class="text-brand-green text-xs">order.status_updated</code> envían el mismo formato:</p>
       <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300">{
   <span class="text-brand-gold">"event"</span>: <span class="text-brand-green">"order.status_updated"</span>,
   <span class="text-brand-gold">"data"</span>: {
@@ -209,6 +224,80 @@ X-Webhook-Timestamp: 1743456789</code></pre>
     }
   }
 }</code></pre>
+    </section>
+
+    <!-- Payload: supplier.created / restaurant.created -->
+    <section id="payload-entity-created" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Payload — <code class="text-brand-green">supplier.created</code> / <code class="text-brand-green">restaurant.created</code></h2>
+      <p class="text-gray-300 mb-4">Se dispara cuando se crea el registro por alta pública o desde admin. <strong>No</strong> se dispara para altas hechas por el propio satélite (via Ingest bulk-upsert) — evita loops. Uso típico: el satélite recibe el evento, matchea por <code>taxId</code> con su ERP y crea el mapping con <code>POST /integration-mappings</code>.</p>
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300">{
+  <span class="text-brand-gold">"event"</span>: <span class="text-brand-green">"supplier.created"</span>,
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"id"</span>: <span class="text-white">23</span>,
+    <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"García"</span>,
+    <span class="text-brand-gold">"username"</span>: <span class="text-brand-green">"distri-garcia"</span>,
+    <span class="text-brand-gold">"razonSocial"</span>: <span class="text-brand-green">"Distribuidora García SA"</span>,
+    <span class="text-brand-gold">"taxId"</span>: <span class="text-brand-green">"30-12345678-9"</span>,
+    <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"garcia@x.com"</span>,
+    <span class="text-brand-gold">"phone"</span>: <span class="text-brand-green">"+541123456789"</span>,
+    <span class="text-brand-gold">"address"</span>: <span class="text-brand-green">"Av. Corrientes 1234"</span>,
+    <span class="text-brand-gold">"active"</span>: <span class="text-white">true</span>,
+    <span class="text-brand-gold">"createdAt"</span>: <span class="text-brand-green">"2026-07-12T10:00:00.000Z"</span>
+  }
+}</code></pre>
+      <p class="text-gray-300 text-sm mt-4"><code class="text-brand-green">restaurant.created</code> tiene la misma estructura + campos adicionales <code>isMaster</code>, <code>isFranchise</code>, <code>masterRestaurantId</code>.</p>
+      <p class="text-gray-300 text-sm mt-2"><strong>Sobre <code class="text-brand-green">taxId</code>:</strong> es el identificador tributario neutro. En Argentina corresponde al CUIT, en Chile al RUT, en Perú al RUC, en México al RFC, etc. El core lo persiste sin asumir formato — el satélite decide cómo interpretarlo según el país de su ERP.</p>
+    </section>
+
+    <!-- Payload: stock.updated -->
+    <section id="payload-stock-updated" class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Payload — <code class="text-brand-green">stock.updated</code></h2>
+      <p class="text-gray-300 mb-4">Se dispara cuando ForkCast modifica stock por operaciones internas de pedido de compra:</p>
+      <ul class="text-gray-300 text-sm mb-4 list-disc list-inside space-y-1">
+        <li><code class="text-brand-green">ORDER_DEDUCT</code> — decremento al crear un pedido (reserva optimista).</li>
+        <li><code class="text-brand-green">ORDER_RESTORE</code> — restauración al rechazar/cancelar un pedido.</li>
+      </ul>
+      <p class="text-gray-300 mb-4">El satélite lo usa para reflejar el cambio en el ERP externo y mantener ambos lados alineados sin esperar al próximo tick del cron.</p>
+
+      <div class="bg-brand-dark/60 rounded-xl border border-yellow-800/40 p-4 mb-6 text-sm text-gray-300">
+        <p class="mb-2"><strong class="text-brand-gold">No se dispara</strong> para movements <code>type=ERP_SYNC</code> (los origina el propio satélite via <code>POST /api/v1/stock/bulk-set</code> — evita eco).</p>
+        <p><strong class="text-brand-gold">No se dispara todavía</strong> para ajustes manuales, mermas, ni consumo por ventas. Ver ADR-0015.</p>
+      </div>
+
+      <pre class="bg-brand-dark rounded-xl border border-brand-circle/30 p-5"><code class="text-gray-300">{
+  <span class="text-brand-gold">"event"</span>: <span class="text-brand-green">"stock.updated"</span>,
+  <span class="text-brand-gold">"data"</span>: {
+    <span class="text-brand-gold">"ownerId"</span>: <span class="text-white">3</span>,
+    <span class="text-brand-gold">"ownerType"</span>: <span class="text-brand-green">"MASTER"</span>,
+    <span class="text-brand-gold">"sku"</span>: <span class="text-brand-green">"100003"</span>,
+    <span class="text-brand-gold">"packagingName"</span>: <span class="text-brand-green">"Pack x4"</span>,
+    <span class="text-brand-gold">"movementType"</span>: <span class="text-brand-green">"ORDER_DEDUCT"</span>,
+    <span class="text-brand-gold">"quantityDelta"</span>: <span class="text-white">-6</span>,
+    <span class="text-brand-gold">"quantityAfter"</span>: <span class="text-white">94</span>,
+    <span class="text-brand-gold">"referenceType"</span>: <span class="text-brand-green">"purchase_order"</span>,
+    <span class="text-brand-gold">"referenceId"</span>: <span class="text-white">4471</span>,
+    <span class="text-brand-gold">"occurredAt"</span>: <span class="text-brand-green">"2026-07-12T21:30:00.000Z"</span>
+  }
+}</code></pre>
+
+      <h3 class="text-lg font-semibold text-brand-gold mt-6 mb-3">Campos</h3>
+      <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead><tr class="border-b border-brand-circle/30"><th class="text-left px-5 py-3 text-brand-gold font-semibold">Campo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Tipo</th><th class="text-left px-5 py-3 text-brand-gold font-semibold">Descripción</th></tr></thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">ownerId</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">ID del dueño del stock (supplier o restaurant/master).</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">ownerType</code></td><td class="px-5 py-2.5">"MASTER" | "SUPPLIER"</td><td class="px-5 py-2.5">Naturaleza del owner. Coincide con el owner del apiKey subscriptor.</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">sku</code></td><td class="px-5 py-2.5">string</td><td class="px-5 py-2.5">SKU del producto afectado.</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">packagingName</code></td><td class="px-5 py-2.5">string | null</td><td class="px-5 py-2.5">Presentación (ej: "Pack x6"). Parte de la identidad del stock.</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">movementType</code></td><td class="px-5 py-2.5">"ORDER_DEDUCT" | "ORDER_RESTORE"</td><td class="px-5 py-2.5">Tipo de movimiento que originó el evento.</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">quantityDelta</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">Delta aplicado (negativo si deduce, positivo si restaura).</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">quantityAfter</code></td><td class="px-5 py-2.5">number</td><td class="px-5 py-2.5">Nivel de stock resultante. Es lo que el satélite debe reflejar en el ERP.</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">referenceType</code></td><td class="px-5 py-2.5">string | null</td><td class="px-5 py-2.5">Tipo de la entidad de origen (ej: "purchase_order").</td></tr>
+            <tr class="border-b border-brand-circle/20"><td class="px-5 py-2.5"><code class="text-xs text-brand-green">referenceId</code></td><td class="px-5 py-2.5">number | null</td><td class="px-5 py-2.5">ID de la entidad de origen (ej: id del pedido).</td></tr>
+            <tr><td class="px-5 py-2.5"><code class="text-xs text-brand-green">occurredAt</code></td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Timestamp UTC del movement.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Fields -->
