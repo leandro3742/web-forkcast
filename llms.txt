@@ -43,6 +43,16 @@ ForkCast es un sistema de gestión para la industria gastronómica que conecta r
 - IA: Vercel AI SDK v6, OpenAI, Anthropic, Google (multi-provider)
 - Arquitectura: Hexagonal (features/domain/infrastructure)
 
+## Legal
+
+- Términos y Condiciones: https://www.forkcast.tech/legal/terminos
+- Política de Privacidad: https://www.forkcast.tech/legal/privacidad
+- Política de Reembolso y Cancelación: https://www.forkcast.tech/legal/reembolsos
+- Contacto: https://www.forkcast.tech/contacto
+- Titular: LEANDRO MARRERO S.A.S. — RUT 220899140014 — Ruta 81 Km 10, Padrón 131, Canelones, Uruguay
+- Procesador de pagos: dLocal Go. ForkCast no almacena datos de tarjetas.
+- Plan gratuito permanente disponible; no hay prueba temporal con vencimiento.
+
 ## Contacto
 
 - Web: https://www.forkcast.tech
