@@ -170,6 +170,10 @@
             <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
             Search productos
           </a>
+          <a href="#ingest-products-catalog" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Catálogo completo
+          </a>
           <a href="#ingest-suppliers-bulk" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
             <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
             Bulk upsert suppliers
@@ -412,7 +416,9 @@
 
 <span class="text-brand-gold">ForkCast</span> <span class="text-white">→ webhooks →</span> Satélite
   <span class="text-slate-400">supplier.created</span>
+  <span class="text-slate-400">supplier.updated</span>
   <span class="text-slate-400">restaurant.created</span>
+  <span class="text-slate-400">restaurant.updated</span>
   <span class="text-slate-400">order.created</span>
   <span class="text-slate-400">order.status_updated</span>
   <span class="text-slate-400">stock.updated</span></code></pre>
@@ -1395,7 +1401,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                     </tbody>
                   </table>
                 </div>
-                <p class="text-xs text-gray-300 mt-2">Eventos disponibles: <code class="text-brand-green text-xs">order.created</code>, <code class="text-brand-green text-xs">order.status_updated</code>, <code class="text-brand-green text-xs">supplier.created</code>, <code class="text-brand-green text-xs">restaurant.created</code>, <code class="text-brand-green text-xs">stock.updated</code></p>
+                <p class="text-xs text-gray-300 mt-2">Eventos disponibles: <code class="text-brand-green text-xs">order.created</code>, <code class="text-brand-green text-xs">order.status_updated</code>, <code class="text-brand-green text-xs">supplier.created</code>, <code class="text-brand-green text-xs">supplier.updated</code>, <code class="text-brand-green text-xs">restaurant.created</code>, <code class="text-brand-green text-xs">restaurant.updated</code>, <code class="text-brand-green text-xs">stock.updated</code></p>
               </div>
             </div>
 
@@ -1664,6 +1670,86 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
     }
   ],
   <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST PRODUCTS CATALOG -->
+        <section id="ingest-products-catalog">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/products</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Catálogo completo de la empresa, <strong>sin depender de la lista de precios</strong>. El owner sale del API key. Cada ítem es una identidad de stock <code>(sku, packagingName)</code> deduplicada a través de todas las listas — la misma clave que consume <a href="#ingest-stock-bulk" class="text-brand-gold underline">POST /stock/bulk-set</a>, así que se puede usar directo sin traducción.</p>
+
+              <p class="text-gray-200 leading-relaxed mb-4">Pensado para sincronizar stock desde un ERP: trae el <code>unitsPerPackage</code> necesario para convertir unidades sueltas a la unidad de ForkCast, y el <code>quantity</code> actual para calcular el diff.</p>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Query params (todos opcionales)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Param</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">limit</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Default 100, max 500</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">offset</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Default 0</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">activeOnly</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Si es <code>true</code>, excluye productos inactivos</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Campos de la respuesta</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">unitsPerPackage</td><td class="px-4 py-2.5">Unidades sueltas por pack. Divisor para convertir desde un ERP que cuenta unidades.</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">quantity</td><td class="px-4 py-2.5">Stock actual en ForkCast. <code>null</code> si la identidad todavía no tiene fila de stock.</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">ambiguous</td><td class="px-4 py-2.5"><code>true</code> si el SKU aparece con más de un <code>packagingName</code>. Un ERP con un solo stock por SKU no puede repartirlo entre esas identidades: conviene saltearlas.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Catálogo paginado</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente. Se requiere <code>products:read</code></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/products?limit=100&amp;offset=0" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"items"</span>: [
+    {
+      <span class="text-brand-gold">"sku"</span>: <span class="text-brand-green">"110025"</span>,
+      <span class="text-brand-gold">"packagingName"</span>: <span class="text-brand-green">"Pack x6"</span>,
+      <span class="text-brand-gold">"unitsPerPackage"</span>: <span class="text-blue-300">6</span>,
+      <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"CERVEZA SCOTTISH 473ML"</span>,
+      <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>,
+      <span class="text-brand-gold">"quantity"</span>: <span class="text-blue-300">79</span>,
+      <span class="text-brand-gold">"ambiguous"</span>: <span class="text-blue-300">false</span>
+    }
+  ],
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">75</span>,
+  <span class="text-brand-gold">"limit"</span>: <span class="text-blue-300">100</span>,
+  <span class="text-brand-gold">"offset"</span>: <span class="text-blue-300">0</span>
 }</code></pre>
               </div>
             </div>
