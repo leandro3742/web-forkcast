@@ -80,6 +80,16 @@
         </div>
 
         <div class="mb-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Cómo integrar</p>
+          <a href="#setup" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Setup de una integración</a>
+          <a href="#setup-create" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Crear Integration
+          </a>
+          <a href="#setup-checklist" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">Checklist del integrador</a>
+        </div>
+
+        <div class="mb-6">
           <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Órdenes de compra</p>
           <a href="#po-list" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
             <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
@@ -147,6 +157,38 @@
           </a>
           <a href="webhooks.html" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-300 hover:text-white">
             Guía de webhooks →
+          </a>
+        </div>
+
+        <div class="mb-6">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 px-3 mb-2">Ingest (satélites)</p>
+          <a href="#ingest-products-bulk" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Bulk upsert productos
+          </a>
+          <a href="#ingest-products-search" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Search productos
+          </a>
+          <a href="#ingest-products-catalog" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Catálogo completo
+          </a>
+          <a href="#ingest-suppliers-bulk" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Bulk upsert suppliers
+          </a>
+          <a href="#ingest-suppliers-search" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-brand-green bg-brand-green/10 px-1.5 py-0.5 rounded font-mono">GET</span>
+            Search suppliers
+          </a>
+          <a href="#ingest-stock-bulk" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Bulk set stock
+          </a>
+          <a href="#ingest-mappings-upsert" class="sidebar-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-200 hover:text-white">
+            <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded font-mono">POST</span>
+            Upsert mapping
           </a>
         </div>
 
@@ -329,6 +371,197 @@
               <div class="mt-4 pt-4 border-t border-brand-circle/20">
                 <p class="text-xs text-gray-300">Ejemplo completo:</p>
                 <pre class="text-xs mt-1"><code>https://app.forkcast.tech/api/v1<span class="text-white">/purchase-orders</span></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="border-t border-brand-circle/20"></div>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 -mt-8">Cómo integrar</h2>
+
+        <!-- SETUP GUIDE -->
+        <section id="setup">
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 class="text-2xl font-semibold text-white mb-4">Setup de una integración</h2>
+              <p class="text-gray-200 leading-relaxed mb-4">
+                Una integración en ForkCast conecta tu cuenta con un <strong>servicio externo</strong>
+                (ERP, POS, contable, etc.) que ForkCast llama <em>satélite</em>. El satélite es un servicio
+                HTTP separado —lo mantenés vos, tu integrador, o el equipo de ForkCast como consultoría—
+                que empuja datos a esta API y recibe webhooks salientes.
+              </p>
+              <p class="text-gray-200 leading-relaxed mb-4">
+                El core de ForkCast <strong>no conoce a ningún proveedor concreto</strong> (Contabilium,
+                Thinkion, etc.). Es agnóstico. El satélite es quien sabe hablar con el ERP externo y
+                traduce a la API pública que ves acá.
+              </p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-3 text-sm text-gray-200">
+                <p class="text-brand-gold font-semibold">Piezas mínimas</p>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">1.</span><span>Una fila <code>Integration</code> en ForkCast (te la crea el equipo de ForkCast).</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">2.</span><span>Una API Key con los <a href="#scopes" class="text-brand-gold underline">scopes</a> que necesitás.</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">3.</span><span>Un satélite corriendo que consuma esta API. El equipo de ForkCast puede armártelo o darte un template.</span></div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Flujo end-to-end</p>
+                <pre class="text-xs"><code><span class="text-brand-gold">Satélite</span> <span class="text-white">→ push datos →</span> ForkCast Ingest
+  <span class="text-slate-400">POST</span> /price-lists/:id/products/bulk-upsert
+  <span class="text-slate-400">POST</span> /suppliers/bulk-upsert
+  <span class="text-slate-400">POST</span> /stock/bulk-set
+  <span class="text-slate-400">POST</span> /integration-mappings
+
+<span class="text-brand-gold">ForkCast</span> <span class="text-white">→ webhooks →</span> Satélite
+  <span class="text-slate-400">supplier.created</span>
+  <span class="text-slate-400">supplier.updated</span>
+  <span class="text-slate-400">restaurant.created</span>
+  <span class="text-slate-400">restaurant.updated</span>
+  <span class="text-slate-400">order.created</span>
+  <span class="text-slate-400">order.status_updated</span>
+  <span class="text-slate-400">stock.updated</span></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CREATE INTEGRATION -->
+        <section id="setup-create">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-blue-400 bg-blue-400/10 rounded-lg font-mono border border-blue-400/20">POST</span>
+            <code class="text-white text-lg font-mono">/admins/integrations</code>
+            <span class="text-xs text-gray-400 ml-2">(admin only)</span>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">
+                Crea la fila de <code>Integration</code> que asocia un owner (restaurant o supplier) con
+                un satélite. El <code>id</code> devuelto se usa como <code>X-Connection-Id</code> en cada
+                bulk-upsert de Ingest v1.
+              </p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-2 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Auth</span><span>Token de admin (no API Key). Este endpoint no es para satélites.</span></div>
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Uso</span><span>Consultoría — lo llama el equipo de ForkCast al alta del cliente.</span></div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Body</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">ownerId</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Id del restaurant o supplier</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">ownerType</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><code>restaurant</code> | <code>supplier</code></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">provider</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Nombre libre mostrado al owner ("Contabilium ERP", "Mi satélite", etc.)</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">category</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><code>erp</code>, <code>pos</code>, <code>accounting</code>, etc.</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">credentials</td><td class="px-4 py-2.5">object</td><td class="px-4 py-2.5">JSON libre. Sugerido: <code>{ satelliteUrl, apiKey }</code></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">syncConfig</td><td class="px-4 py-2.5">object</td><td class="px-4 py-2.5">Metadata visual: qué syncs corren y con qué frecuencia. Ej: <code>{ "stock": { "enabled": true, "intervalMinutes": 30 } }</code></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Integration creada. Copiar el <code>id</code> devuelto.</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">401</span><span class="text-gray-200">Token de admin inválido/faltante</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Ya existe integración con ese provider para el owner</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> -X POST "https://app.forkcast.tech/api/admins/integrations" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Authorization: Bearer &lt;admin-token&gt;"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "ownerId": 1,
+    "ownerType": "restaurant",
+    "provider": "Contabilium ERP",
+    "category": "erp",
+    "credentials": {
+      "satelliteUrl": "https://cbm-sat.fly.dev",
+      "apiKey": "sk_sat_secret"
+    },
+    "syncConfig": {
+      "stock":    { "enabled": true, "intervalMinutes": 30 },
+      "products": { "enabled": true, "intervalMinutes": 60 },
+      "clients":  { "enabled": true }
+    }
+  }'</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 201</p>
+                <pre><code>{
+  <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">7</span>,
+  <span class="text-brand-gold">"ownerId"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"ownerType"</span>: <span class="text-brand-green">"restaurant"</span>,
+  <span class="text-brand-gold">"provider"</span>: <span class="text-brand-green">"Contabilium ERP"</span>,
+  <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"active"</span>,
+  <span class="text-brand-gold">"createdAt"</span>: <span class="text-brand-green">"2026-07-12T10:00:00Z"</span>
+}</code></pre>
+                <p class="text-xs text-gray-300 mt-3">Ese <code>7</code> es el <code>X-Connection-Id</code> que va en cada Ingest.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SETUP CHECKLIST -->
+        <section id="setup-checklist">
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 class="text-2xl font-semibold text-white mb-4">Checklist para el integrador</h2>
+              <p class="text-gray-200 leading-relaxed mb-4">
+                Si sos quien programa el satélite (o el ERP que consume ForkCast), estos son los pasos
+                mínimos para conectarte una vez que ForkCast te dio de alta la <code>Integration</code>:
+              </p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-3 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Guardá el <code>X-Connection-Id</code> que te pasó ForkCast.</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Guardá tu <code>API Key</code> (mirala en Configuración → API pública).</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Verificá los <a href="#scopes" class="text-brand-gold underline">scopes</a> asignados a la key.</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Si vas a recibir webhooks, exponé un endpoint HTTPS y registralo en <a href="webhooks.html" class="text-brand-gold underline">Webhooks</a>.</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Empujá datos usando <a href="#ingest-products-bulk" class="text-brand-gold underline">bulk-upsert products</a>, <a href="#ingest-suppliers-bulk" class="text-brand-gold underline">suppliers</a>, <a href="#ingest-stock-bulk" class="text-brand-gold underline">stock</a>.</span></div>
+                <div class="flex gap-2"><span class="text-brand-green font-mono flex-shrink-0">✓</span><span>Al recibir un webhook, matcheá contra tu ERP y llamá <a href="#ingest-mappings-upsert" class="text-brand-gold underline">integration-mappings</a>.</span></div>
+              </div>
+
+              <p class="text-gray-200 leading-relaxed">
+                Reglas duras del core: <strong>nunca matcheás por identificador natural</strong>
+                (CUIT/SKU/email). Solo por <code>externalRef</code> + mapping o <code>entityId</code>
+                explícito. Ver
+                <a href="https://github.com/leandro3742/forkcast-context/blob/main/adrs/0014-integrations-as-connections.md" class="text-brand-gold underline" target="_blank" rel="noopener noreferrer">ADR-0014 §7</a>.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Headers en cada Ingest</p>
+                <pre><code>Authorization: <span class="text-brand-gold">Bearer &lt;api-key&gt;</span>
+X-Connection-Id: <span class="text-brand-gold">&lt;integration-id&gt;</span>
+X-Action-Id: <span class="text-brand-gold">act_...</span>   <span class="text-slate-400"># opcional</span>
+Content-Type: <span class="text-brand-gold">application/json</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Modelo mental</p>
+                <p class="text-xs text-gray-200 leading-relaxed">
+                  ForkCast es <strong>agnóstico</strong> respecto al proveedor y al país. Tu satélite:
+                </p>
+                <ul class="text-xs text-gray-200 space-y-1.5 mt-2 pl-4 list-disc marker:text-brand-gold">
+                  <li>Guarda las credenciales del ERP externo</li>
+                  <li>Traduce los datos al shape de la API Ingest</li>
+                  <li>Decide la política de match (CUIT, RUT, SKU, etc.)</li>
+                  <li>Corre su propio scheduler / cron</li>
+                  <li>Maneja retries hacia el ERP externo</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1168,7 +1401,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                     </tbody>
                   </table>
                 </div>
-                <p class="text-xs text-gray-300 mt-2">Eventos disponibles: <code class="text-brand-green text-xs">order.created</code>, <code class="text-brand-green text-xs">order.status_updated</code></p>
+                <p class="text-xs text-gray-300 mt-2">Eventos disponibles: <code class="text-brand-green text-xs">order.created</code>, <code class="text-brand-green text-xs">order.status_updated</code>, <code class="text-brand-green text-xs">supplier.created</code>, <code class="text-brand-green text-xs">supplier.updated</code>, <code class="text-brand-green text-xs">restaurant.created</code>, <code class="text-brand-green text-xs">restaurant.updated</code>, <code class="text-brand-green text-xs">stock.updated</code></p>
               </div>
             </div>
 
@@ -1271,6 +1504,579 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
               <pre><code><span class="text-slate-400">curl</span> https://app.forkcast.tech/api/v1/webhooks/<span class="text-brand-gold">1</span> \
   <span class="text-slate-400">-X</span> DELETE \
   <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="border-t border-brand-circle/20"></div>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-brand-green/70 -mt-8">Ingest (satélites)</h2>
+
+        <!-- INGEST PRODUCTS BULK -->
+        <section id="ingest-products-bulk">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-blue-400 bg-blue-400/10 rounded-lg font-mono border border-blue-400/20">POST</span>
+            <code class="text-white text-lg font-mono">/price-lists/<span class="text-brand-gold">{priceListId}</span>/products/bulk-upsert</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Alta o actualización masiva de productos dentro de una lista de precios. Endpoint diseñado para ser consumido por <strong>satélites de integración</strong> (ADR-0014). Idempotente por <code>externalRef</code>.</p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-2 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Regla de match</span><span>1) <code>entityId</code> explícito → update. 2) mapping por (<code>connectionId</code>, <code>externalRef</code>) → update. 3) create. <strong>Nunca por SKU u otro identifier natural.</strong></span></div>
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Reconciliación</span><span>Si el satélite quiere evitar duplicados con datos previos, debe consultar <a href="#ingest-products-search" class="text-brand-gold underline">GET /price-lists/:id/products</a> antes.</span></div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Headers</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Header</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-API-Key</td><td class="px-4 py-2.5">API key con scope <code>products:write</code></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-Connection-Id</td><td class="px-4 py-2.5"><strong>Obligatorio.</strong> ID de la Integration/Connection asociada</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">X-Action-Id</td><td class="px-4 py-2.5">Opcional. Si no viene, se genera</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">items[]</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">externalRef</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><strong>Requerido.</strong> Id del producto en el sistema externo</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">entityId</td><td class="px-4 py-2.5">number?</td><td class="px-4 py-2.5">Opcional. Si el satélite ya resolvió el match, el core lo respeta</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">name</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Requerido</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">sku</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Solo dato, no clave de match</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">unit</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><code>unidad</code>, <code>kg</code>, <code>caja</code>, etc.</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">packagingName</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Nombre del pack (ej: "Pack x6")</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">unitsPerPackage</td><td class="px-4 py-2.5">number | null</td><td class="px-4 py-2.5">Default 1</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">price</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Debe ser &gt;= 0</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">category</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5"></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5"></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Resumen con contadores</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">items vacío o <code>X-Connection-Id</code> ausente</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente o priceList no pertenece al owner</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200"><code>priceListId</code> no existe</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> -X POST "https://app.forkcast.tech/api/v1/price-lists/42/products/bulk-upsert" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-Connection-Id: 7"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "items": [
+      {
+        "externalRef": "SKU-123",
+        "sku": "ABC-001",
+        "name": "Coca Cola 500ml",
+        "unit": "unidad",
+        "packagingName": "Pack x6",
+        "unitsPerPackage": 6,
+        "price": 500,
+        "category": "Bebidas",
+        "active": true
+      }
+    ]
+  }'</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"actionId"</span>: <span class="text-brand-green">"act_1720512000000_ab12cd"</span>,
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"created"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"updated"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"skipped"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"errors"</span>: [],
+  <span class="text-brand-gold">"createdMappings"</span>: <span class="text-blue-300">1</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST PRODUCTS SEARCH -->
+        <section id="ingest-products-search">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/price-lists/<span class="text-brand-gold">{priceListId}</span>/products</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Lookup lightweight para que el satélite <strong>reconcilie con productos preexistentes</strong> antes de un bulk-upsert. Cada satélite implementa su propia política de match (por SKU, por taxId en el caso de suppliers, etc.).</p>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Query params (al menos uno requerido)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Param</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">sku</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Match exacto</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">q</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Match parcial (case-insensitive) contra <code>name</code></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">limit</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Default 20, max 100</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Lista de productos matcheados</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Ningún query param provisto</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente. Se requiere <code>products:read</code></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/price-lists/42/products?sku=ABC-001" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"items"</span>: [
+    {
+      <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">12</span>,
+      <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"Coca Cola 500ml"</span>,
+      <span class="text-brand-gold">"sku"</span>: <span class="text-brand-green">"ABC-001"</span>,
+      <span class="text-brand-gold">"packagingName"</span>: <span class="text-brand-green">"Pack x6"</span>,
+      <span class="text-brand-gold">"price"</span>: <span class="text-blue-300">500</span>,
+      <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+    }
+  ],
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST PRODUCTS CATALOG -->
+        <section id="ingest-products-catalog">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/products</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Catálogo completo de la empresa, <strong>sin depender de la lista de precios</strong>. El owner sale del API key. Cada ítem es una identidad de stock <code>(sku, packagingName)</code> deduplicada a través de todas las listas — la misma clave que consume <a href="#ingest-stock-bulk" class="text-brand-gold underline">POST /stock/bulk-set</a>, así que se puede usar directo sin traducción.</p>
+
+              <p class="text-gray-200 leading-relaxed mb-4">Pensado para sincronizar stock desde un ERP: trae el <code>unitsPerPackage</code> necesario para convertir unidades sueltas a la unidad de ForkCast, y el <code>quantity</code> actual para calcular el diff.</p>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Query params (todos opcionales)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Param</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">limit</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Default 100, max 500</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">offset</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Default 0</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">activeOnly</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5">Si es <code>true</code>, excluye productos inactivos</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Campos de la respuesta</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">unitsPerPackage</td><td class="px-4 py-2.5">Unidades sueltas por pack. Divisor para convertir desde un ERP que cuenta unidades.</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">quantity</td><td class="px-4 py-2.5">Stock actual en ForkCast. <code>null</code> si la identidad todavía no tiene fila de stock.</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">ambiguous</td><td class="px-4 py-2.5"><code>true</code> si el SKU aparece con más de un <code>packagingName</code>. Un ERP con un solo stock por SKU no puede repartirlo entre esas identidades: conviene saltearlas.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Catálogo paginado</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente. Se requiere <code>products:read</code></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/products?limit=100&amp;offset=0" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"items"</span>: [
+    {
+      <span class="text-brand-gold">"sku"</span>: <span class="text-brand-green">"110025"</span>,
+      <span class="text-brand-gold">"packagingName"</span>: <span class="text-brand-green">"Pack x6"</span>,
+      <span class="text-brand-gold">"unitsPerPackage"</span>: <span class="text-blue-300">6</span>,
+      <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"CERVEZA SCOTTISH 473ML"</span>,
+      <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>,
+      <span class="text-brand-gold">"quantity"</span>: <span class="text-blue-300">79</span>,
+      <span class="text-brand-gold">"ambiguous"</span>: <span class="text-blue-300">false</span>
+    }
+  ],
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">75</span>,
+  <span class="text-brand-gold">"limit"</span>: <span class="text-blue-300">100</span>,
+  <span class="text-brand-gold">"offset"</span>: <span class="text-blue-300">0</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST SUPPLIERS BULK -->
+        <section id="ingest-suppliers-bulk">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-blue-400 bg-blue-400/10 rounded-lg font-mono border border-blue-400/20">POST</span>
+            <code class="text-white text-lg font-mono">/suppliers/bulk-upsert</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Alta o actualización masiva de suppliers. Idempotente por <code>externalRef</code>. Solo apiKeys con <code>ownerType='restaurant'</code>.</p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-2 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Regla de match</span><span>1) <code>entityId</code> explícito → update. 2) mapping por (<code>connectionId</code>, <code>externalRef</code>) → update. 3) create. <strong>Nunca por taxId, email ni razonSocial.</strong></span></div>
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Reconciliación</span><span>Para evitar duplicados con datos previos, consultá <a href="#ingest-suppliers-search" class="text-brand-gold underline">GET /suppliers</a> antes.</span></div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Headers</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Header</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-API-Key</td><td class="px-4 py-2.5">API key con scope <code>suppliers:write</code></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-Connection-Id</td><td class="px-4 py-2.5"><strong>Obligatorio.</strong> ID de la Integration del owner</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">X-Action-Id</td><td class="px-4 py-2.5">Opcional</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">items[]</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">externalRef</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><strong>Requerido.</strong> Id del cliente en el sistema externo</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">entityId</td><td class="px-4 py-2.5">number?</td><td class="px-4 py-2.5">Opcional. Si el satélite pre-resolvió el match, el core lo respeta</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">razonSocial</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><strong>Requerido</strong></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">taxId</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Identificador tributario neutro (CUIT en AR, RUT en CL, RUC en PE, etc.). Solo dato, no clave de match</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">nombreFantasia</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Se usa como <code>name</code> si viene, si no cae a <code>razonSocial</code></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">email</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5"></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">phone</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5"></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">address</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5"></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">active</td><td class="px-4 py-2.5">boolean</td><td class="px-4 py-2.5"></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Resumen con contadores</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">items vacío o <code>X-Connection-Id</code> ausente</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente / apiKey supplier / connection ajena</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> -X POST "https://app.forkcast.tech/api/v1/suppliers/bulk-upsert" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-Connection-Id: 7"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "items": [
+      {
+        "externalRef": "CLI-8823",
+        "taxId": "30-12345678-9",
+        "razonSocial": "Distribuidora García SA",
+        "nombreFantasia": "García",
+        "email": "garcia@x.com",
+        "phone": null,
+        "address": "Av. Corrientes 1234",
+        "active": true
+      }
+    ]
+  }'</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"actionId"</span>: <span class="text-brand-green">"act_1720512000000_ab12cd"</span>,
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"created"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"updated"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"skipped"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"errors"</span>: [],
+  <span class="text-brand-gold">"createdMappings"</span>: <span class="text-blue-300">1</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST SUPPLIERS SEARCH -->
+        <section id="ingest-suppliers-search">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-brand-green bg-brand-green/10 rounded-lg font-mono border border-brand-green/20">GET</span>
+            <code class="text-white text-lg font-mono">/suppliers</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Lookup lightweight para reconciliar con suppliers preexistentes antes de un bulk-upsert.</p>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Query params (al menos uno requerido)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Param</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">taxId</td><td class="px-4 py-2.5">Match exacto sobre identificador tributario</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">email</td><td class="px-4 py-2.5">Match exacto</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">q</td><td class="px-4 py-2.5">Match parcial contra <code>razonSocial</code></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">limit</td><td class="px-4 py-2.5">Default 20, max 100</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Lista de suppliers matcheados</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Ningún query param provisto</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente. Se requiere <code>suppliers:read</code></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> "https://app.forkcast.tech/api/v1/suppliers?taxId=30-12345678-9" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"items"</span>: [
+    {
+      <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">23</span>,
+      <span class="text-brand-gold">"razonSocial"</span>: <span class="text-brand-green">"Distribuidora García SA"</span>,
+      <span class="text-brand-gold">"taxId"</span>: <span class="text-brand-green">"30-12345678-9"</span>,
+      <span class="text-brand-gold">"email"</span>: <span class="text-brand-green">"garcia@x.com"</span>,
+      <span class="text-brand-gold">"active"</span>: <span class="text-blue-300">true</span>
+    }
+  ],
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST STOCK BULK -->
+        <section id="ingest-stock-bulk">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-blue-400 bg-blue-400/10 rounded-lg font-mono border border-blue-400/20">POST</span>
+            <code class="text-white text-lg font-mono">/stock/bulk-set</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4"><strong>Set absoluto</strong> (no delta) de niveles de stock. Genera un <code>StockMovement</code> con <code>type=ERP_SYNC</code> por cada cambio. Si la quantity coincide con la anterior, cuenta como <code>unchanged</code> sin generar movement.</p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-2 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Identidad de stock</span><span>La identidad del stock es <code>(owner_del_apiKey, sku, packagingName)</code>. Si la apiKey es de un <code>restaurant</code> (master), el stock se guarda como <code>MASTER</code>; si es de un <code>supplier</code>, como <code>SUPPLIER</code>. No hay reconciliación por externalRef — se guarda como metadata en el movement.</span></div>
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Ownership</span><span>El satélite solo puede escribir stock del owner de su apiKey. Un master <strong>no</strong> puede tocar stock de un supplier, aunque lo haya invitado — el supplier necesita su propia apiKey y su propio satélite.</span></div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Headers</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Header</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-API-Key</td><td class="px-4 py-2.5">API key con scope <code>stock:write</code></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">X-Connection-Id</td><td class="px-4 py-2.5"><strong>Obligatorio</strong></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">X-Action-Id</td><td class="px-4 py-2.5">Opcional</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">items[]</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">externalRef</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><strong>Requerido.</strong> Se guarda en el movement</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">sku</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5"><strong>Requerido</strong></td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">packagingName</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Parte de la identidad del stock</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">quantity</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Set absoluto. Debe ser &gt;= 0</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Resumen: applied, unchanged, skipped</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">items vacío o headers faltantes</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente / apiKey supplier / connection ajena</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> -X POST "https://app.forkcast.tech/api/v1/stock/bulk-set" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-Connection-Id: 7"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "items": [
+      {
+        "externalRef": "MOV-4471",
+        "sku": "ABC-001",
+        "packagingName": "Pack x6",
+        "quantity": 120
+      }
+    ]
+  }'</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 200</p>
+                <pre><code>{
+  <span class="text-brand-gold">"actionId"</span>: <span class="text-brand-green">"act_1720512000000_ab12cd"</span>,
+  <span class="text-brand-gold">"total"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"applied"</span>: <span class="text-blue-300">1</span>,
+  <span class="text-brand-gold">"unchanged"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"skipped"</span>: <span class="text-blue-300">0</span>,
+  <span class="text-brand-gold">"errors"</span>: []
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INGEST MAPPINGS UPSERT -->
+        <section id="ingest-mappings-upsert">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="px-3 py-1.5 text-sm font-bold text-blue-400 bg-blue-400/10 rounded-lg font-mono border border-blue-400/20">POST</span>
+            <code class="text-white text-lg font-mono">/integration-mappings</code>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <p class="text-gray-200 leading-relaxed mb-4">Crear o actualizar mapping <code>externalId ↔ entityId</code> para vincular entidades de ForkCast con sus contrapartes en el sistema externo. Alternativa directa al mapping automático que hacen los bulk-upsert.</p>
+
+              <div class="bg-brand-dark rounded-xl border border-brand-circle/30 p-4 mb-6 space-y-2 text-sm text-gray-200">
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Idempotencia</span><span>Upsert por (<code>connectionId</code>, <code>entityType</code>, <code>entityId</code>). Response <code>201</code> si created, <code>200</code> si updated.</span></div>
+                <div class="flex gap-2"><span class="text-brand-gold font-semibold flex-shrink-0">Ownership</span><span>El <code>connectionId</code> debe pertenecer al owner del apiKey.</span></div>
+              </div>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Descripción</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">connectionId</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">ID de la Integration del owner</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">externalId</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Id de la entidad en el sistema externo</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">externalName</td><td class="px-4 py-2.5">string | null</td><td class="px-4 py-2.5">Label descriptivo</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">entityType</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Uno de: <code>supplier</code>, <code>restaurant</code>, <code>price_list_product</code>, <code>supplier_stock</code></td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">entityId</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5">Id de la entidad ForkCast</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Mapping creado</span></div>
+                  <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Mapping actualizado (ya existía)</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Campos faltantes o entityType inválido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope insuficiente o connection ajena</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">connectionId no existe</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Ejemplo curl</p>
+                <pre><code><span class="text-slate-400">curl</span> -X POST "https://app.forkcast.tech/api/v1/integration-mappings" \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
+  <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{
+    "connectionId": 7,
+    "externalId": "CLI-8823",
+    "externalName": "Distribuidora García",
+    "entityType": "supplier",
+    "entityId": 23
+  }'</span></code></pre>
+              </div>
+
+              <div class="bg-brand-dark rounded-2xl border border-brand-circle/30 p-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-brand-green/70 mb-3">Response 201</p>
+                <pre><code>{
+  <span class="text-brand-gold">"id"</span>: <span class="text-blue-300">100</span>,
+  <span class="text-brand-gold">"integrationId"</span>: <span class="text-blue-300">7</span>,
+  <span class="text-brand-gold">"externalId"</span>: <span class="text-brand-green">"CLI-8823"</span>,
+  <span class="text-brand-gold">"externalName"</span>: <span class="text-brand-green">"Distribuidora García"</span>,
+  <span class="text-brand-gold">"entityType"</span>: <span class="text-brand-green">"supplier"</span>,
+  <span class="text-brand-gold">"entityId"</span>: <span class="text-blue-300">23</span>,
+  <span class="text-brand-gold">"created"</span>: <span class="text-blue-300">true</span>
+}</code></pre>
+              </div>
             </div>
           </div>
         </section>

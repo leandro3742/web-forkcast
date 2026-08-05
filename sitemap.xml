@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.forkcast.tech</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.forkcast.tech/blog/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -49,8 +49,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/automatizar-gestion-restaurante.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/catalogo-digital-proveedor.html</loc>
     <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/chatbot-ia-restaurante.html</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -121,6 +133,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/dashboard-restaurante.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/diferencia-food-cost-cmv.html</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -135,6 +153,12 @@
   <url>
     <loc>https://www.forkcast.tech/blog/elegir-proveedor-gastronomico.html</loc>
     <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/errores-comunes-restaurantes.html</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -181,6 +205,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/ia-analisis-ventas-restaurante.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/ia-compras-automaticas-restaurante.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/ia-prediccion-demanda-restaurante.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/inflacion-costos-gastronomia.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -193,8 +235,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/inteligencia-artificial-restaurantes.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/inventario-restaurante-como-hacer.html</loc>
     <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/kpis-restaurante-cuales-medir.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -207,6 +261,12 @@
   <url>
     <loc>https://www.forkcast.tech/blog/lista-precios-proveedores.html</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/listas-precios-franquicia.html</loc>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -229,8 +289,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/precio-venta-plato-calcular.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/proveedor-unico-vs-varios.html</loc>
     <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/proveedores-centralizados-franquicia.html</loc>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -265,14 +337,44 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/rentabilidad-restaurante-mejorar.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/reportes-financieros-restaurante.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/reportes-franquicia-gastronomica.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/sistema-peps-gastronomia.html</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/software-gestion-restaurante.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/subrecetas-gastronomia.html</loc>
     <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/transformacion-digital-restaurante.html</loc>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
