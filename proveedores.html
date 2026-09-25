@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForkCast para proveedores gastronómicos — Catálogo, pedidos, entregas y facturación</title>
+  <meta name="description" content="Todo lo que necesita una distribuidora para venderle a restaurantes: catálogo con stock, listas de precios por cliente, pedidos por WhatsApp y web, entregas con repartidor, facturación por lo entregado y ventas en tiempo real.">
+  <meta name="keywords" content="software distribuidora gastronómica, pedidos por whatsapp distribuidora, sistema de pedidos mayorista, listas de precios por cliente, app pedidos restaurantes proveedor, facturación automática pedidos, distribuidora bebidas restaurantes">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/proveedores">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.forkcast.tech/proveedores">
+  <meta property="og:title" content="ForkCast para proveedores gastronómicos">
+  <meta property="og:description" content="Catálogo, listas de precios por cliente, pedidos por WhatsApp y web, entregas con repartidor y facturación por lo entregado. Para distribuidoras que venden a restaurantes.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ForkCast para proveedores gastronómicos">
+  <meta name="twitter:description" content="Catálogo, listas de precios por cliente, pedidos por WhatsApp y web, entregas con repartidor y facturación por lo entregado.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <link rel="icon" type="image/png" href="forkcast-logo.png">
+  <link rel="apple-touch-icon" href="forkcast-logo.png">
+
+  <!-- Structured Data — Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "ForkCast para proveedores gastronómicos",
+    "serviceType": "Software de ventas B2B para distribuidoras gastronómicas",
+    "url": "https://www.forkcast.tech/proveedores",
+    "description": "Catálogo con stock, listas de precios por cliente, pedidos por WhatsApp y web, entregas con repartidor, facturación por lo entregado y reportes de ventas para distribuidoras que venden a restaurantes.",
+    "provider": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "email": "leandro@forkcast.tech"
+    },
+    "areaServed": { "@type": "Country", "name": "Argentina" },
+    "offers": {
+      "@type": "Offer",
+      "price": "80",
+      "priceCurrency": "USD",
+      "description": "Plan Proveedores, por mes. Onboarding incluido."
+    }
+  }
+  </script>
+
+  <!-- Structured Data — FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Mis clientes tienen que instalar algo?", "acceptedAnswer": { "@type": "Answer", "text": "No. Pueden pedir por WhatsApp respondiendo la invitación, o desde la web si prefieren ver el catálogo completo. Vos elegís cómo invitarlos." } },
+      { "@type": "Question", "name": "¿Puedo tener precios distintos por cliente?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Creás listas de precios, las derivás con ajuste porcentual, aplicás descuentos y bonificaciones por producto, y asignás cada lista a los clientes que corresponde. Cada cliente ve solo lo suyo." } },
+      { "@type": "Question", "name": "¿Cómo llega la factura a mi sistema?", "acceptedAnswer": { "@type": "Answer", "text": "ForkCast se conecta a tu sistema de facturación. Cuando cerrás una entrega, la factura se emite por lo que efectivamente salió. Hoy la integración está disponible para Contabilium; si usás otro, contanos cuál." } },
+      { "@type": "Question", "name": "¿ForkCast reemplaza mi sistema de gestión?", "acceptedAnswer": { "@type": "Answer", "text": "No. ForkCast es tu canal de ventas a restaurantes: catálogo, pedidos, entregas y lo que hace falta para facturar. La contabilidad, el stock general y la cobranza siguen en tu sistema." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta y cuánto tarda arrancar?", "acceptedAnswer": { "@type": "Answer", "text": "USD 80 por mes, sin comisión por pedido, clientes ilimitados. Cargamos tu catálogo y tus listas, conectamos la facturación e invitamos a tus primeros clientes. En una semana estás operando." } }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-fade { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .hero-fade-delay { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+    .hero-fade-delay-2 { animation: fade-in-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; opacity: 0; }
+    .circle-deco { position: absolute; border-radius: 50%; background: rgba(74, 140, 92, 0.12); }
+    .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px;
+      border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); z-index: 60; transition: transform 0.2s ease;
+    }
+    .wpp-float:hover { transform: scale(1.08); }
+    /* Mocks del panel */
+    .mock { border-radius: 1rem; background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 10px 30px rgba(42, 60, 46, 0.10); overflow: hidden; font-size: 13px; }
+    .mock-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #F5F5F0; border-bottom: 1px solid #e5e7eb; }
+    .mock-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; }
+    .mock table { width: 100%; border-collapse: collapse; }
+    .mock th { text-align: left; font-weight: 600; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; padding: 8px 14px; border-bottom: 1px solid #e5e7eb; }
+    .mock td { padding: 9px 14px; border-bottom: 1px solid #f3f4f6; color: #1E2E22; }
+    .mock tr:last-child td { border-bottom: 0; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    .pill-green { background: rgba(74,140,92,.15); color: #2A3C2E; }
+    .pill-gold { background: rgba(201,168,76,.25); color: #2A3C2E; }
+    .pill-gray { background: #f3f4f6; color: #6b7280; }
+    /* Chat mock */
+    .bubble { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; }
+    .bubble-in { background: #F5F5F0; color: #1E2E22; border-top-left-radius: 4px; align-self: flex-start; }
+    .bubble-out { background: rgba(201, 168, 76, 0.35); color: #F5F5F0; border-top-right-radius: 4px; align-self: flex-end; }
+  </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="#modulos" class="hover:text-brand-gold transition-colors">Qué incluye</a>
+        <a href="#whatsapp" class="hover:text-brand-gold transition-colors">WhatsApp</a>
+        <a href="#integraciones" class="hover:text-brand-gold transition-colors">Integraciones</a>
+        <a href="#dia-a-dia" class="hover:text-brand-gold transition-colors">Día a día</a>
+        <a href="#precio" class="hover:text-brand-gold transition-colors">Precio</a>
+        <a href="#faq" class="hover:text-brand-gold transition-colors">Preguntas</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="#modulos" class="block hover:text-brand-gold transition-colors">Qué incluye</a>
+        <a href="#whatsapp" class="block hover:text-brand-gold transition-colors">WhatsApp</a>
+        <a href="#integraciones" class="block hover:text-brand-gold transition-colors">Integraciones</a>
+        <a href="#dia-a-dia" class="block hover:text-brand-gold transition-colors">Día a día</a>
+        <a href="#precio" class="block hover:text-brand-gold transition-colors">Precio</a>
+        <a href="#faq" class="block hover:text-brand-gold transition-colors">Preguntas</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicitá una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-brand-dark overflow-hidden">
+    <div class="circle-deco w-72 h-72 -top-20 -right-20 sm:w-96 sm:h-96 sm:-top-24 sm:-right-24"></div>
+    <div class="circle-deco w-48 h-48 bottom-10 -left-16 sm:w-64 sm:h-64"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="text-center lg:text-left">
+        <span class="hero-fade inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Para proveedores y distribuidoras gastronómicas</span>
+        <h1 class="hero-fade mt-4 font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+          Tu canal de ventas a restaurantes, ordenado de punta a punta
+        </h1>
+        <p class="hero-fade-delay mt-6 text-lg sm:text-xl text-gray-300 leading-relaxed">
+          Catálogo con stock, precios por cliente, pedidos por WhatsApp y web, entregas con repartidor y factura por lo entregado. Vos vendés, ForkCast ordena.
+        </p>
+        <div class="hero-fade-delay-2 mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors shadow-lg shadow-brand-gold/20">
+            Solicitá una demo
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#modulos" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            Ver todo lo que incluye
+          </a>
+        </div>
+        <p class="hero-fade-delay-2 mt-6 text-sm text-gray-400">USD 80 por mes. Sin comisión por pedido. Clientes ilimitados.</p>
+      </div>
+
+      <!-- Mock: pedidos -->
+      <div class="hero-fade-delay-2 mx-auto w-full max-w-lg">
+        <div class="mock">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Pedidos</span><span class="ml-auto pill pill-gold">Hoy: 14</span></div>
+          <table>
+            <thead><tr><th>Cliente</th><th>Total</th><th>Canal</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td>Bar Central</td><td>$ 103.600</td><td><span class="pill pill-green">WhatsApp</span></td><td><span class="pill pill-gold">Pendiente</span></td></tr>
+              <tr><td>La Parrilla del Sur</td><td>$ 248.900</td><td><span class="pill pill-gray">Web</span></td><td><span class="pill pill-green">Aprobado</span></td></tr>
+              <tr><td>Hotel Mirador</td><td>$ 512.300</td><td><span class="pill pill-green">WhatsApp</span></td><td><span class="pill pill-green">En reparto</span></td></tr>
+              <tr><td>Pizzería Roma</td><td>$ 67.400</td><td><span class="pill pill-gray">Web</span></td><td><span class="pill pill-gray">Entregado · facturado</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resumen de módulos -->
+  <section id="modulos" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Qué incluye</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Todo lo que hay entre "me pidieron" y "cobré"</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Ocho módulos que trabajan juntos. Cada uno resuelve un paso de tu venta.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="#catalogo" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="package" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Catálogo y stock</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Tus productos con categorías, presentaciones y stock por SKU. Carga y exportación por Excel.</p>
+        </a>
+        <a href="#precios" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="tags" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Listas de precios por cliente</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Varias listas, derivadas con ajuste porcentual, descuentos y bonificaciones. Cada cliente ve la suya.</p>
+        </a>
+        <a href="#whatsapp" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="message-circle" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Pedidos por WhatsApp y web</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Tus clientes piden por chat con un asistente, o desde la web. Todo cae ordenado en el mismo lugar.</p>
+        </a>
+        <a href="#entregas" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="truck" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Entregas y repartidores</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Armás las entregas, asignás repartidor, cerrás por partes. Prueba de entrega con foto.</p>
+        </a>
+        <a href="#integraciones" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="receipt-text" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Factura por lo entregado</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Al cerrar la entrega, la factura sale en tu sistema con lo que realmente salió del depósito.</p>
+        </a>
+        <a href="#ventas" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Ventas en tiempo real</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Qué vendiste, a quién y qué productos. Por período, medido por lo entregado, no por lo pedido.</p>
+        </a>
+        <a href="#clientes" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="store" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Clientes y marketplace</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Invitás a tus clientes por mail o WhatsApp, y encontrás restaurantes nuevos que ya usan ForkCast.</p>
+        </a>
+        <a href="#equipo" class="animate-on-scroll group p-6 rounded-2xl bg-white border border-gray-200 hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="users" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark group-hover:text-brand-green transition-colors">Equipo y roles</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Dueño, encargado y repartidor. Cada uno ve lo que necesita y nada más.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo y stock -->
+  <section id="catalogo" class="py-20 sm:py-24 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Catálogo y stock</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Tu catálogo, una sola vez</h2>
+        <p class="mt-4 text-lg text-gray-500 leading-relaxed">Cargás tus productos con categoría, presentación y unidad. Desde ahí alimentan las listas de precios, el asistente de WhatsApp y el catálogo web de tus clientes.</p>
+        <ul class="mt-8 space-y-3 text-brand-dark">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Importación y exportación por Excel. Miles de productos en minutos.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Stock por SKU, opcional. Si lo activás, el pedido no puede superar lo que hay.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Alertas de stock bajo y crítico, con historial de movimientos por producto.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Tus clientes ven disponibilidad en tiempo real antes de pedir.</li>
+        </ul>
+      </div>
+      <div class="animate-on-scroll mock">
+        <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Productos</span><span class="ml-auto pill pill-gray">Excel ↑ ↓</span></div>
+        <table>
+          <thead><tr><th>Producto</th><th>Categoría</th><th>Presentación</th><th>Stock</th></tr></thead>
+          <tbody>
+            <tr><td>Cerveza IPA</td><td>Bebidas</td><td>Caja x12 · 500 ml</td><td><span class="pill pill-green">48</span></td></tr>
+            <tr><td>Tónica 1.5 L</td><td>Bebidas</td><td>Caja x6</td><td><span class="pill pill-gold">6 · bajo</span></td></tr>
+            <tr><td>Aceite de girasol</td><td>Secos</td><td>Bidón 5 L</td><td><span class="pill pill-green">120</span></td></tr>
+            <tr><td>Bife de chorizo</td><td>Carnes</td><td>kg</td><td><span class="pill pill-gray">sin control</span></td></tr>
+            <tr><td>Queso muzzarella</td><td>Lácteos</td><td>Horma 4 kg</td><td><span class="pill pill-green">23</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listas de precios -->
+  <section id="precios" class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll mock lg:order-1">
+        <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Listas de precios</span></div>
+        <table>
+          <thead><tr><th>Lista</th><th>Base</th><th>Ajuste</th><th>Clientes</th></tr></thead>
+          <tbody>
+            <tr><td>Mayorista 2026</td><td>—</td><td>—</td><td>31</td></tr>
+            <tr><td>Zona Norte</td><td>Mayorista 2026</td><td><span class="pill pill-gold">+5 %</span></td><td>12</td></tr>
+            <tr><td>Cadenas</td><td>Mayorista 2026</td><td><span class="pill pill-green">−8 %</span></td><td>4</td></tr>
+            <tr><td>Hotel Mirador</td><td>Cadenas</td><td><span class="pill pill-green">bonif. 12+1</span></td><td>1</td></tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 text-xs text-gray-500 border-t border-gray-100">Cambiás un precio en la base y se actualiza en todas las derivadas.</div>
+      </div>
+      <div class="animate-on-scroll lg:order-2">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Listas de precios</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Un precio para cada cliente, sin planillas paralelas</h2>
+        <p class="mt-4 text-lg text-gray-500 leading-relaxed">Tenés una lista base y las que necesites derivadas de ella. Asignás cada lista a los clientes que corresponde y listo: cada uno ve lo suyo, y nadie te pide "pasame la lista".</p>
+        <ul class="mt-8 space-y-3 text-brand-dark">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Listas derivadas con ajuste porcentual, sincronizadas con la base.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Descuento y bonificación por producto, o descuento global de un saque.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Excluir productos de una lista: lo que no vendés a ese cliente, no lo ve.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Asignación a restaurantes y a cadenas completas, en bloque.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Historial de precios por producto: cuándo cambió y cuánto.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp -->
+  <section id="whatsapp" class="py-20 sm:py-28 bg-brand-dark relative overflow-hidden">
+    <div class="circle-deco w-80 h-80 -bottom-32 -right-24"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Pedidos por WhatsApp y web</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-white">Tus clientes piden como quieren. A vos te llega igual.</h2>
+        <p class="mt-4 text-lg text-gray-300 leading-relaxed">El que quiere seguir en WhatsApp, escribe y un asistente arma el pedido con tu catálogo, tus precios para él y tu stock. El que prefiere la web, entra al catálogo completo. Los dos caminos terminan en la misma pantalla de Pedidos.</p>
+        <ul class="mt-8 space-y-3 text-gray-200">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>Invitás por WhatsApp. El cliente responde y ya está adentro, sin instalar nada ni crear cuenta en la web.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>El asistente entiende "6 cajas de IPA", pregunta si hay dudas y nunca confirma sin un "sí".</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>Muestra stock, respeta la lista de ese cliente y ofrece un link al catálogo para armar pedidos largos.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>Pedidos por teléfono o mail: los cargás vos desde el panel en un minuto.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>Aviso automático al cliente cuando aprobás y cuando sale la entrega.</li>
+        </ul>
+      </div>
+      <div class="animate-on-scroll mx-auto w-full max-w-sm">
+        <div class="rounded-3xl bg-brand-darker border border-brand-circle/50 shadow-2xl overflow-hidden">
+          <div class="flex items-center gap-3 px-4 py-3 bg-brand-circle/40 border-b border-brand-circle/50">
+            <img src="forkcast-logo.png" alt="" class="w-9 h-9 rounded-full">
+            <div>
+              <p class="text-white text-sm font-semibold">Distribuidora Norte</p>
+              <p class="text-gray-400 text-xs">en línea</p>
+            </div>
+          </div>
+          <div class="p-4 flex flex-col gap-2.5 bg-brand-dark/60">
+            <div class="bubble bubble-out">Hola, necesito 6 cajas de IPA y 2 de tónica para el viernes</div>
+            <div class="bubble bubble-in">Dale. Te armé el pedido:<br>• Cerveza IPA x6 cajas — $ 84.000<br>• Tónica 1.5 L x2 cajas — $ 19.600<br><b>Total $ 103.600</b><br>¿Lo confirmo?</div>
+            <div class="bubble bubble-out">Sí, mandalo</div>
+            <div class="bubble bubble-in">Listo, pedido #248 enviado. Te aviso cuando salga. 🚚</div>
+          </div>
+          <div class="px-4 py-3 bg-brand-circle/30 border-t border-brand-circle/50 text-xs text-gray-400 flex items-center gap-2">
+            <i data-lucide="check-check" class="w-4 h-4 text-brand-green"></i>
+            Pedido #248 en tu panel · lista Zona Norte · stock descontado
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entregas -->
+  <section id="entregas" class="py-20 sm:py-24 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Entregas y repartidores</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Sabé qué salió, quién lo llevó y qué faltó</h2>
+        <p class="mt-4 text-lg text-gray-500 leading-relaxed">Con el pedido aprobado, armás las entregas: todo junto o por partes, con el repartidor que corresponde. Él recibe el aviso con qué llevar y marca lo entregado desde el celular, con foto.</p>
+        <ul class="mt-8 space-y-3 text-brand-dark">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Un pedido, varias entregas: lo que hay hoy sale hoy, el resto cuando llega.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Mail al repartidor con el pedido asignado, sin precios ni datos que no necesita.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Prueba de entrega: foto y nombre de quien entregó.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Entrega incompleta visible para vos y para el cliente. Lo que no salió, no se factura.</li>
+        </ul>
+      </div>
+      <div class="animate-on-scroll mock">
+        <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Pedido #248 · Bar Central</span><span class="ml-auto pill pill-green">Aprobado</span></div>
+        <table>
+          <thead><tr><th>Entrega</th><th>Repartidor</th><th>Contenido</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>1 de 2</td><td>Martín</td><td>IPA x6</td><td><span class="pill pill-green">Entregada · foto</span></td></tr>
+            <tr><td>2 de 2</td><td>Lucía</td><td>Tónica x2</td><td><span class="pill pill-gold">Sale mañana</span></td></tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 text-xs text-gray-500 border-t border-gray-100">Facturado hasta ahora: $ 84.000 de $ 103.600</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integraciones y facturación -->
+  <section id="integraciones" class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Facturación e integraciones</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">No reemplaza tu sistema. Se conecta.</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">ForkCast es el canal de ventas. La contabilidad, el stock general y la cobranza siguen donde están. Lo que hacemos es mandarles el pedido listo.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="animate-on-scroll p-8 rounded-2xl bg-brand-light border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="receipt-text" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">Factura por lo entregado</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Al cerrar una entrega, la factura se emite en tu sistema con las cantidades que realmente salieron. Sin notas de crédito por faltantes. Hoy disponible para Contabilium.</p>
+        </div>
+        <div class="animate-on-scroll p-8 rounded-2xl bg-brand-light border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="webhook" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">Webhooks</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Pedido creado, aprobado, entregado: cada evento puede avisarle a tu sistema en el momento, con el detalle completo de líneas y lista de precios.</p>
+          <a href="docs/webhooks.html" class="mt-4 inline-flex items-center text-sm font-semibold text-brand-green hover:underline">Ver documentación <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i></a>
+        </div>
+        <div class="animate-on-scroll p-8 rounded-2xl bg-brand-light border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="plug-zap" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">API pública</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Sincronizá productos, precios y stock desde tu sistema, y leé pedidos con tu propia integración. Claves por cuenta con permisos de lectura o escritura.</p>
+          <a href="docs/api.html" class="mt-4 inline-flex items-center text-sm font-semibold text-brand-green hover:underline">Ver documentación <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i></a>
+        </div>
+      </div>
+      <p class="animate-on-scroll mt-10 text-center text-gray-500">¿Facturás con otro sistema? <a href="https://wa.me/59898361013?text=Hola%2C%20facturo%20con%20otro%20sistema%20y%20quiero%20saber%20si%20se%20integra%20con%20ForkCast" target="_blank" rel="noopener" class="text-brand-green font-semibold hover:underline">Contanos cuál</a>. La conexión se arma una vez y sirve para todos los que lo usan.</p>
+    </div>
+  </section>
+
+  <!-- Ventas -->
+  <section id="ventas" class="py-20 sm:py-24 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll mock lg:order-1">
+        <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Mis ventas · septiembre</span></div>
+        <div class="grid grid-cols-3 gap-px bg-gray-100">
+          <div class="bg-white p-4"><p class="text-xs text-gray-500">Entregado</p><p class="text-lg font-bold text-brand-dark">$ 4,8 M</p></div>
+          <div class="bg-white p-4"><p class="text-xs text-gray-500">Pedidos</p><p class="text-lg font-bold text-brand-dark">212</p></div>
+          <div class="bg-white p-4"><p class="text-xs text-gray-500">Clientes activos</p><p class="text-lg font-bold text-brand-dark">37</p></div>
+        </div>
+        <table>
+          <thead><tr><th>Producto</th><th>Cantidad</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Cerveza IPA</td><td>412 cajas</td><td>$ 1,9 M</td></tr>
+            <tr><td>Bife de chorizo</td><td>890 kg</td><td>$ 1,2 M</td></tr>
+            <tr><td>Aceite de girasol</td><td>260 bidones</td><td>$ 0,6 M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="animate-on-scroll lg:order-2">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Ventas</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Lo que vendiste de verdad, no lo que te pidieron</h2>
+        <p class="mt-4 text-lg text-gray-500 leading-relaxed">Las ventas se miden por lo entregado. Un pedido aprobado que todavía no salió no cuenta, y un faltante no infla el número. Filtrás por período, cliente y producto.</p>
+        <ul class="mt-8 space-y-3 text-brand-dark">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Tablero por período con total entregado, pedidos y clientes activos.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Ventas por producto: qué se mueve y qué no.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Historial completo de pedidos por cliente, con filtro por fechas y estado.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Marcá qué pedidos son facturables y cuáles no.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clientes y marketplace -->
+  <section id="clientes" class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Clientes y marketplace</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Tus clientes de siempre, y los que todavía no te conocen</h2>
+        <p class="mt-4 text-lg text-gray-500 leading-relaxed">Invitás a tus clientes actuales por mail o WhatsApp, con la lista de precios ya asignada. Y en el marketplace ves restaurantes que ya usan ForkCast para comprar y que están abiertos a proveedores nuevos.</p>
+        <ul class="mt-8 space-y-3 text-brand-dark">
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Invitación con lista incluida: cuando el cliente entra, ya tiene sus precios.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Tus clientes entran gratis. No pagan por pedirte.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Cadenas y franquicias: asignás a la casa central o a cada local, según cómo compren.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Marketplace: restaurantes activos que eligieron ser visibles para proveedores. Los contactás e invitás desde ahí.</li>
+          <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0 mt-0.5"></i>Tiempo de entrega, pedido mínimo y días de recepción configurables: tus clientes los ven al pedir.</li>
+        </ul>
+      </div>
+      <div class="animate-on-scroll mock">
+        <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="ml-3 font-semibold text-brand-dark">Mis clientes</span><span class="ml-auto pill pill-gray">Marketplace: 14 nuevos</span></div>
+        <table>
+          <thead><tr><th>Cliente</th><th>Lista</th><th>Canal</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Bar Central</td><td>Zona Norte</td><td>WhatsApp</td><td><span class="pill pill-green">Activo</span></td></tr>
+            <tr><td>Hotel Mirador</td><td>Hotel Mirador</td><td>Web</td><td><span class="pill pill-green">Activo</span></td></tr>
+            <tr><td>Cadena Burger 21 (6 locales)</td><td>Cadenas</td><td>Web</td><td><span class="pill pill-green">Activo</span></td></tr>
+            <tr><td>Pizzería Roma</td><td>Mayorista 2026</td><td>WhatsApp</td><td><span class="pill pill-gold">Invitado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo y roles -->
+  <section id="equipo" class="py-20 sm:py-24 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Equipo y roles</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Cada persona ve lo que necesita</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">Usuarios ilimitados dentro de tu cuenta. Los permisos van por rol, no por persona.</p>
+      </div>
+      <div id="dia-a-dia" class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="animate-on-scroll p-8 rounded-2xl bg-white border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="crown" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">Dueño</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Ve todo. Precios, ventas, clientes, usuarios, configuración e integraciones. Mira el tablero de ventas a la mañana y aprueba lo que hace falta.</p>
+        </div>
+        <div class="animate-on-scroll p-8 rounded-2xl bg-white border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="clipboard-list" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">Encargado</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Aprueba pedidos, arma las entregas, asigna repartidores, carga los pedidos que llegan por teléfono y mantiene catálogo y stock al día.</p>
+        </div>
+        <div class="animate-on-scroll p-8 rounded-2xl bg-white border border-gray-200">
+          <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center mb-4"><i data-lucide="truck" class="w-6 h-6"></i></div>
+          <h3 class="text-lg font-semibold text-brand-dark">Repartidor</h3>
+          <p class="mt-2 text-gray-500 leading-relaxed">Recibe el aviso con qué llevar, ve solo sus entregas del día, marca lo entregado y saca la foto. Sin precios, sin acceso al resto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding -->
+  <section class="py-20 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Cómo arrancamos</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">En una semana estás operando</h2>
+        <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">El onboarding lo hacemos nosotros. Vos ponés el Excel y 15 minutos.</p>
+      </div>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="animate-on-scroll relative p-6 rounded-2xl bg-brand-light border border-gray-200">
+          <span class="absolute -top-4 left-6 w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">1</span>
+          <h3 class="mt-2 text-lg font-semibold text-brand-dark">Demo con un pedido real</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">15 minutos por videollamada. Ves un pedido entrar por WhatsApp, aprobarse, salir y facturarse.</p>
+        </div>
+        <div class="animate-on-scroll relative p-6 rounded-2xl bg-brand-light border border-gray-200">
+          <span class="absolute -top-4 left-6 w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">2</span>
+          <h3 class="mt-2 text-lg font-semibold text-brand-dark">Nos pasás tu catálogo</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Productos y precios en Excel, como lo tengas. Lo cargamos nosotros y armamos tus listas.</p>
+        </div>
+        <div class="animate-on-scroll relative p-6 rounded-2xl bg-brand-light border border-gray-200">
+          <span class="absolute -top-4 left-6 w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">3</span>
+          <h3 class="mt-2 text-lg font-semibold text-brand-dark">Conectamos la facturación</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Con tus credenciales del sistema de facturación, probamos una factura de prueba antes de salir.</p>
+        </div>
+        <div class="animate-on-scroll relative p-6 rounded-2xl bg-brand-light border border-gray-200">
+          <span class="absolute -top-4 left-6 w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center text-sm">4</span>
+          <h3 class="mt-2 text-lg font-semibold text-brand-dark">Invitamos a tus clientes</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">Empezamos por tus 10 mejores clientes, por WhatsApp o mail. Desde el primer pedido, el resto es rutina.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precio -->
+  <section id="precio" class="py-20 sm:py-28 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Precio</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Un precio. Sin comisión por pedido.</h2>
+      </div>
+      <div class="animate-on-scroll mt-12 p-8 sm:p-10 rounded-3xl bg-brand-dark text-left shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <p class="text-brand-gold font-semibold">Plan Proveedores</p>
+            <p class="mt-1 text-gray-300">Para distribuidoras y proveedores gastronómicos</p>
+          </div>
+          <div class="text-white">
+            <span class="font-serif text-5xl">USD 80</span>
+            <span class="text-gray-400"> / mes</span>
+          </div>
+        </div>
+        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-200 text-sm">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Catálogo, stock y carga por Excel</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Listas de precios por cliente, ilimitadas</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Pedidos por WhatsApp y web</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Entregas, repartidores y prueba de entrega</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Factura por lo entregado, webhooks y API</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Ventas, clientes y marketplace</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Usuarios y clientes ilimitados</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Onboarding hecho por nosotros</li>
+        </ul>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="mt-8 w-full inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+          Solicitá una demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 sm:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center animate-on-scroll">
+        <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Preguntas frecuentes</span>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Lo que nos preguntan antes de la demo</h2>
+      </div>
+      <div class="mt-12 space-y-4">
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Mis clientes tienen que instalar algo?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">No. Pueden pedir por WhatsApp respondiendo la invitación, o desde la web si prefieren ver el catálogo completo con fotos y stock. Vos elegís cómo invitar a cada uno, y no pagan por pedirte.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Puedo tener precios distintos por cliente?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">Sí. Creás listas de precios, las derivás con ajuste porcentual, aplicás descuentos y bonificaciones por producto, y asignás cada lista a los clientes que corresponde. Cada cliente ve solo lo suyo.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Cómo llega la factura a mi sistema?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">ForkCast se conecta a tu sistema de facturación. Cuando cerrás una entrega, la factura se emite por lo que efectivamente salió. Hoy la integración está disponible para Contabilium. Si usás otro sistema, contanos cuál: la conexión se arma una vez y sirve para todos los que lo usan.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿ForkCast reemplaza mi sistema de gestión?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">No. ForkCast es tu canal de ventas a restaurantes: catálogo, pedidos, entregas y lo que hace falta para facturar. La contabilidad, el stock general del depósito y la cobranza siguen en tu sistema, que recibe los datos por la integración.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Y si un cliente pide algo que no tengo en stock?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">Si llevás stock en ForkCast, el asistente y la web avisan en el momento y no dejan confirmar más de lo que hay. Si no lo llevás, el pedido entra igual y vos decidís al armar la entrega. Lo que no sale, no se factura.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Mis datos y mis precios son privados?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">Sí. Cada cliente ve solo la lista que le asignaste. Ningún otro proveedor ve tus precios ni tus clientes. Los repartidores no ven precios. Y tus datos son tuyos: los exportás cuando quieras.</p>
+        </details>
+        <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Cuánto cuesta y cuánto tarda arrancar?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
+          <p class="mt-4 text-gray-500 leading-relaxed">USD 80 por mes, sin comisión por pedido, con usuarios y clientes ilimitados. Nos pasás tu catálogo en Excel, lo cargamos, conectamos la facturación e invitamos a tus primeros clientes con vos. En una semana estás operando.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="py-20 sm:py-24 bg-brand-dark relative overflow-hidden">
+    <div class="circle-deco w-64 h-64 -top-20 -left-20"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-on-scroll">
+      <h2 class="font-serif text-3xl sm:text-4xl text-white">Vemos un pedido entrar en vivo, en 15 minutos</h2>
+      <p class="mt-4 text-lg text-gray-300">Escribinos y coordinamos. Si te sirve, arrancamos esa misma semana.</p>
+      <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors shadow-lg shadow-brand-gold/20">
+        Solicitá una demo
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <p class="mt-6 text-sm text-gray-400">O escribinos a <a href="mailto:leandro@forkcast.tech" class="text-brand-gold hover:underline">leandro@forkcast.tech</a></p>
+    </div>
+  </section>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-sm">
+        <p>&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+        <p class="text-xs text-gray-600 mt-1">LEANDRO MARRERO S.A.S. — RUT 220899140014 — Ruta 81 Km 10, Padrón 131, Canelones, Uruguay</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="/" class="hover:text-brand-gold transition-colors">Inicio</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+        <a href="/legal/terminos" class="hover:text-brand-gold transition-colors">Términos</a>
+        <a href="/legal/privacidad" class="hover:text-brand-gold transition-colors">Privacidad</a>
+        <a href="/legal/reembolsos" class="hover:text-brand-gold transition-colors">Reembolsos</a>
+        <a href="docs/api.html" class="hover:text-brand-gold transition-colors">API</a>
+        <a href="docs/webhooks.html" class="hover:text-brand-gold transition-colors">Webhooks</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

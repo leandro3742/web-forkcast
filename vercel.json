@@ -10,6 +10,7 @@
     { "source": "/legal/privacidad.html", "destination": "/legal/privacidad", "permanent": true },
     { "source": "/legal/reembolsos.html", "destination": "/legal/reembolsos", "permanent": true },
     { "source": "/contacto.html", "destination": "/contacto", "permanent": true },
+    { "source": "/proveedores.html", "destination": "/proveedores", "permanent": true },
     { "source": "/legal", "destination": "/legal/terminos", "permanent": false },
     { "source": "/terminos", "destination": "/legal/terminos", "permanent": true },
     { "source": "/privacidad", "destination": "/legal/privacidad", "permanent": true },
@@ -19,6 +20,7 @@
     { "source": "/legal/terminos", "destination": "/legal/terminos.html" },
     { "source": "/legal/privacidad", "destination": "/legal/privacidad.html" },
     { "source": "/legal/reembolsos", "destination": "/legal/reembolsos.html" },
-    { "source": "/contacto", "destination": "/contacto.html" }
+    { "source": "/contacto", "destination": "/contacto.html" },
+    { "source": "/proveedores", "destination": "/proveedores.html" }
   ]
 }
