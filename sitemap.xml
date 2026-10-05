@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.forkcast.tech</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.forkcast.tech/proveedores</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.forkcast.tech/blog/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,6 +27,12 @@
   <url>
     <loc>https://www.forkcast.tech/blog/actualizar-costos-recetas.html</loc>
     <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/automatizar-gestion-restaurante.html</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -121,6 +127,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/errores-comunes-restaurantes.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/escalar-recetas-restaurante.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -159,6 +171,12 @@
   <url>
     <loc>https://www.forkcast.tech/blog/gestionar-proveedores-gastronomicos.html</loc>
     <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/ia-compras-automaticas-restaurante.html</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -253,6 +271,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.forkcast.tech/blog/reducir-desperdicio-alimentos.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.forkcast.tech/blog/relacion-proveedor-restaurante.html</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -279,6 +303,18 @@
   <url>
     <loc>https://www.forkcast.tech/blog/subrecetas-gastronomia.html</loc>
     <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/temporada-alta-restaurante.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.forkcast.tech/blog/transformacion-digital-restaurante.html</loc>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
