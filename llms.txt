@@ -30,11 +30,12 @@ ForkCast es un sistema de gestión para la industria gastronómica que conecta r
 
 ## Precios
 
-- Plan Básico (restaurantes): USD 60/mes — Dashboard, proveedores, compras, inventario
-- Plan Standard (restaurantes): USD 85/mes — + recetas CAC, ventas, reportes CMV
-- Plan IA Pro (restaurantes): USD 110/mes — + chat IA, lista de compras inteligente, comparación proveedores
-- Plan Franquicias: USD 350/mes fee corporativo + USD 20-45/mes por local
-- Plan Proveedores: USD 80/mes
+- Plan Gratis (restaurantes): USD 0/mes — pedidos a tus proveedores conectados a ForkCast, recepción con fotos, historial
+- Plan Básico (restaurantes): USD 20/mes — pedidos a cualquier proveedor desde un solo lugar, listas de precios propias
+- Plan Pro (restaurantes): USD 40/mes — + comparador de precios entre proveedores, alertas de precios, gráficas de gasto
+- Plan Integral (restaurantes): USD 60/mes — + compra sugerida según historial, pedido habitual, presupuesto por categoría (próximamente)
+- Plan Cadena (franquicias): precio a medida según cantidad de locales
+- Plan Proveedores: USD 100/mes con hasta 10 clientes activos; USD 5 por cliente del 11 al 50 y USD 3 desde el 51. Sin comisión por pedido, usuarios ilimitados
 
 ## Stack tecnológico
 

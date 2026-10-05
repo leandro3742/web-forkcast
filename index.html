@@ -42,34 +42,42 @@
     "offers": [
       {
         "@type": "Offer",
-        "name": "Plan Básico",
+        "name": "Plan Gratis (restaurantes)",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Pedidos a tus proveedores conectados a ForkCast, recepción con fotos e historial",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Básico (restaurantes)",
+        "price": "20",
+        "priceCurrency": "USD",
+        "description": "Pedidos a cualquier proveedor desde un solo lugar, listas de precios propias e historial",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Pro (restaurantes)",
+        "price": "40",
+        "priceCurrency": "USD",
+        "description": "Comparador de precios entre proveedores, alertas de precios y gráficas de gasto",
+        "billingDuration": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Integral (restaurantes)",
         "price": "60",
         "priceCurrency": "USD",
-        "description": "Control de compras: dashboard, proveedores, órdenes de compra, inventario",
-        "billingDuration": "P1M"
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan Standard",
-        "price": "85",
-        "priceCurrency": "USD",
-        "description": "Control de margen: recetas con costeo CAC, ventas, reportes CMV, food cost",
-        "billingDuration": "P1M"
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan IA Pro",
-        "price": "110",
-        "priceCurrency": "USD",
-        "description": "Optimización inteligente: chat IA, lista de compras automática, comparación de proveedores",
+        "description": "Todo lo del Pro más compra sugerida según historial y presupuesto por categoría",
         "billingDuration": "P1M"
       },
       {
         "@type": "Offer",
         "name": "Plan Proveedores",
-        "price": "80",
+        "price": "100",
         "priceCurrency": "USD",
-        "description": "Para distribuidores y proveedores gastronómicos: catálogo digital, pedidos estructurados",
+        "description": "Hasta 10 clientes activos; USD 5 por cliente del 11 al 50 y USD 3 desde el 51. Catálogo, listas por cliente, pedidos por WhatsApp y web, entregas",
         "billingDuration": "P1M"
       }
     ],
@@ -116,7 +124,7 @@
         "name": "¿Cuánto cuesta ForkCast?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ForkCast tiene 3 planes para restaurantes: Básico (USD 60/mes) para control de compras, Standard (USD 85/mes) con costeo de recetas y reportes CMV, e IA Pro (USD 110/mes) con asistente de inteligencia artificial. Para franquicias el fee corporativo es USD 350/mes más un costo por local. Para proveedores USD 80/mes."
+          "text": "Para restaurantes: Gratis para comprarle a tus proveedores en ForkCast, Básico USD 20/mes (todas tus compras en un lugar), Pro USD 40/mes (comparador y alertas de precios) e Integral USD 60/mes (compra sugerida). Para cadenas y franquicias, precio a medida según la cantidad de locales. Para proveedores: USD 100/mes con hasta 10 clientes activos, más USD 5 por cliente del 11 al 50 y USD 3 desde el 51."
         }
       },
       {
@@ -522,70 +530,84 @@
       </div>
 
       <!-- Restaurantes pricing -->
-      <div id="pricing-restaurantes" class="pricing-panel mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
+      <div id="pricing-restaurantes" class="pricing-panel mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white flex flex-col">
+          <span class="text-sm text-brand-gold font-semibold">Gratis</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 0</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Comprale a tus proveedores en ForkCast</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300 flex-1">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Pedidos a tus proveedores conectados, por web o WhatsApp</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Stock y promos de cada proveedor al pedir</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recepción de mercadería con fotos</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Historial de pedidos</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Gratis%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark text-sm font-semibold transition-all duration-300">Elegir plan</a>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white flex flex-col">
           <span class="text-sm text-brand-gold font-semibold">Plan Básico</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 20</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">Todas tus compras en un solo lugar</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300 flex-1">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del plan Gratis</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Pedidos a cualquier proveedor, aunque no use ForkCast</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Tus propias listas de precios</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Historial y seguimiento de entregas</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20B%C3%A1sico%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark text-sm font-semibold transition-all duration-300">Elegir plan</a>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white flex flex-col ring-2 ring-brand-gold relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Más elegido</span>
+          <span class="text-sm text-brand-gold font-semibold">Plan Pro</span>
+          <div class="mt-3">
+            <span class="text-4xl font-bold">USD 40</span>
+            <span class="text-gray-400 text-sm"> / mes</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-400">¿Estás pagando de más?</p>
+          <hr class="my-4 border-brand-circle/30">
+          <ul class="space-y-2 text-sm text-gray-300 flex-1">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Básico</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Comparador de precios entre proveedores</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Alerta cuando aparece un precio más barato</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Alerta cuando tu proveedor sube un precio <span class="ml-1 inline-block text-[10px] font-semibold uppercase tracking-wide text-brand-gold border border-brand-gold/40 rounded px-1.5 py-0.5">Próximamente</span></li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Gráficas de gasto y evolución de precios</li>
+          </ul>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Pro%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg bg-brand-gold text-brand-dark hover:bg-brand-gold-light text-sm font-semibold transition-all duration-300">Elegir plan</a>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white flex flex-col">
+          <span class="text-sm text-brand-gold font-semibold">Plan Integral</span>
           <div class="mt-3">
             <span class="text-4xl font-bold">USD 60</span>
             <span class="text-gray-400 text-sm"> / mes</span>
           </div>
-          <p class="mt-2 text-sm text-gray-400">Control de Compras</p>
+          <p class="mt-2 text-sm text-gray-400">¿Qué tenés que pedir?</p>
           <hr class="my-4 border-brand-circle/30">
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Dashboard con KPIs</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Proveedores y listas de precios</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Órdenes de compra</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Inventario</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Configuración</li>
+          <ul class="space-y-2 text-sm text-gray-300 flex-1">
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Pro</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Compra sugerida según tu historial <span class="ml-1 inline-block text-[10px] font-semibold uppercase tracking-wide text-brand-gold border border-brand-gold/40 rounded px-1.5 py-0.5">Próximamente</span></li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Tu pedido habitual en un toque <span class="ml-1 inline-block text-[10px] font-semibold uppercase tracking-wide text-brand-gold border border-brand-gold/40 rounded px-1.5 py-0.5">Próximamente</span></li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Presupuesto mensual por categoría <span class="ml-1 inline-block text-[10px] font-semibold uppercase tracking-wide text-brand-gold border border-brand-gold/40 rounded px-1.5 py-0.5">Próximamente</span></li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recetas con costo por plato (opcional)</li>
           </ul>
-          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20B%C3%A1sico%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold text-sm font-semibold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300">Elegir plan</a>
-        </div>
-        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white ring-2 ring-brand-gold relative">
-          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Más elegido</span>
-          <span class="text-sm text-brand-gold font-semibold">Plan Standard</span>
-          <div class="mt-3">
-            <span class="text-4xl font-bold">USD 85</span>
-            <span class="text-gray-400 text-sm"> / mes</span>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Control de Margen</p>
-          <hr class="my-4 border-brand-circle/30">
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Básico</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recetas con costeo (CAC)</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Registro de ventas</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Reportes CMV y food cost %</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Análisis de rentabilidad por plato</li>
-          </ul>
-          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Standard%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Elegir plan</a>
-        </div>
-        <div class="animate-on-scroll p-6 rounded-2xl bg-brand-dark text-white">
-          <span class="text-sm text-brand-gold font-semibold">Plan IA Pro</span>
-          <div class="mt-3">
-            <span class="text-4xl font-bold">USD 110</span>
-            <span class="text-gray-400 text-sm"> / mes</span>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Optimización Inteligente</p>
-          <hr class="my-4 border-brand-circle/30">
-          <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Todo lo del Plan Standard</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Chat IA Asistente</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Lista de compras inteligente</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Comparación de proveedores por IA</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Pedidos automáticos a proveedores</li>
-          </ul>
-          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20IA%20Pro%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold text-sm font-semibold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300">Elegir plan</a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Integral%20para%20restaurantes" target="_blank" rel="noopener" class="mt-6 block text-center px-4 py-2.5 rounded-lg border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark text-sm font-semibold transition-all duration-300">Elegir plan</a>
         </div>
       </div>
 
       <!-- Franquicias pricing -->
       <div id="pricing-franquicias" class="pricing-panel hidden mt-12 max-w-3xl mx-auto">
         <div class="animate-on-scroll p-8 rounded-2xl bg-brand-dark text-white text-center">
-          <span class="text-sm text-brand-gold font-semibold">Fee Corporativo</span>
+          <span class="text-sm text-brand-gold font-semibold">Plan Cadena</span>
           <div class="mt-3">
-            <span class="text-5xl font-bold">USD 350</span>
-            <span class="text-gray-400 text-sm"> / mes</span>
+            <span class="text-5xl font-bold">A medida</span>
           </div>
-          <p class="mt-2 text-sm text-gray-400">Gestión centralizada de toda la red</p>
+          <p class="mt-2 text-sm text-gray-400">Según la cantidad de locales de tu red</p>
           <hr class="my-6 border-brand-circle/30">
           <ul class="space-y-2 text-sm text-gray-300 text-left max-w-md mx-auto">
             <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Dashboard Master con métricas de toda la red</li>
@@ -595,24 +617,7 @@
             <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Sincronización automática de listas</li>
             <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Control de permisos por rol</li>
           </ul>
-          <div class="mt-8 p-4 rounded-xl bg-brand-darker">
-            <p class="text-brand-gold font-semibold text-sm mb-3">Costo adicional por local</p>
-            <div class="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <p class="text-white font-bold text-lg">+USD 20</p>
-                <p class="text-gray-400 text-xs">Básico</p>
-              </div>
-              <div>
-                <p class="text-white font-bold text-lg">+USD 35</p>
-                <p class="text-gray-400 text-xs">Standard</p>
-              </div>
-              <div>
-                <p class="text-white font-bold text-lg">+USD 45</p>
-                <p class="text-gray-400 text-xs">IA Pro</p>
-              </div>
-            </div>
-          </div>
-          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20plan%20de%20Franquicias" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Agendar reunión</a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20plan%20de%20Franquicias" target="_blank" rel="noopener" class="mt-8 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Consultanos</a>
         </div>
       </div>
 
@@ -621,22 +626,35 @@
         <div class="animate-on-scroll p-8 rounded-2xl bg-brand-dark text-white text-center">
           <span class="text-sm text-brand-gold font-semibold">Plan Proveedores</span>
           <div class="mt-3">
-            <span class="text-5xl font-bold">USD 80</span>
+            <span class="text-5xl font-bold">USD 100</span>
             <span class="text-gray-400 text-sm"> / mes</span>
           </div>
-          <p class="mt-2 text-sm text-gray-400">Para distribuidores y proveedores gastronómicos</p>
+          <p class="mt-2 text-sm text-gray-400">Incluye hasta 10 clientes activos</p>
+          <div class="mt-6 p-4 rounded-xl bg-brand-darker">
+            <div class="grid grid-cols-2 gap-4 text-center">
+              <div>
+                <p class="text-white font-bold text-lg">+USD 5</p>
+                <p class="text-gray-400 text-xs">por cliente, del 11 al 50</p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-lg">+USD 3</p>
+                <p class="text-gray-400 text-xs">por cliente, desde el 51</p>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-gray-400">Solo contamos los clientes que te compraron en el mes. Tus clientes piden gratis.</p>
           <hr class="my-6 border-brand-circle/30">
           <ul class="space-y-2 text-sm text-gray-300 text-left max-w-sm mx-auto">
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Catálogo digital de productos</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Catálogo digital con stock</li>
             <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Listas de precios por cliente</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Asignación a restaurantes</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Recepción de pedidos estructurados</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Gestión de stock</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Historial de ventas y facturación</li>
-            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Notificaciones automáticas</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Pedidos por WhatsApp y web</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Entregas con repartidor</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Factura por lo entregado</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Historial de ventas</li>
             <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Carga masiva desde Excel</li>
+            <li class="flex items-start gap-2"><span class="text-brand-gold mt-0.5">✓</span> Usuarios ilimitados, sin comisión por pedido</li>
           </ul>
-          <a href="https://wa.me/59898361013?text=Hola%2C%20me%20interesa%20el%20Plan%20Proveedores" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Elegir plan</a>
+          <a href="proveedores.html" class="mt-6 inline-flex items-center justify-center px-8 py-3 rounded-lg bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-all duration-300">Ver todo para proveedores</a>
         </div>
       </div>
     </div>
@@ -693,7 +711,7 @@
             <i data-lucide="chevron-down" class="w-5 h-5 text-brand-gold shrink-0 transition-transform duration-300 group-open:rotate-180"></i>
           </summary>
           <div class="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
-            Para restaurantes: Plan Básico USD 60/mes (compras), Standard USD 85/mes (costeo y reportes) o IA Pro USD 110/mes (asistente inteligente). Para franquicias: USD 350/mes fee corporativo + costo por local. Para proveedores: USD 80/mes. <a href="#precios" class="text-brand-gold hover:underline">Ver planes completos</a>.
+            Para restaurantes: Gratis para comprarle a tus proveedores en ForkCast, Básico USD 20/mes (todas tus compras en un lugar), Pro USD 40/mes (comparador y alertas de precios) e Integral USD 60/mes (compra sugerida). Para cadenas y franquicias, precio a medida según la cantidad de locales. Para proveedores: USD 100/mes con hasta 10 clientes activos, más USD 5 por cliente del 11 al 50 y USD 3 desde el 51. <a href="#precios" class="text-brand-gold hover:underline">Ver planes completos</a>.
           </div>
         </details>
         <details class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden">
