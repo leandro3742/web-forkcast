@@ -45,9 +45,9 @@
     "areaServed": { "@type": "Country", "name": "Argentina" },
     "offers": {
       "@type": "Offer",
-      "price": "80",
+      "price": "100",
       "priceCurrency": "USD",
-      "description": "Plan Proveedores, por mes. Onboarding incluido."
+      "description": "Plan Proveedores, por mes. Incluye hasta 10 clientes activos; USD 5 por cliente del 11 al 50 y USD 3 desde el 51. Onboarding incluido."
     }
   }
   </script>
@@ -62,7 +62,7 @@
       { "@type": "Question", "name": "¿Puedo tener precios distintos por cliente?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Creás listas de precios, las derivás con ajuste porcentual, aplicás descuentos y bonificaciones por producto, y asignás cada lista a los clientes que corresponde. Cada cliente ve solo lo suyo." } },
       { "@type": "Question", "name": "¿Cómo llega la factura a mi sistema?", "acceptedAnswer": { "@type": "Answer", "text": "ForkCast se conecta a tu sistema de facturación. Cuando cerrás una entrega, la factura se emite por lo que efectivamente salió. Hoy la integración está disponible para Contabilium; si usás otro, contanos cuál." } },
       { "@type": "Question", "name": "¿ForkCast reemplaza mi sistema de gestión?", "acceptedAnswer": { "@type": "Answer", "text": "No. ForkCast es tu canal de ventas a restaurantes: catálogo, pedidos, entregas y lo que hace falta para facturar. La contabilidad, el stock general y la cobranza siguen en tu sistema." } },
-      { "@type": "Question", "name": "¿Cuánto cuesta y cuánto tarda arrancar?", "acceptedAnswer": { "@type": "Answer", "text": "USD 80 por mes, sin comisión por pedido, clientes ilimitados. Cargamos tu catálogo y tus listas, conectamos la facturación e invitamos a tus primeros clientes. En una semana estás operando." } }
+      { "@type": "Question", "name": "¿Cuánto cuesta y cuánto tarda arrancar?", "acceptedAnswer": { "@type": "Answer", "text": "USD 100 por mes con hasta 10 clientes activos; después USD 5 por cliente del 11 al 50 y USD 3 desde el 51. Sin comisión por pedido, usuarios ilimitados y pedidos por WhatsApp incluidos. Cargamos tu catálogo y tus listas, conectamos la facturación e invitamos a tus primeros clientes. En una semana estás operando." } }
     ]
   }
   </script>
@@ -188,7 +188,7 @@
             Ver todo lo que incluye
           </a>
         </div>
-        <p class="hero-fade-delay-2 mt-6 text-sm text-gray-400">USD 80 por mes. Sin comisión por pedido. Clientes ilimitados.</p>
+        <p class="hero-fade-delay-2 mt-6 text-sm text-gray-400">Desde USD 100 por mes. Sin comisión por pedido. Usuarios ilimitados.</p>
       </div>
 
       <!-- Mock: pedidos -->
@@ -551,19 +551,30 @@
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="animate-on-scroll">
         <span class="inline-block text-sm font-semibold text-brand-gold uppercase tracking-wide">Precio</span>
-        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Un precio. Sin comisión por pedido.</h2>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-brand-dark">Pagás por los clientes que te compran. Sin comisión por pedido.</h2>
       </div>
       <div class="animate-on-scroll mt-12 p-8 sm:p-10 rounded-3xl bg-brand-dark text-left shadow-xl">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <p class="text-brand-gold font-semibold">Plan Proveedores</p>
-            <p class="mt-1 text-gray-300">Para distribuidoras y proveedores gastronómicos</p>
+            <p class="mt-1 text-gray-300">Incluye hasta 10 clientes activos</p>
           </div>
           <div class="text-white">
-            <span class="font-serif text-5xl">USD 80</span>
+            <span class="font-serif text-5xl">USD 100</span>
             <span class="text-gray-400"> / mes</span>
           </div>
         </div>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-4 rounded-xl bg-brand-darker">
+            <p class="text-white font-semibold">+USD 5 por cliente</p>
+            <p class="text-gray-400 text-sm">del cliente 11 al 50</p>
+          </div>
+          <div class="p-4 rounded-xl bg-brand-darker">
+            <p class="text-white font-semibold">+USD 3 por cliente</p>
+            <p class="text-gray-400 text-sm">desde el cliente 51</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-gray-400">Cliente activo es el que te hizo al menos un pedido en el mes. Los que invitaste y todavía no compran no se cobran. Tus clientes piden gratis.</p>
         <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-200 text-sm">
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Catálogo, stock y carga por Excel</li>
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Listas de precios por cliente, ilimitadas</li>
@@ -571,7 +582,7 @@
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Entregas, repartidores y prueba de entrega</li>
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Factura por lo entregado, webhooks y API</li>
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Ventas, clientes y marketplace</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Usuarios y clientes ilimitados</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Usuarios y repartidores ilimitados</li>
           <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-gold"></i>Onboarding hecho por nosotros</li>
         </ul>
         <a href="https://wa.me/59898361013?text=Hola%2C%20tengo%20una%20distribuidora%20y%20quiero%20ver%20ForkCast" target="_blank" rel="noopener" class="mt-8 w-full inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
@@ -615,7 +626,7 @@
         </details>
         <details class="animate-on-scroll group rounded-2xl border border-gray-200 bg-brand-light p-6">
           <summary class="flex items-center justify-between cursor-pointer font-semibold text-brand-dark list-none">¿Cuánto cuesta y cuánto tarda arrancar?<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i></summary>
-          <p class="mt-4 text-gray-500 leading-relaxed">USD 80 por mes, sin comisión por pedido, con usuarios y clientes ilimitados. Nos pasás tu catálogo en Excel, lo cargamos, conectamos la facturación e invitamos a tus primeros clientes con vos. En una semana estás operando.</p>
+          <p class="mt-4 text-gray-500 leading-relaxed">USD 100 por mes con hasta 10 clientes activos. Después sumás USD 5 por cliente del 11 al 50 y USD 3 desde el 51. Solo contamos los clientes que te compraron en el mes, sin comisión por pedido y con usuarios ilimitados. Los pedidos por WhatsApp están incluidos (hasta 20 por cliente activo por mes, en promedio). Nos pasás tu catálogo en Excel, lo cargamos, conectamos la facturación e invitamos a tus primeros clientes con vos. En una semana estás operando.</p>
         </details>
       </div>
     </div>
