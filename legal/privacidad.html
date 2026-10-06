@@ -9,6 +9,48 @@
   <link rel="canonical" href="https://www.forkcast.tech/legal/privacidad">
   <link rel="icon" type="image/png" href="/forkcast-logo.png">
   <link rel="stylesheet" href="/legal.css">
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
 </head>
 <body>
 
@@ -29,7 +71,7 @@
 
   <main class="wrap">
     <h1>Política de Privacidad</h1>
-    <p class="updated">Última actualización: 30 de julio de 2026</p>
+    <p class="updated">Última actualización: 5 de octubre de 2026</p>
 
     <p>Esta política describe cómo ForkCast recoge, utiliza, comparte y protege los datos personales de sus usuarios y clientes. Se rige por la <strong>Ley N.º 18.331 de Protección de Datos Personales y Acción de Habeas Data</strong> de la República Oriental del Uruguay y su decreto reglamentario N.º 414/009.</p>
 
@@ -157,6 +199,7 @@
           <tr><td>Railway Corp. (EE.UU.)</td><td>Alojamiento de la aplicación y de la base de datos PostgreSQL</td><td>Todos los datos de cuenta, facturación y operativos</td></tr>
           <tr><td>Vercel Inc. (EE.UU.)</td><td>Alojamiento del sitio web público y de la aplicación web</td><td>Datos técnicos de navegación</td></tr>
           <tr><td>Cloudflare, Inc. (EE.UU.)</td><td>Almacenamiento de archivos y documentos adjuntos (Cloudflare R2)</td><td>Documentos e imágenes cargados por el Cliente</td></tr>
+          <tr><td>Google LLC (EE.UU.)</td><td>Medición del uso del sitio web público (Google Analytics), sujeta a la aceptación de cookies analíticas</td><td>Datos técnicos de navegación (páginas visitadas, dispositivo, origen de la visita, dirección IP truncada)</td></tr>
         </tbody>
       </table>
     </div>
@@ -249,12 +292,13 @@
         </thead>
         <tbody>
           <tr><td>Técnicas / de sesión</td><td>Mantener la sesión iniciada y la seguridad del acceso. Imprescindibles: sin ellas la aplicación no funciona.</td><td>Sesión o hasta el cierre de sesión</td></tr>
-          <tr><td>De preferencia</td><td>Recordar ajustes de la interfaz elegidos por el usuario.</td><td>Hasta 12 meses</td></tr>
+          <tr><td>De preferencia</td><td>Recordar ajustes de la interfaz elegidos por el usuario, incluida su elección sobre cookies analíticas.</td><td>Hasta 12 meses</td></tr>
+          <tr><td>Analíticas (Google Analytics)</td><td>Medir de forma agregada cómo se usa el sitio público (páginas visitadas, origen de las visitas, clics en registro y contacto). Solo se activan si el usuario las acepta.</td><td>Hasta 14 meses</td></tr>
         </tbody>
       </table>
     </div>
-    <p>El sitio público <strong>no utiliza cookies de publicidad ni de seguimiento de terceros</strong>. Las cookies técnicas no requieren consentimiento previo por ser necesarias para la prestación del servicio expresamente solicitado por el usuario. El usuario puede bloquear o eliminar cookies desde la configuración de su navegador; hacerlo puede impedir el uso de la aplicación.</p>
-    <p>Si en el futuro se incorporaran cookies analíticas o publicitarias, se solicitará el consentimiento previo y se actualizará esta política.</p>
+    <p>El sitio público utiliza <strong>Google Analytics</strong> para medir su uso. Las cookies analíticas <strong>solo se instalan si el usuario las acepta</strong> en el aviso que se muestra en la primera visita. Mientras no las acepte, Google Analytics funciona sin cookies y solo recibe datos técnicos agregados, sin identificar al visitante. El usuario puede cambiar su elección borrando las cookies y los datos del sitio desde su navegador.</p>
+    <p>El sitio <strong>no utiliza cookies de publicidad</strong>. Las cookies técnicas no requieren consentimiento previo por ser necesarias para la prestación del servicio expresamente solicitado por el usuario. Bloquearlas puede impedir el uso de la aplicación.</p>
 
     <h2>11. Menores de edad</h2>
     <p>ForkCast es un servicio dirigido exclusivamente a empresas y profesionales. No está destinado a menores de 18 años y no recogemos deliberadamente datos de menores. Si detectamos que se han registrado datos de un menor, procederemos a su eliminación.</p>
