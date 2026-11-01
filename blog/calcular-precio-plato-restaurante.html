@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo calcular el precio de un plato en Argentina sin perder margen | ForkCast Blog</title>
+  <meta name="description" content="Aprendé a calcular el precio de un plato en Argentina y protegé tu margen ante la inflación y cambios en los insumos.">
+  <meta name="keywords" content="como calcular el precio de un plato, restaurante, gastronomia, gestion, ForkCast">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/blog/calcular-precio-plato-restaurante.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.forkcast.tech/blog/calcular-precio-plato-restaurante.html">
+  <meta property="og:title" content="Cómo calcular el precio de un plato en Argentina sin perder margen">
+  <meta property="og:description" content="Aprendé a calcular el precio de un plato en Argentina y protegé tu margen ante la inflación y cambios en los insumos.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+  <meta property="article:published_time" content="2026-11-01">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cómo calcular el precio de un plato en Argentina sin perder margen">
+  <meta name="twitter:description" content="Aprendé a calcular el precio de un plato en Argentina y protegé tu margen ante la inflación y cambios en los insumos.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <link rel="apple-touch-icon" href="../forkcast-logo.png">
+
+  <!-- Structured Data — BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Cómo calcular el precio de un plato en Argentina sin perder margen",
+    "description": "Aprendé a calcular el precio de un plato en Argentina y protegé tu margen ante la inflación y cambios en los insumos.",
+    "datePublished": "2026-11-01",
+    "dateModified": "2026-11-01",
+    "author": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.forkcast.tech/forkcast-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.forkcast.tech/blog/calcular-precio-plato-restaurante.html"
+    },
+    "keywords": "como calcular el precio de un plato",
+    "wordCount": 2696,
+    "articleSection": "Costos"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #2A3C2E; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 600; color: #3D5A42; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .article-content ul { list-style-type: disc; }
+    .article-content ol { list-style-type: decimal; }
+    .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-content strong { color: #2A3C2E; }
+
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+  </style>
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="block hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="pt-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-green transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-brand-green transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-dark font-medium">Costos</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <main class="bg-brand-light pb-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <header class="pb-8 border-b border-gray-200 mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #C9A84C">Costos</span>
+          <span class="text-sm text-gray-400">14 min de lectura</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Cómo calcular el precio de un plato en Argentina sin perder margen</h1>
+        <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <time datetime="2026-11-01">1 de noviembre de 2026</time>
+          <span>|</span>
+          <span>Por ForkCast</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content">
+        <p>Calcular el precio de un plato en Argentina es clave para mantener la rentabilidad de tu restaurante. Con una correcta estrategia, podés proteger tu margen frente a la inflación y fluctuaciones de precios en los insumos.</p>
+<h2>Entender el costo de los insumos</h2>
+<p>Calcular el precio de un plato comienza por conocer el costo de los insumos. Este proceso implica identificar todos los ingredientes necesarios para cada plato del menú y calcular su costo total. En Argentina, donde la inflación y las variaciones de precios son comunes, es fundamental mantenerse actualizado con las listas de precios de las distribuidoras.</p>
+<h3>Identificación de insumos</h3>
+<p>Para empezar, es esencial listar cada insumo necesario para la preparación de un plato. Tomemos como ejemplo ilustrativo un bife de cuadril con papas:</p>
+<ul>
+  <li><strong>Bife de cuadril:</strong> 200 g</li>
+  <li><strong>Papas:</strong> 150 g</li>
+  <li><strong>Aceite:</strong> 10 ml</li>
+  <li><strong>Sal y pimienta:</strong> 2 g</li>
+  <li><strong>Perejil:</strong> 5 g</li>
+</ul>
+<p>Una vez identificados los insumos, el siguiente paso es asignarles un costo. Por ejemplo, si el kilo de cuadril cuesta $2.000, el costo del bife de 200 g sería aproximadamente $400. Este proceso se repite para cada insumo.</p>
+<h3>Variaciones de precios</h3>
+<p>Es crucial considerar que los precios de los insumos pueden variar con frecuencia. Mantener una comunicación constante con las distribuidoras y revisar las listas de precios regularmente es vital para garantizar que el costo calculado sea lo más preciso posible. Un aumento en el precio del cuadril o las papas puede impactar significativamente el costo total del plato.</p>
+<p>Al comprender el costo de los insumos, no solo se puede calcular un precio adecuado para cada plato, sino también tomar decisiones informadas sobre posibles ajustes en el menú o negociaciones con proveedores. Además, tener un inventario bien gestionado ayuda a evitar desperdicios y a optimizar el uso de los insumos, contribuyendo directamente a la rentabilidad del negocio.</p>
+<h2>Incluir costos indirectos</h2>
+<p>Calcular el precio de un plato no se trata solo de sumar el costo de los ingredientes. Hay una serie de gastos que, aunque no son visibles en el plato, impactan de manera significativa en el resultado final. Estos son los costos indirectos, y es crucial incluirlos para no perjudicar tus márgenes de ganancia.</p>
+
+<p>Comenzá por identificar todos los gastos operativos que tu negocio enfrenta regularmente. Estos pueden incluir:</p>
+<ul>
+  <li><strong>Electricidad y gas:</strong> Dos de los servicios más esenciales para el funcionamiento de un restaurante. Desde la iluminación hasta la cocina, todo consume energía.</li>
+  <li><strong>Alquiler:</strong> El espacio físico donde operás tiene un costo que debe ser cubierto por las ventas. Asegurate de repartir este gasto equitativamente entre todos los platos.</li>
+  <li><strong>Salarios del personal:</strong> Incluí los sueldos de mozos, cocineros, encargados y demás personal que hace posible el funcionamiento diario.</li>
+</ul>
+
+<p>Para repartir estos costos de manera justa, primero sumá todos los gastos indirectos mensuales. Luego, dividí esta cifra por la cantidad de platos que estimás servir en ese mismo período. Por ejemplo, si tus gastos indirectos mensuales son $150.000 y esperás servir 3.000 platos, cada plato debería absorber $50 en costos indirectos. Este es un número ilustrativo, pero te da una idea de cómo proceder.</p>
+
+<p>Recordá que los costos indirectos pueden variar con el tiempo. La inflación, cambios en los servicios públicos o ajustes salariales pueden afectar estos números, por lo que es crucial revisarlos periódicamente. Incluir estos costos de manera precisa te ayudará a establecer precios más realistas y a mantener la salud financiera de tu restaurante.</p>
+<h2>Determinar un margen de ganancia adecuado</h2>
+<p>Fijar un margen de ganancia adecuado es crucial para que tu negocio sea rentable sin dejar de ser competitivo en el mercado. Un margen de ganancia correctamente calculado equilibra tus necesidades financieras con las expectativas del cliente y las condiciones del mercado local. Aquí te dejamos algunas pautas para definirlo:</p>
+
+<h3>Factores a considerar</h3>
+<ul>
+  <li><strong>Ubicación del local:</strong> La ubicación influye significativamente en los precios que podés establecer. En zonas más exclusivas, los clientes suelen estar dispuestos a pagar más, lo que permite un margen de ganancia más alto. Sin embargo, en áreas competitivas, tal vez debas ajustar el margen para no perder clientela.</li>
+  <li><strong>Tipo de clientela:</strong> Conocer a tu clientela te permitirá ajustar los precios según sus expectativas y capacidad de pago. Por ejemplo, si tu restaurante se enfoca en un público joven y universitario, quizás necesites mantener los márgenes más bajos para atraer volumen de ventas.</li>
+  <li><strong>Oferta y demanda:</strong> La demanda de ciertos platos puede permitir márgenes más altos. Si tenés un plato estrella que siempre se vende, podés considerar un mayor margen en ese caso específico.</li>
+</ul>
+
+<h3>Definí un porcentaje de ganancia</h3>
+<p>El margen de ganancia suele oscilar entre el <strong>20% y el 35%</strong> sobre el costo total de un plato. Este rango es ilustrativo y puede variar según los factores mencionados. Por ejemplo, si el costo de elaborar un plato es de $500, podrías considerar un precio de venta entre $625 y $675 para obtener una ganancia razonable.</p>
+
+<p>Mantenerte actualizado sobre los precios de los insumos es fundamental, especialmente en contextos de inflación como el argentino. Las listas de precios cambian frecuentemente, y lo que hoy es rentable, mañana puede no serlo. Revisá tus márgenes periódicamente para asegurarte de que sigan siendo competitivos y rentables.</p>
+<h2>Ejemplo práctico: cálculo de precio de un plato</h2>
+
+<p>Para ilustrar cómo calcular el precio de un plato, tomemos como ejemplo una milanesa con ensalada. Este cálculo es ilustrativo y los números son solo ejemplos. Consideraremos el costo de los insumos, los costos indirectos y el margen de ganancia.</p>
+
+<h3>Costo de los insumos</h3>
+<ul>
+  <li><strong>Carnes:</strong> supongamos que el precio del kilo de cuadril es de $1.200. Si cada milanesa lleva 200 gramos, el costo es de $240.</li>
+  <li><strong>Pan rallado y huevo:</strong> estimemos $30 por porción para ambos insumos.</li>
+  <li><strong>Ensalada:</strong> con lechuga, tomate y cebolla, calculamos un costo de $50 por porción.</li>
+  <li><strong>Aceite y condimentos:</strong> $20 por porción.</li>
+</ul>
+<p>El costo total de los insumos para este plato es de $340.</p>
+
+<h3>Costos indirectos</h3>
+<ul>
+  <li><strong>Gastos operativos:</strong> incluyendo electricidad, gas, y agua, asignamos $40 por plato.</li>
+  <li><strong>Mano de obra:</strong> considerando el salario del personal, estimamos $60 por plato.</li>
+</ul>
+<p>El costo total de los costos indirectos es de $100.</p>
+
+<h3>Margen de ganancia</h3>
+<p>Para asegurar rentabilidad, añadimos un margen de ganancia del 50%. Esto se aplica al costo total (insumos + indirectos) de $440, resultando en $220 de ganancia.</p>
+
+<h3>Cálculo final del precio</h3>
+<p>Sumando el costo total de $440 y la ganancia de $220, el precio de venta al público de la milanesa con ensalada sería de $660.</p>
+
+<p>Este ejemplo demuestra cómo un cálculo detallado ayuda a establecer un precio que cubre todos los costos y asegura un margen adecuado, considerando las condiciones del mercado argentino.</p>
+<h2>Errores comunes al calcular precios</h2>
+<p>Calcular el precio de un plato correctamente es fundamental para mantener la rentabilidad de un restaurante. Sin embargo, hay varios errores comunes que pueden comprometer tus márgenes de ganancia.</p>
+
+<h3>No ajustar precios ante la inflación</h3>
+<p>Uno de los errores más frecuentes es no actualizar los precios de los platos en respuesta a la inflación. En Argentina, donde los precios de los insumos pueden cambiar rápidamente, es crucial revisar y ajustar los precios de manera regular. Por ejemplo, si el costo del cuadril aumenta un 10% y no ajustás el precio de venta, tu margen de ganancia se verá reducido. Asegurate de monitorear los cambios en los costos y adaptar tus precios en consecuencia.</p>
+
+<h3>Subestimar los costos indirectos</h3>
+<p>Otro error común es no considerar adecuadamente los costos indirectos al calcular el precio de un plato. Estos pueden incluir gastos como alquiler, sueldos de mozos y encargados, servicios públicos y mantenimiento. Ignorar estos costos puede llevar a fijar precios que no cubren todos los gastos del negocio. Para evitar esto, calculá todos los costos indirectos y distribuílos proporcionalmente entre los platos del menú.</p>
+
+<h3>Fijar márgenes de ganancia arbitrarios</h3>
+<p>Establecer un margen de ganancia sin un análisis detallado puede ser perjudicial. Es importante definir un porcentaje de ganancia que sea competitivo pero también realista. No te guíes solo por lo que hace la competencia; considerá tu estructura de costos y tus objetivos financieros. Por ejemplo, un margen del 30% puede ser adecuado para algunos platos, pero insuficiente para otros con costos de insumos más altos.</p>
+
+<h3>Olvidar la fluctuación de la demanda</h3>
+<p>Finalmente, no tener en cuenta la fluctuación de la demanda es otro error común. Algunos platos pueden ser más populares en ciertas épocas del año, lo cual debe reflejarse en su precio para optimizar ingresos. Evaluá la demanda estacional y ajustá tus precios estratégicamente para maximizar las ventas sin sacrificar la rentabilidad.</p>
+<h2>La importancia de revisar y ajustar precios regularmente</h2>
+
+<p>En Argentina, donde la inflación es un factor constante y los precios de los insumos pueden variar de un día para otro, es fundamental revisar y ajustar los precios de tus platos de manera regular. Mantener una mirada atenta sobre los costos te permitirá reaccionar rápidamente ante cambios en el mercado, asegurando que tu negocio se mantenga competitivo y rentable.</p>
+
+<h3>Factores que afectan los precios</h3>
+
+<p>Existen varios elementos que pueden influir en la necesidad de ajustar tus precios:</p>
+
+<ul>
+    <li><strong>Variación en el costo de los insumos:</strong> Los precios de productos como carne, verduras o lácteos pueden sufrir fluctuaciones significativas. Por ejemplo, el costo del lomo puede aumentar un 10% en un mes, impactando directamente en el costo del plato.</li>
+    <li><strong>Inflación:</strong> En un contexto inflacionario, los costos operativos, como salarios de mozos y alquileres, también tienden a subir. Es importante tener en cuenta estos aumentos para evitar que tus márgenes se reduzcan.</li>
+    <li><strong>Competencia:</strong> Revisar lo que está haciendo la competencia también es clave. Si tus precios están por encima del promedio del mercado, podrías estar perdiendo clientela.</li>
+</ul>
+
+<h3>Beneficios de ajustar precios</h3>
+
+<p>Revisar y ajustar los precios regularmente trae múltiples beneficios:</p>
+
+<ol>
+    <li><em>Mantener la rentabilidad:</em> Al ajustar tus precios acorde a los cambios en los costos, asegurás que tu margen de ganancia se mantenga estable.</li>
+    <li><em>Competitividad:</em> Precios actualizados te permiten competir mejor en el mercado y atraer a más clientes.</li>
+    <li><em>Planificación financiera:</em> Con precios bien calculados, podés planificar mejor tus finanzas, gestionar tus pagos a proveedores y cumplir con tus obligaciones fiscales.</li>
+</ol>
+
+<p>Para implementar una estrategia efectiva de ajuste de precios, es recomendable establecer un calendario de revisiones periódicas, ya sea semanal, quincenal o mensual, dependiendo de la volatilidad de los precios en tu sector. Esto te permitirá tomar decisiones informadas y asegurar que tus precios reflejen siempre la realidad del mercado y de tu negocio.</p>
+<h2>Consideraciones fiscales y legales</h2>
+<p>Calcular correctamente el precio de un plato no solo implica entender los costos directos e indirectos, sino también tener en cuenta las obligaciones fiscales y legales que afectan a tu negocio. En Argentina, el <strong>IVA (Impuesto al Valor Agregado)</strong> es un componente esencial en la estructura de costos. La mayoría de los productos y servicios están gravados con un IVA del 21%, aunque algunos alimentos pueden tener tasas reducidas. Asegurate de incluir este impuesto en el precio de venta final para no ver afectado tu margen de ganancia.</p>
+
+<p>Además del IVA, es importante considerar otras tasas e impuestos que pueden aplicarse según la localidad y el tipo de actividad. Un ejemplo es el <em>Impuesto sobre los Ingresos Brutos</em>, que varía entre provincias y afecta directamente a la rentabilidad del negocio. También es crucial mantenerse al día con los cambios normativos y fiscales, ya que pueden impactar en los costos y precios.</p>
+
+<h3>Mantenimiento de documentación adecuada</h3>
+<p>Para evitar problemas legales, es fundamental llevar un registro exhaustivo de todas las transacciones. Esto incluye conservar facturas, remitos y cualquier documento relacionado con la compra y venta de insumos y servicios. Un sistema de archivo ordenado no solo te ayudará a cumplir con las normativas fiscales, sino que también facilitará la gestión interna del negocio.</p>
+
+<p>Establecer un proceso regular de auditoría interna puede ser beneficioso para asegurar que toda la documentación esté al día y que los cálculos de precios sigan siendo precisos. Este hábito puede prevenir inconvenientes durante inspecciones fiscales y garantizar que el negocio opere dentro del marco legal.</p>
+
+<p>Finalmente, es aconsejable contar con el asesoramiento de un profesional contable que pueda ofrecer orientación específica sobre cómo gestionar estos aspectos fiscales y legales de manera eficaz. Esto no solo te dará tranquilidad, sino que también contribuirá a la estabilidad y crecimiento del negocio a largo plazo.</p>
+<h2>Herramientas para facilitar el cálculo de precios</h2>
+
+<p>En un contexto donde la inflación y las variaciones de precios son constantes, contar con herramientas adecuadas para gestionar los precios de los platos en tu restaurante es esencial. Las plataformas digitales actuales pueden ofrecerte soluciones prácticas para mantener el control sobre los costos, optimizar el uso de los insumos y asegurar márgenes de ganancia adecuados.</p>
+
+<h3>Actualización de precios de insumos</h3>
+
+<p>Una de las funcionalidades clave de estas plataformas es la capacidad de mantener actualizado el precio de los insumos. Esto es fundamental en un mercado donde los precios pueden cambiar de un día para otro. Al centralizar la información de tus proveedores, podés recibir alertas cada vez que haya una modificación en los precios, lo que te permite ajustar el costo de tus platos de manera oportuna.</p>
+
+<h3>Cálculo automático del costo por plato</h3>
+
+<p>Otra herramienta valiosa es el cálculo automático del costo por plato. Al ingresar las cantidades de cada ingrediente y su costo actual, la plataforma te permite conocer de inmediato cuánto te cuesta preparar cada opción de tu menú. Por ejemplo, si un plato de cuadril requiere insumos que suman un costo de $1.200, podés inmediatamente evaluar si el precio de venta que estás considerando te dejará el margen de ganancia deseado.</p>
+
+<h3>Comparación de precios entre proveedores</h3>
+
+<p>Además, la posibilidad de comparar precios entre distintos proveedores te otorga una ventaja competitiva. Esto no solo te permite elegir la opción más económica, sino que también te ayuda a negociar mejores condiciones con tus proveedores habituales. Si un distribuidor ofrece lomo a $3.500 el kilo, mientras que otro lo tiene a $3.800, podés decidir de manera informada y estratégica.</p>
+
+<h3>Alertas y control</h3>
+
+<p>Finalmente, recibir alertas sobre cambios en los precios y contar con un control centralizado del inventario simplifica la gestión diaria. Esto es especialmente útil para el personal encargado de las compras, que puede asegurarse de que siempre haya stock suficiente sin excederse y sin incurrir en costos innecesarios.</p>
+
+<p>En resumen, al adoptar estas herramientas, podés llevar una gestión más eficiente y precisa de los precios, lo cual es fundamental para mantener la rentabilidad de tu negocio gastronómico en un mercado tan dinámico como el argentino.</p>
+<h2>Preguntas frecuentes sobre el cálculo de precios en restaurantes</h2>
+
+<h3>¿Cómo afecta la inflación al cálculo de precios de los platos?</h3>
+<p>La inflación en Argentina impacta directamente en el costo de los insumos, lo que requiere revisiones constantes de los precios de los platos. Es fundamental mantener una lista actualizada de precios de proveedores y ajustar los precios de venta para proteger el margen de ganancia.</p>
+
+<h3>¿Es recomendable ofrecer descuentos o promociones y cómo afecta esto al margen?</h3>
+<p>Ofrecer descuentos o promociones puede ser una estrategia efectiva para atraer clientes, pero es crucial calcular cómo estas acciones impactan en el margen de ganancia. Siempre considerá el costo real de los insumos y el margen deseado antes de implementar estas ofertas.</p>
+
+<h3>¿Cómo manejar los cambios de precios de los proveedores?</h3>
+<p>Los cambios en los precios de los proveedores son comunes y pueden afectar tus costos. Es importante negociar con proveedores y buscar alternativas para mantener el control sobre los costos. Herramientas que permiten comparar precios entre proveedores pueden ser muy útiles en este aspecto.</p>
+
+<h2>Cómo ForkCast puede optimizar la gestión de compras y precios</h2>
+
+<p>ForkCast simplifica la gestión de compras al permitir que los restaurantes compren a todos sus proveedores desde un solo lugar, ya sea a través de la web o WhatsApp. Al tener acceso a listas de precios actualizadas y alertas de cambios, es más fácil mantener el control sobre los costos de los insumos y ajustar los precios de los platos según sea necesario.</p>
+
+<p>Además, ForkCast ofrece la posibilidad de ver el costo por plato y el CMV con los precios reales de las compras, lo que facilita un cálculo preciso del margen de ganancia. Con esta información al alcance, los encargados pueden tomar decisiones informadas y estratégicas para mantener la rentabilidad del negocio. Te invitamos a conocer más sobre cómo ForkCast puede ayudarte en este proceso.</p>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-12 rounded-2xl bg-brand-dark p-8 sm:p-10 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ordená tus compras con ForkCast</h2>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">Restaurantes: pedile a todos tus proveedores desde un solo lugar y compará precios, gratis. Distribuidoras: recibí pedidos ordenados por WhatsApp y web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=calcular-precio-plato-restaurante" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+            Empezar gratis
+          </a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-dark mb-8">Mas articulos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/blog/como-calcular-food-cost.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el food cost de tu restaurante paso a paso</h3>
+          </div>
+        </a>
+
+        <a href="/blog/que-es-cac-gastronomia.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Que es el CAC en gastronomia? Guia completa de costeo por plato</h3>
+          </div>
+        </a>
+
+        <a href="/blog/cmv-restaurante-que-es.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">CMV en restaurantes: que es, como calcularlo y por que importa</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
