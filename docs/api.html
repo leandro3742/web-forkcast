@@ -587,10 +587,12 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">packageSize</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">unitsPerPackage</td><td class="px-4 py-2.5">number</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">packagingName</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
-                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">normalizedName</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">normalizedName</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">priceListProductId</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5 text-gray-400">—</td></tr>
                     </tbody>
                   </table>
                 </div>
+                <p class="text-xs text-gray-300 mt-2">Si el ítem trae <code class="text-brand-green text-xs">priceListProductId</code> de una lista de un proveedor, ForkCast calcula el precio con la lista vigente y sus precios por cantidad, e ignora el <code class="text-brand-green text-xs">price</code> enviado. Las líneas del mismo producto se suman para elegir la escala. La respuesta suma en cada ítem <code class="text-brand-green text-xs">listUnitPrice</code> (precio base) y <code class="text-brand-green text-xs">tierMinQuantity</code> (escala aplicada, o <code class="text-brand-green text-xs">null</code>). Lo mismo vale para <code class="text-brand-green text-xs">PUT /purchase-orders/{id}</code> y <code class="text-brand-green text-xs">POST /purchase-orders/bulk</code>.</p>
               </div>
 
               <div>
@@ -599,6 +601,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Orden creada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Datos inválidos</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Un producto ya no está en la lista</span></div>
                 </div>
               </div>
             </div>
@@ -793,6 +796,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso a esta orden</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Orden no está en estado pending</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Un producto ya no está en la lista (los precios se recalculan con la lista vigente)</span></div>
                 </div>
               </div>
             </div>
