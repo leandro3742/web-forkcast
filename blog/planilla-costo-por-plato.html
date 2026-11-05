@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planilla de costo por plato: qué columnas lleva y cómo mantenerla al día | ForkCast Blog</title>
+  <meta name="description" content="Aprendé a crear y actualizar una planilla de costo por plato en tu restaurante en Argentina y mejorá la rentabilidad.">
+  <meta name="keywords" content="planilla costo por plato, restaurante, gastronomia, gestion, ForkCast">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/blog/planilla-costo-por-plato.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.forkcast.tech/blog/planilla-costo-por-plato.html">
+  <meta property="og:title" content="Planilla de costo por plato: qué columnas lleva y cómo mantenerla al día">
+  <meta property="og:description" content="Aprendé a crear y actualizar una planilla de costo por plato en tu restaurante en Argentina y mejorá la rentabilidad.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+  <meta property="article:published_time" content="2026-11-05">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Planilla de costo por plato: qué columnas lleva y cómo mantenerla al día">
+  <meta name="twitter:description" content="Aprendé a crear y actualizar una planilla de costo por plato en tu restaurante en Argentina y mejorá la rentabilidad.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <link rel="apple-touch-icon" href="../forkcast-logo.png">
+
+  <!-- Structured Data — BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Planilla de costo por plato: qué columnas lleva y cómo mantenerla al día",
+    "description": "Aprendé a crear y actualizar una planilla de costo por plato en tu restaurante en Argentina y mejorá la rentabilidad.",
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-05",
+    "author": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.forkcast.tech/forkcast-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.forkcast.tech/blog/planilla-costo-por-plato.html"
+    },
+    "keywords": "planilla costo por plato",
+    "wordCount": 2956,
+    "articleSection": "Costos"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #2A3C2E; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 600; color: #3D5A42; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .article-content ul { list-style-type: disc; }
+    .article-content ol { list-style-type: decimal; }
+    .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-content strong { color: #2A3C2E; }
+
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+  </style>
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="block hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="pt-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-green transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-brand-green transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-dark font-medium">Costos</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <main class="bg-brand-light pb-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <header class="pb-8 border-b border-gray-200 mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #C9A84C">Costos</span>
+          <span class="text-sm text-gray-400">15 min de lectura</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Planilla de costo por plato: qué columnas lleva y cómo mantenerla al día</h1>
+        <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <time datetime="2026-11-05">5 de noviembre de 2026</time>
+          <span>|</span>
+          <span>Por ForkCast</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content">
+        <p>Gestionar un restaurante en Argentina implica enfrentar desafíos como la inflación y los cambios constantes en los precios de los insumos. Una planilla de costo por plato bien estructurada y actualizada es clave para controlar gastos y mejorar la rentabilidad.</p>
+<h2>¿Qué es una planilla de costo por plato?</h2>
+
+<p>Una planilla de costo por plato es una herramienta esencial para cualquier restaurante, bar o cafetería que busque gestionar eficientemente sus finanzas y establecer precios de venta competitivos. Básicamente, se trata de un documento, ya sea en formato físico o digital, que desglosa el costo de cada ingrediente y calcula el costo total de preparar un plato específico. Esta información es crucial para determinar el precio de venta adecuado, asegurando que cubras todos los gastos y obtengas un margen de ganancia razonable.</p>
+
+<p>En un contexto económico como el argentino, donde la inflación y las fluctuaciones de precios son moneda corriente, mantener actualizada esta planilla se vuelve vital para no comprometer la rentabilidad de tu negocio. Una planilla de costo por plato bien estructurada te permite identificar cuáles son los platos más rentables y cuáles podrían estar afectando tu margen. Esto no solo te ayuda a optimizar el menú, sino también a tomar decisiones informadas sobre las compras de insumos y las negociaciones con proveedores.</p>
+
+<p>El proceso de cálculo involucra sumar el costo de todos los ingredientes necesarios para preparar una porción de un determinado plato. Por ejemplo, si un plato de cuadril requiere 200 gramos de carne, 50 gramos de papas y 30 gramos de cebolla, deberás calcular el costo de cada uno de estos componentes en base a los precios actuales del mercado. Supongamos que el costo total de los ingredientes es de $450, esto te dará una base para establecer un precio de venta que cubra estos costos y genere ganancias.</p>
+
+<p>En resumen, una planilla de costo por plato es una herramienta indispensable para gestionar de manera eficaz las finanzas de un restaurante, ayudando a fijar precios de venta que reflejen tanto el costo real de producción como las condiciones del mercado, todo mientras se mantiene la rentabilidad del negocio.</p>
+<h2>Columnas esenciales de una planilla de costo por plato</h2>
+<p>Una planilla de costo por plato bien estructurada es fundamental para gestionar eficientemente los costos en un restaurante, bar o cafetería. A continuación, te detallo las columnas esenciales que no pueden faltar en tu planilla:</p>
+
+<h3>Nombre del plato</h3>
+<p>Es la primera columna y se utiliza para identificar cada plato de manera clara. Asegurate de usar nombres consistentes para evitar confusiones, especialmente si tenes variaciones del mismo plato.</p>
+
+<h3>Ingredientes</h3>
+<p>Listá todos los insumos necesarios para preparar el plato. Detallá cada ingrediente de manera precisa, como por ejemplo: "lomo", "papas", "aceite de oliva". Esto te facilitará el control de inventario y el cálculo de costos.</p>
+
+<h3>Cantidad por porción</h3>
+<p>Indicá la cantidad exacta de cada ingrediente que se utiliza en una porción del plato. Esto suele medirse en gramos, mililitros o unidades, según corresponda. Por ejemplo, "200g de lomo" o "50ml de aceite de oliva".</p>
+
+<h3>Costo unitario</h3>
+<p>En esta columna, anotá el precio unitario de cada ingrediente, es decir, cuánto cuesta un kilo, litro o unidad. Asegurate de actualizar estos valores con frecuencia, teniendo en cuenta la inflación y las variaciones del mercado.</p>
+
+<h3>Costo total por ingrediente</h3>
+<p>Calculá el costo de la cantidad específica de cada ingrediente utilizado en el plato. Esto se obtiene multiplicando la cantidad por el costo unitario. Por ejemplo, si usás 200g de lomo y el kilo cuesta $2.000, el costo total por ingrediente será $400.</p>
+
+<h3>Costo total del plato</h3>
+<p>Sumá todos los costos totales por ingrediente para obtener el costo total de preparar una porción del plato. Este número es crucial para fijar precios y calcular márgenes de ganancia.</p>
+
+<h3>Margen de ganancia</h3>
+<p>Finalmente, calculá el margen de ganancia restando el costo total del plato del precio de venta al público y dividiendo el resultado por el precio de venta. Este margen te indicará qué tan rentable es cada plato. Por ejemplo, si un plato se vende a $1.000 y su costo total es de $400, el margen de ganancia es del 60%.</p>
+<h2>Actualización de precios: un desafío constante</h2>
+<p>En el contexto económico argentino, donde la inflación y la volatilidad de precios son moneda corriente, la actualización de la <strong>planilla de costo por plato</strong> se convierte en una tarea crítica para cualquier establecimiento gastronómico. Los precios de los insumos pueden variar de un día para el otro, lo que impacta directamente en el costo final de cada plato que ofrecés en tu carta.</p>
+<p>Para mantener la rentabilidad de tu negocio, es fundamental revisar y actualizar los precios de los insumos de manera periódica. La frecuencia recomendada para esta revisión puede ser semanal o, al menos, quincenal. Esto te permitirá ajustar tus precios de venta o buscar alternativas de proveedores si es necesario. La clave está en no dejar que las variaciones de precios te tomen por sorpresa y erosionen tus márgenes de ganancia.</p>
+<p>Considerá que un cambio en el precio del cuadril o el lomo, por ejemplo, puede alterar significativamente el costo de un plato estrella de tu menú. Si el precio del cuadril sube de $2.000 a $2.200 por kilo, y usás medio kilo por plato, el costo del insumo para ese plato aumenta en $100. Estos números son solo ilustrativos, pero reflejan una situación común que puede afectar directamente tus finanzas.</p>
+<p>Además, es importante estar atentos a los remitos y facturas que recibís de tus proveedores. Comprobá que los precios cobrados coincidan con los pactados y registrados en tu planilla. También es útil mantenerse al tanto de las listas de precios de las distribuidoras, que pueden cambiar con frecuencia.</p>
+<p>En resumen, actualizar la planilla de costos regularmente te permite anticiparte a los cambios, tomar decisiones informadas y mantener la salud financiera de tu restaurante, bar o cafetería. La adaptación y la vigilancia son tus mejores aliadas en un entorno económico tan dinámico como el argentino.</p>
+<h2>Cómo calcular el costo unitario de los ingredientes</h2>
+
+<p>Calcular el costo unitario de los ingredientes es clave para mantener la rentabilidad de los platos en un restaurante. Este cálculo te permite conocer exactamente cuánto estás gastando en cada porción que servís, lo cual es fundamental para definir precios de venta adecuados. A continuación, te explico cómo hacerlo de manera sencilla.</p>
+
+<h3>Paso a paso para calcular el costo unitario</h3>
+
+<ol>
+  <li><strong>Identificá el precio de compra del paquete:</strong> Mirá en el remito o factura el precio total que pagaste por un paquete o unidad de un ingrediente. Por ejemplo, si compraste un cuadril entero por $15.000, ese será el precio de referencia.</li>
+  <li><strong>Determiná la cantidad total del paquete:</strong> Verificá cuántas unidades o kilos contiene el paquete. Siguiendo con el ejemplo del cuadril, supongamos que el paquete pesa 10 kilos.</li>
+  <li><strong>Dividí el precio por la cantidad:</strong> Para obtener el costo unitario, dividí el costo total del paquete por la cantidad total. En este caso, sería $15.000 dividido por 10 kilos, resultando en un costo unitario de $1.500 por kilo.</li>
+</ol>
+
+<p>Este cálculo te permitirá saber cuánto te cuesta el cuadril por kilo y, a partir de ahí, podés determinar el costo por cada porción que servís en tu restaurante. Recordá que estos números son ilustrativos y los precios pueden variar según la distribuidora y la temporada.</p>
+
+<p>Mantener este tipo de cálculos actualizados es esencial, especialmente en un contexto económico como el argentino, donde los precios de los insumos pueden cambiar con frecuencia. Estar al tanto de estos costos te ayudará a ajustar tus precios de venta y mantener la rentabilidad de tu negocio. Además, es importante revisar regularmente las facturas y los remitos para asegurarte de que no haya errores que puedan afectar tu cálculo de costos.</p>
+<h2>Errores comunes al completar una planilla de costos</h2>
+
+<p>Completar una planilla de costo por plato puede parecer sencillo, pero hay varios errores comunes que pueden afectar significativamente tus márgenes de ganancia. Identificarlos y evitarlos es clave para mantener una gestión financiera saludable en tu restaurante.</p>
+
+<h3>1. No incluir todos los ingredientes</h3>
+
+<p>Uno de los errores más frecuentes es omitir ingredientes al calcular los costos. Esto puede ocurrir con aquellos que se usan en pequeñas cantidades, como especias o aceites. Aunque parezcan insignificantes, estos insumos suman en el costo total del plato. Para evitarlos, hacé un listado exhaustivo de todos los ingredientes necesarios para cada receta y revisalo periódicamente para asegurarte de que no falte nada.</p>
+
+<h3>2. Olvidar actualizar los precios</h3>
+
+<p>En un contexto de inflación como el argentino, los precios de los insumos cambian frecuentemente. No mantener actualizados los precios puede llevar a decisiones de precios incorrectas y, por ende, a pérdidas. Establecé un sistema de revisión mensual de los precios y comparalos con las listas de precios de tus proveedores para asegurarte de que la planilla refleje la realidad del mercado.</p>
+
+<h3>3. No considerar mermas</h3>
+
+<p>Las mermas son las pérdidas de peso o volumen de los ingredientes durante su preparación y cocción. No considerarlas puede dar una imagen distorsionada de los costos reales. Calculá el porcentaje de merma para cada ingrediente (por ejemplo, el cuadril o lomo) y ajustá los costos en consecuencia. Esto te permitirá tener un cálculo más preciso del costo del plato.</p>
+
+<h3>4. No estandarizar las recetas</h3>
+
+<p>La falta de estandarización en las recetas puede causar variaciones en el costo de los platos. Asegurate de que cada encargado y mozo siga las recetas al pie de la letra para evitar inconsistencias. Un protocolo claro y bien comunicado es fundamental para que todos los miembros del equipo preparen los platos de la misma manera.</p>
+
+<p>Evitar estos errores comunes te ayudará a mantener la precisión en tu planilla de costos, lo cual es esencial para una operación rentable y sostenible.</p>
+<h2>Uso de tecnología para simplificar la gestión de costos</h2>
+
+<p>La tecnología ha avanzado enormemente y ofrece soluciones efectivas para el control de costos en el sector gastronómico. Las plataformas tecnológicas pueden ser un aliado clave para optimizar la compra de insumos, controlar el stock y mantener actualizados los datos de costos en un entorno económico tan cambiante como el de Argentina.</p>
+
+<h3>Control de costos y compras centralizadas</h3>
+
+<p>Una de las principales ventajas de utilizar tecnología es la centralización de las compras. Las plataformas permiten gestionar las compras de todos los proveedores desde un solo lugar, facilitando la comparación de precios y la elección de la mejor opción. Imaginá poder ver en tiempo real que el costo del cuadril aumentó un 10% y tomar decisiones rápidas para ajustar tu menú o buscar alternativas más económicas.</p>
+
+<h3>Actualización automática de datos</h3>
+
+<p>El manejo manual de listas de precios y costos puede ser abrumador, especialmente con la inflación que caracteriza al mercado argentino. Las plataformas tecnológicas actualizan automáticamente los precios de los insumos, ayudando a mantener la planilla de costo por plato siempre precisa. Esto es crucial para evitar sorpresas y asegurar una correcta gestión financiera.</p>
+
+<h3>Optimización del inventario</h3>
+
+<p>La tecnología también juega un rol importante en el manejo del inventario. Con herramientas para controlar el stock, podés evitar el exceso de productos perecederos y reducir el desperdicio. Un sistema que te avise cuando el stock de lomo esté bajo, por ejemplo, te permite hacer pedidos a tiempo y mantener la continuidad en el servicio.</p>
+
+<h3>Alertas y notificaciones</h3>
+
+<p>Las plataformas pueden enviar alertas y notificaciones sobre cambios de precios y ofertas especiales de tus proveedores, permitiéndote aprovechar oportunidades de ahorro. Por ejemplo, recibir una notificación de que la distribuidora local tiene una promoción en pechuga de pollo puede ayudarte a ajustar el menú y aumentar la rentabilidad.</p>
+
+<p>El uso de tecnología no solo simplifica la gestión de costos, sino que también permite a los encargados y dueños tomar decisiones informadas, agilizando los procesos y mejorando la eficiencia operativa en sus establecimientos.</p>
+<h2>Ventajas de mantener la planilla de costos al día</h2>
+<p>Mantener la planilla de costos por plato actualizada es fundamental para cualquier establecimiento gastronómico en Argentina. En un contexto donde los precios cambian rápidamente, tener un control preciso de los costos se traduce en varias ventajas significativas.</p>
+
+<h3>Mayor control financiero</h3>
+<p>Contar con una planilla de costos actualizada te permite tener un control detallado de tus gastos. Esto es crucial para mantener la rentabilidad de tu negocio. Por ejemplo, si el precio del lomo sube de $2.000 a $2.500 por kilo, podrás ajustar rápidamente tus precios de venta para no afectar tu margen de ganancia. Tener claridad sobre los costos de cada plato también ayuda a identificar áreas donde se puede ahorrar, como negociar mejores precios con proveedores o buscar insumos alternativos.</p>
+
+<h3>Mejor toma de decisiones</h3>
+<p>Una planilla de costos precisa te da la información necesaria para tomar decisiones informadas sobre el menú. Si un plato tiene un costo muy alto en comparación con su popularidad, quizás sea momento de replantear su presencia en la carta. También podés usar esta información para desarrollar promociones estratégicas o para rotar platos según la temporada y disponibilidad de insumos. Por ejemplo, si los precios del cuadril bajan durante los meses de invierno, podés ofrecer promociones atractivas en esa época.</p>
+
+<h3>Optimización de precios de venta</h3>
+<p>Saber exactamente cuánto te cuesta cada plato te permite fijar precios de venta competitivos y rentables. En un mercado con alta inflación, ajustar los precios de venta es una tarea constante. Una planilla de costos actualizada te ayuda a establecer precios que reflejen los cambios de tu estructura de costos sin sacrificar calidad ni margen de beneficio. Esto reduce el riesgo de sorpresas en tus finanzas y te permite mantener una oferta atractiva para los clientes.</p>
+<h2>Cómo ForkCast puede ayudarte con el costo por plato</h2>
+<p>La gestión de costos en el sector gastronómico argentino puede ser un verdadero desafío, sobre todo con la constante fluctuación de precios. Aquí es donde una herramienta eficaz puede marcar la diferencia. Una plataforma que centraliza la gestión de proveedores te permite obtener una visión clara y precisa de tus costos por plato, al tiempo que simplifica la tarea de mantener tus listas de precios actualizadas.</p>
+
+<h3>Integración de proveedores en un solo lugar</h3>
+<p>Al centralizar tus compras, no solo ahorras tiempo, sino que también puedes realizar un seguimiento más detallado de tus insumos. Comparar precios entre diferentes proveedores es clave para asegurar que estás obteniendo el mejor valor posible. Imaginá que podés ver que el precio del cuadril ha subido un 5% mientras que el lomo se mantiene estable. Con esta información, podés ajustar tus menús para maximizar la rentabilidad.</p>
+
+<h3>Control de entregas y alertas de precios</h3>
+<p>Muchas veces, los problemas de costos se originan en las entregas. Una plataforma que permite controlar lo que realmente se entrega, comparándolo con lo pactado en el remito, te ayuda a evitar sorpresas en las facturas. Además, las alertas de precios te notifican sobre cambios significativos, permitiéndote tomar decisiones informadas antes de que impacten negativamente en tus márgenes.</p>
+
+<h3>Cálculo automático del costo por plato</h3>
+<p>Con los precios en tiempo real de tus compras, podés calcular el costo por plato de manera precisa. Por ejemplo, si la harina sube de $100 a $120 por kilo, esta variación se reflejará automáticamente en el costo de tus panes o pastas, permitiéndote ajustar precios o porciones de forma proactiva.</p>
+
+<h3>Gestión eficiente y actualizada</h3>
+<p>Mantener la planilla de costo por plato actualizada es esencial para cualquier negocio gastronómico que busque ser rentable. Con una plataforma que integra la gestión de proveedores y precios en tiempo real, asegurás que tus decisiones se basen en datos precisos y actualizados, optimizando así tus operaciones y tu rentabilidad.</p>
+<h2>Preguntas frecuentes sobre la planilla de costo por plato</h2>
+
+<h3>¿Con qué frecuencia debería actualizar mi planilla de costos?</h3>
+<p>En un mercado como el argentino, donde la inflación y la variabilidad de precios son una constante, es recomendable actualizar la planilla de costos al menos una vez por semana. Esto permite reflejar los cambios en los precios de los insumos y mantener una visión precisa de los costos reales de cada plato.</p>
+
+<h3>¿Cómo puedo saber si el precio de un ingrediente está afectando demasiado mi costo final?</h3>
+<p>Un buen indicador es el porcentaje que cada ingrediente representa en el costo total del plato. Si un ingrediente en particular constituye más del 30% del costo total, es momento de evaluar alternativas más económicas o ajustar el precio del plato en el menú.</p>
+
+<h3>¿Qué debo hacer si un proveedor cambia sus precios inesperadamente?</h3>
+<p>Es clave tener una relación fluida con tus proveedores para anticipar cambios. Sin embargo, si ocurre un ajuste inesperado, revisá tu planilla de costos de inmediato y considerá alternativas. Herramientas como ForkCast pueden ayudarte a comparar precios de diferentes proveedores en tiempo real.</p>
+
+<h3>¿Cuál es la mejor manera de manejar los insumos que se compran en grandes cantidades?</h3>
+<p>Para los insumos que se compran al por mayor, calculá el costo unitario dividiendo el precio total por la cantidad adquirida. Luego, asegurate de que esta información esté actualizada en tu planilla de costos para cada plato que utilice estos insumos.</p>
+
+<h2>Cómo ForkCast transforma la gestión de costos</h2>
+
+<p>ForkCast se convierte en un aliado esencial para cualquier restaurante que busque optimizar su gestión de costos. Al permitir que los dueños y encargados realicen pedidos a todos sus proveedores desde una sola plataforma, ya sea a través de la web o WhatsApp, se elimina la necesidad de manejar múltiples listas de precios y remitos. Esto no solo ahorra tiempo, sino que también minimiza errores y desajustes en las entregas.</p>
+
+<p>Además, con ForkCast tenés la posibilidad de recibir alertas de precios, lo que te permite estar al tanto de cualquier cambio y tomar decisiones informadas sobre tus compras. La capacidad de comparar precios entre distintos proveedores asegura que siempre obtengas la mejor oferta, manteniendo el costo por plato y el CMV alineados con tus expectativas. Te invitamos a conocer más sobre cómo ForkCast puede simplificar la gestión de costos de tu restaurante.</p>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-12 rounded-2xl bg-brand-dark p-8 sm:p-10 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ordená tus compras con ForkCast</h2>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">Restaurantes: pedile a todos tus proveedores desde un solo lugar y compará precios, gratis. Distribuidoras: recibí pedidos ordenados por WhatsApp y web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=planilla-costo-por-plato" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+            Empezar gratis
+          </a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-dark mb-8">Mas articulos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/blog/calcular-precio-plato-restaurante.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el precio de un plato en Argentina sin perder margen</h3>
+          </div>
+        </a>
+
+        <a href="/blog/como-calcular-food-cost.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el food cost de tu restaurante paso a paso</h3>
+          </div>
+        </a>
+
+        <a href="/blog/que-es-cac-gastronomia.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Que es el CAC en gastronomia? Guia completa de costeo por plato</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
