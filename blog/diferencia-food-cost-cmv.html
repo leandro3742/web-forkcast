@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Cost vs CMV: Guía Práctica para No Confundirlos en Tu Restaurante | ForkCast Blog</title>
-  <meta name="description" content="Conoce las diferencias entre food cost y CMV para optimizar la gestión de tu restaurante en Argentina.">
+  <meta name="description" content="Diferencia entre food cost y CMV: qué mide cada uno, la fórmula con inventarios, un ejemplo mensual calculado y cuándo usar cada indicador.">
   <meta name="keywords" content="food cost vs CMV, restaurante, gastronomia, gestion, ForkCast">
   <meta name="author" content="ForkCast">
   <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.forkcast.tech/blog/diferencia-food-cost-cmv.html">
   <meta property="og:title" content="Food Cost vs CMV: Guía Práctica para No Confundirlos en Tu Restaurante">
-  <meta property="og:description" content="Conoce las diferencias entre food cost y CMV para optimizar la gestión de tu restaurante en Argentina.">
+  <meta property="og:description" content="Diferencia entre food cost y CMV: qué mide cada uno, la fórmula con inventarios, un ejemplo mensual calculado y cuándo usar cada indicador.">
   <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
   <meta property="og:locale" content="es_AR">
   <meta property="og:site_name" content="ForkCast">
@@ -23,7 +23,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Food Cost vs CMV: Guía Práctica para No Confundirlos en Tu Restaurante">
-  <meta name="twitter:description" content="Conoce las diferencias entre food cost y CMV para optimizar la gestión de tu restaurante en Argentina.">
+  <meta name="twitter:description" content="Diferencia entre food cost y CMV: qué mide cada uno, la fórmula con inventarios, un ejemplo mensual calculado y cuándo usar cada indicador.">
   <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
 
   <!-- Favicon -->
@@ -36,9 +36,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Food Cost vs CMV: Guía Práctica para No Confundirlos en Tu Restaurante",
-    "description": "Conoce las diferencias entre food cost y CMV para optimizar la gestión de tu restaurante en Argentina.",
+    "description": "Diferencia entre food cost y CMV: qué mide cada uno, la fórmula con inventarios, un ejemplo mensual calculado y cuándo usar cada indicador.",
     "datePublished": "2026-03-31",
-    "dateModified": "2026-03-31",
+    "dateModified": "2026-10-31",
     "author": {
       "@type": "Organization",
       "name": "ForkCast",
@@ -58,7 +58,7 @@
       "@id": "https://www.forkcast.tech/blog/diferencia-food-cost-cmv.html"
     },
     "keywords": "food cost vs CMV",
-    "wordCount": 561,
+    "wordCount": 2473,
     "articleSection": "Costos"
   }
   </script>
@@ -96,6 +96,9 @@
     .article-content ol { list-style-type: decimal; }
     .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
     .article-content strong { color: #2A3C2E; }
+    .article-content a { color: #3D5A42; text-decoration: underline; }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.9rem; color: #374151; }
+    .article-content th, .article-content td { border-bottom: 1px solid #E5E7EB; padding: 0.5rem; text-align: left; }
 
     .wpp-float {
       position: fixed; bottom: 24px; right: 24px; z-index: 100;
@@ -202,11 +205,11 @@
       <header class="pb-8 border-b border-gray-200 mb-8">
         <div class="flex items-center gap-3 mb-4">
           <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #C9A84C">Costos</span>
-          <span class="text-sm text-gray-400">3 min de lectura</span>
+          <span class="text-sm text-gray-400">12 min de lectura</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Food Cost vs CMV: Guía Práctica para No Confundirlos en Tu Restaurante</h1>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Diferencia entre food cost y CMV: qué mide cada uno y cómo calcularlos (con ejemplo)</h1>
         <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
-          <time datetime="2026-03-31">31 de marzo de 2026</time>
+          <time datetime="2026-10-31">Actualizado el 31 de octubre de 2026</time>
           <span>|</span>
           <span>Por ForkCast</span>
         </div>
@@ -214,7 +217,153 @@
 
       <!-- Content -->
       <div class="article-content">
-        <h2>Introducción: La Importancia de Conocer el Food Cost y el CMV</h2><p>En el mundo de la gastronomía, entender los costos es clave para la rentabilidad de un restaurante. Dos términos que suelen generar confusión son <strong>food cost</strong> y <strong>CMV</strong>. En este artículo, desglosaremos cada uno de ellos, sus diferencias y su relevancia para tu negocio.</p><h2>¿Qué es el Food Cost?</h2><p>El <strong>food cost</strong> se refiere al costo total de los alimentos utilizados en la elaboración de los platillos que ofreces en tu restaurante. Este costo incluye la compra de ingredientes, desperdicios y pérdidas. Se expresa generalmente como un porcentaje del total de las ventas.</p><h3>Cálculo del Food Cost</h3><p>Para calcular el <strong>food cost</strong>, utilizamos la siguiente fórmula:</p><ol><li>Costo total de los alimentos comprados durante un período.</li><li>Ventas totales en el mismo período.</li></ol><p>La fórmula sería:</p><p><strong>Food Cost (%) = (Costo de Alimentos / Ventas Totales) x 100</strong></p><h3>Ejemplo de Cálculo</h3><p>Si en un mes gastaste $50,000 en ingredientes y tus ventas totales fueron de $200,000, el <strong>food cost</strong> sería:</p><p><strong>Food Cost (%) = ($50,000 / $200,000) x 100 = 25%</strong></p><h2>¿Qué es el CMV?</h2><p>El <strong>CMV</strong> o <strong>Costo de Mercadería Vendida</strong> es un término más amplio que incluye no solo el costo de los alimentos, sino también otros costos asociados a la venta de los productos. Esto puede incluir bebidas, productos no alimenticios y otros insumos que forman parte de la venta.</p><h3>Cálculo del CMV</h3><p>El cálculo del <strong>CMV</strong> se realiza de manera similar al <strong>food cost</strong>, pero abarca un rango mayor de productos:</p><ol><li>Costo total de la mercadería vendida durante un período.</li><li>Ventas totales en el mismo período.</li></ol><p>La fórmula se expresa como:</p><p><strong>CMV (%) = (Costo de Mercadería Vendida / Ventas Totales) x 100</strong></p><h3>Ejemplo de Cálculo</h3><p>Si tu restaurante vendió $300,000 en total y el costo de mercadería vendida fue de $120,000, el cálculo sería:</p><p><strong>CMV (%) = ($120,000 / $300,000) x 100 = 40%</strong></p><h2>Diferencias Clave entre Food Cost y CMV</h2><p>Las diferencias principales entre <strong>food cost</strong> y <strong>CMV</strong> son:</p><ul><li><strong>Alcance:</strong> El <strong>food cost</strong> se centra únicamente en los alimentos, mientras que el <strong>CMV</strong> incluye todos los productos vendidos.</li><li><strong>Uso:</strong> Conocer el <strong>food cost</strong> es esencial para la fijación de precios de los platos, mientras que el <strong>CMV</strong> es crucial para entender la rentabilidad total del negocio.</li><li><strong>Impacto en la Gestión:</strong> Ambos indicadores son importantes, pero el <strong>CMV</strong> ofrece una visión más completa del rendimiento económico del restaurante.</li></ul><h2>Importancia de la Gestión de Costos en Restaurantes</h2><p>La gestión adecuada de costos es vital para la sostenibilidad de cualquier negocio gastronómico. Un buen control del <strong>food cost</strong> y el <strong>CMV</strong> te permitirá:</p><ul><li>Tomar decisiones informadas sobre precios.</li><li>Identificar oportunidades de mejorar la rentabilidad.</li><li>Minimizar desperdicios y optimizar la compra de insumos.</li></ul><h2>Herramientas para Facilitar el Cálculo de Food Cost y CMV</h2><p>Realizar el seguimiento y cálculo de estos indicadores puede ser una tarea compleja. Herramientas como <strong>ForkCast</strong> automatizan este cálculo, lo que permite a los gerentes de restaurantes enfocarse en otras áreas críticas del negocio.</p><h3>Beneficios de Usar ForkCast</h3><ul><li>Automatización de cálculos de <strong>food cost</strong> y <strong>CMV</strong>.</li><li>Informes en tiempo real que te permiten tomar decisiones rápidas.</li><li>Facilidad para ajustar precios y controlar costos de manera eficiente.</li></ul><h2>Conclusión</h2><p>Conocer la diferencia entre <strong>food cost vs CMV</strong> es fundamental para la correcta gestión de tu restaurante. Ambos indicadores son herramientas poderosas que, si se utilizan adecuadamente, pueden llevar tu negocio a un nuevo nivel de rentabilidad. Te invitamos a explorar <strong>ForkCast</strong>, una plataforma diseñada para simplificar la gestión de costos y mejorar la eficiencia operativa de tu restaurante.</p><p><strong>¡Conoce más sobre ForkCast y optimiza la gestión de tu restaurante hoy mismo!</strong></p>
+        <p>La <strong>diferencia entre food cost y CMV</strong> está en qué parte de la mercadería miden: el food cost mide solo lo que gastás en comida contra lo que vendés de comida, y el CMV (costo de mercadería vendida) mide toda la mercadería que vendiste, bebidas incluidas, contra las ventas totales. Se calculan con la misma lógica, inventario inicial + compras − inventario final, pero responden preguntas distintas.</p>
+<p>En esta nota vas a ver qué es cada uno, la fórmula, un mes completo calculado, cuándo te conviene mirar uno u otro y los errores que hacen que el número te dé bien aunque el negocio esté perdiendo plata. Te aviso algo de entrada: mucha gente en gastronomía usa las dos palabras como sinónimos. No está mal mientras en tu equipo todos entiendan lo mismo, y por eso conviene definir qué entra en cada número.</p>
+
+<h2>Qué es el food cost</h2>
+<p>El food cost, o costo de alimentos, es lo que te costó la comida que salió de tu cocina durante un período, expresado como porcentaje de lo que vendiste de comida. Si te da 32%, quiere decir que de cada $100 que vendés en platos, $32 se van en insumos de cocina.</p>
+<p>Entran la carne, las verduras, los lácteos, las harinas, el aceite, los condimentos y todo lo que termina en un plato. No entran las bebidas, ni los sueldos, ni el alquiler, ni el gas.</p>
+<p>La palabra también se usa a nivel de plato. Cuando alguien te dice "esa milanesa tiene un food cost de 30%", está comparando el costo de la porción con su precio de carta. Esa cuenta sale de la <a href="/blog/ficha-tecnica-receta.html">ficha técnica de la receta</a> y es útil para fijar precios, pero es otra medición que la del mes: dice cuánto debería costar el plato, no cuánto te costó en la realidad. Si querés ver esa cuenta en detalle, mirá <a href="/blog/como-calcular-food-cost.html">cómo calcular el food cost paso a paso</a>.</p>
+
+<h2>Qué es el CMV en gastronomía</h2>
+<p>El CMV es el costo de la mercadería que efectivamente vendiste en un período. En un restaurante suma todo lo que comprás para revender o transformar y vender: comida, bebidas, café, y cualquier otro producto que llegue al cliente como parte de la venta.</p>
+<p>Se compara contra las ventas totales. Si te da 30%, de cada $100 que entran por ventas, $30 son mercadería. Con los otros $70 tenés que pagar sueldos, alquiler, servicios e impuestos, y lo que sobre es tu resultado.</p>
+<p>Algunos locales incluyen también descartables, como envases de delivery, y otros los llevan aparte. Las dos formas sirven si elegís una y la mantenés. Para ver el concepto más a fondo, tenemos una guía sobre <a href="/blog/cmv-restaurante-que-es.html">qué es el CMV en un restaurante</a>.</p>
+
+<h2>Food cost vs CMV: la diferencia en una tabla</h2>
+<table>
+<thead><tr><th></th><th>Food cost</th><th>CMV</th></tr></thead>
+<tbody>
+<tr><td><strong>Qué mide</strong></td><td>Costo de la comida</td><td>Costo de toda la mercadería vendida</td></tr>
+<tr><td><strong>Se compara contra</strong></td><td>Ventas de comida</td><td>Ventas totales</td></tr>
+<tr><td><strong>Incluye bebidas</strong></td><td>No</td><td>Sí</td></tr>
+<tr><td><strong>Para qué sirve más</strong></td><td>Controlar la cocina, los platos y las compras de insumos</td><td>Ver cuánto margen deja el negocio entero</td></tr>
+<tr><td><strong>Quién lo suele mirar</strong></td><td>Jefe de cocina y encargado de compras</td><td>Dueño, gerente y contador</td></tr>
+</tbody>
+</table>
+<p>Para que el food cost dé bien, tu sistema de ventas tiene que separar comida de bebida. Si hoy cobrás todo junto o tus mozos cargan los platos en una sola categoría, vas a poder calcular el CMV, pero no un food cost confiable. Es lo primero que conviene ordenar.</p>
+
+<h2>La fórmula: inventario inicial + compras − inventario final</h2>
+<p>Las dos mediciones parten de la misma cuenta. Primero sacás el costo de lo que se consumió y después lo dividís por las ventas:</p>
+<p><strong>Costo consumido = inventario inicial + compras del período − inventario final</strong></p>
+<p><strong>Porcentaje = costo consumido ÷ ventas del período × 100</strong></p>
+<p>La lógica es de sentido común. Empezaste el mes con mercadería en la cámara y el depósito, compraste más y terminaste con algo guardado. Lo que falta se usó, se vendió, se tiró o se perdió.</p>
+<ul>
+<li><strong>Inventario inicial:</strong> el valor de la mercadería al abrir el período. Es el mismo número que el inventario final del período anterior.</li>
+<li><strong>Compras:</strong> lo que entró de verdad según remitos y facturas, descontando devoluciones y notas de crédito. No lo que pediste, sino lo que recibiste.</li>
+<li><strong>Inventario final:</strong> el valor de lo que contás físicamente al cierre. Contado, no estimado. Si necesitás un método, mirá <a href="/blog/inventario-restaurante-como-hacer.html">cómo hacer el inventario de un restaurante</a>.</li>
+</ul>
+<p>Para el food cost, en las tres líneas usás solo insumos de comida y dividís por ventas de comida. Para el CMV, usás toda la mercadería y dividís por ventas totales.</p>
+
+<h2>Ejemplo mensual: food cost y CMV calculados</h2>
+<p>Veamos un mes de un restaurante. <strong>Los números son ilustrativos:</strong> están pensados para que la cuenta se entienda, no son una referencia de lo que debería dar tu local.</p>
+<table>
+<thead><tr><th>Concepto</th><th>Comida</th><th>Bebidas</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>Inventario inicial</td><td>$2.400.000</td><td>$1.500.000</td><td>$3.900.000</td></tr>
+<tr><td>+ Compras</td><td>$9.800.000</td><td>$3.200.000</td><td>$13.000.000</td></tr>
+<tr><td>− Inventario final</td><td>$2.600.000</td><td>$1.700.000</td><td>$4.300.000</td></tr>
+<tr><td><strong>Costo consumido</strong></td><td><strong>$9.600.000</strong></td><td><strong>$3.000.000</strong></td><td><strong>$12.600.000</strong></td></tr>
+<tr><td>Ventas</td><td>$30.000.000</td><td>$12.000.000</td><td>$42.000.000</td></tr>
+<tr><td><strong>Porcentaje</strong></td><td><strong>32%</strong> (food cost)</td><td><strong>25%</strong> (costo de bebidas)</td><td><strong>30%</strong> (CMV)</td></tr>
+</tbody>
+</table>
+<p>Las cuentas, una por una:</p>
+<ul>
+<li><strong>Food cost:</strong> $2.400.000 + $9.800.000 − $2.600.000 = $9.600.000. Dividido $30.000.000 da 32%.</li>
+<li><strong>Costo de bebidas:</strong> $1.500.000 + $3.200.000 − $1.700.000 = $3.000.000. Dividido $12.000.000 da 25%.</li>
+<li><strong>CMV:</strong> $3.900.000 + $13.000.000 − $4.300.000 = $12.600.000. Dividido $42.000.000 da 30%.</li>
+</ul>
+<p>Fijate que el CMV no es un promedio simple de 32% y 25%. Está ponderado por cuánto vendés de cada cosa, y eso lleva al punto más importante de toda la nota.</p>
+
+<h3>Por qué el CMV puede tapar un problema en la cocina</h3>
+<p>Imaginá que al mes siguiente la carne aumenta y no lo notás. La comida vende lo mismo, $30.000.000, pero te cuesta $10.200.000. El food cost sube de 32% a 34%: son $600.000 más que se van en insumos sobre las mismas ventas.</p>
+<p>Ese mismo mes hacés un evento y las bebidas suben a $20.000.000 de venta, con un costo de $5.000.000, o sea el mismo 25%. Sumando todo, el costo es $15.200.000 sobre $50.000.000 de ventas: el CMV da 30,4%.</p>
+<p>Si mirás solo el CMV, ves que pasó de 30% a 30,4% y seguís de largo. Si mirás el food cost, ves dos puntos arriba y salís a revisar precios. Por eso conviene tener los dos: uno te dice cómo está el negocio y el otro te dice dónde mirar.</p>
+
+<h2>Por qué no alcanza con dividir compras por ventas</h2>
+<p>Es el atajo más común y el que más confunde. Mirá qué pasa con la comida del ejemplo si cambia solo cómo compraste, con el mismo consumo de $9.600.000 y las mismas ventas de $30.000.000:</p>
+<table>
+<thead><tr><th>Situación</th><th>Compras</th><th>Inventario final</th><th>Compras ÷ ventas</th><th>Food cost real</th></tr></thead>
+<tbody>
+<tr><td>Te stockeaste ante un aumento</td><td>$11.800.000</td><td>$4.600.000</td><td>39,33%</td><td>32%</td></tr>
+<tr><td>Viviste de lo que tenías guardado</td><td>$7.800.000</td><td>$600.000</td><td>26%</td><td>32%</td></tr>
+</tbody>
+</table>
+<p>En los dos casos arrancás con $2.400.000 de inventario y consumís lo mismo. Pero el atajo te hace creer en un mes que estás en crisis y en el otro que estás mejor que nunca. Con precios que cambian seguido, stockearte es una decisión habitual, así que este error aparece justo cuando más necesitás el dato.</p>
+<p>Si todavía no hacés inventario todos los meses, compras ÷ ventas te puede servir como señal gruesa mirando varios meses seguidos. Para decidir, no alcanza.</p>
+
+<h2>Food cost teórico y real: la otra diferencia que importa</h2>
+<p>Hay una distinción que suele aclarar más que la de food cost y CMV, porque te dice cuánto se está perdiendo en el camino:</p>
+<ul>
+<li><strong>Teórico:</strong> lo que debería haberte costado lo vendido según tus fichas. Multiplicás los platos vendidos por el costo de cada porción.</li>
+<li><strong>Real:</strong> lo que te costó de verdad, con la fórmula de inventarios.</li>
+</ul>
+<p>Sigamos con el ejemplo. Si los platos vendidos, multiplicados por el costo de sus fichas, suman $8.700.000, el food cost teórico es 29% ($8.700.000 ÷ $30.000.000). El real fue 32%. Esos tres puntos son $900.000 en el mes que salieron de la cámara y no aparecen explicados por lo que vendiste.</p>
+<p>Las causas típicas de esa diferencia son estas:</p>
+<ul>
+<li>Porciones más grandes que las de la ficha.</li>
+<li><a href="/blog/controlar-merma-restaurante.html">Merma</a> que no está contemplada, o que aumentó.</li>
+<li>Fichas con precios viejos. Por eso conviene <a href="/blog/actualizar-costos-recetas.html">actualizar los costos de las recetas</a>.</li>
+<li>Platos que salen de la cocina y no se cargan: cortesías, errores de comanda, comida del personal.</li>
+<li>Mercadería facturada que no llegó completa. Se ve controlando la <a href="/blog/recepcion-mercaderia-restaurante.html">recepción de mercadería</a>.</li>
+<li>Faltantes en el depósito.</li>
+</ul>
+<p>Un plato suelto también tiene su porcentaje teórico. En la ficha de milanesa con puré que armamos como ejemplo, una porción de $3.350 vendida a $11.200 da 29,9%. Ese número te sirve para decidir el precio, pero solo la cuenta con inventarios te dice si en el mes pasó lo que la ficha prometía.</p>
+
+<h2>Cuándo usar food cost y cuándo CMV</h2>
+<p>No hace falta elegir uno. Cada uno sirve para una decisión distinta:</p>
+<table>
+<thead><tr><th>Lo que querés saber</th><th>Qué mirar</th></tr></thead>
+<tbody>
+<tr><td>Cuánto margen deja el negocio y si te alcanza para los gastos fijos</td><td>CMV</td></tr>
+<tr><td>Si la cocina está gastando de más</td><td>Food cost real contra teórico</td></tr>
+<tr><td>Qué precio ponerle a un plato nuevo</td><td>Costo de la porción, según la ficha</td></tr>
+<tr><td>Si te conviene cambiar de proveedor</td><td>Costo de los insumos principales y food cost de los platos que los usan</td></tr>
+<tr><td>Cómo viene la barra</td><td>Costo de bebidas, por separado</td></tr>
+<tr><td>Si este mes fue mejor o peor que el anterior</td><td>Los tres, con el mismo criterio</td></tr>
+</tbody>
+</table>
+<p>Según tu local, el peso de cada uno cambia. En un bodegón que vende poca bebida, los dos números quedan cerca y el food cost explica casi todo. En un bar, la barra pesa tanto que un food cost aislado cuenta poca parte de la historia. Si tu local es chico y recién empezás, arrancá por el CMV mensual, que pide menos separaciones, y sumá el food cost cuando puedas distinguir ventas de comida y bebida.</p>
+<p>No te vamos a dar un porcentaje "correcto". Depende de tu tipo de local, tus precios y tus gastos fijos. Lo que sí podés calcular es el tuyo: si sumás sueldos, alquiler, servicios e impuestos y ves qué porcentaje de las ventas representan, sabés cuánto te queda disponible para mercadería si querés que el mes cierre con ganancia.</p>
+
+<h2>Cómo medirlos todos los meses, paso a paso</h2>
+<ol>
+<li><strong>Definí qué entra en cada número.</strong> Escribilo: si las bebidas van aparte, si los descartables cuentan, qué pasa con la comida del personal.</li>
+<li><strong>Fijá la fecha de cierre.</strong> Siempre el mismo día, y mejor antes de abrir o después de cerrar, para que no haya movimiento mientras contás.</li>
+<li><strong>Contá el inventario.</strong> Separado en comida y bebida, sin olvidar lo que está en las heladeras de servicio y en la barra, y lo que ya está preparado.</li>
+<li><strong>Valorizalo siempre igual.</strong> Por ejemplo, al precio de la última compra. Si cambiás de criterio entre un mes y otro, la comparación deja de servir.</li>
+<li><strong>Sumá las compras del período.</strong> Usá remitos y facturas, y descontá devoluciones y notas de crédito. Prestá atención al corte: lo que llegó el último día tiene que estar en las compras y en el conteo. Para esto ayuda tener claro cómo <a href="/blog/remito-factura-proveedor.html">controlar remito y factura del proveedor</a>.</li>
+<li><strong>Sacá las ventas separadas.</strong> Comida, bebidas y total, con el mismo criterio de IVA que usaste en las compras.</li>
+<li><strong>Calculá y anotá.</strong> Dejá una línea por mes en la misma planilla. Un número suelto dice poco; la serie muestra hacia dónde vas.</li>
+</ol>
+
+<h2>Errores comunes al calcular food cost y CMV</h2>
+<ul>
+<li><strong>Llamar CMV a las compras del mes.</strong> Es el error que vimos: sin inventarios, el número depende de cuándo compraste.</li>
+<li><strong>Mezclar IVA.</strong> Si el costo está sin IVA y las ventas con IVA, el porcentaje te da mejor de lo que es. Definí un criterio con tu contador y usalo en toda la cuenta.</li>
+<li><strong>Estimar el inventario.</strong> Un error en el conteo final pasa directo al resultado. En el ejemplo, contar $300.000 de más en comida baja el food cost de 32% a 31%, y el mes siguiente esa diferencia vuelve en tu contra.</li>
+<li><strong>Dividir por ventas que no corresponden.</strong> Costo de comida contra ventas totales te da un porcentaje que no es ni food cost ni CMV. En el ejemplo, $9.600.000 ÷ $42.000.000 daría 22,86%, un número lindo y engañoso.</li>
+<li><strong>Olvidarse de la comida del personal y las cortesías.</strong> Salen del inventario y no generan venta. Si no las registrás, vas a ver un costo alto sin saber por qué.</li>
+<li><strong>Comparar con el porcentaje de otro local.</strong> Sin saber qué incluyó cada uno, la comparación no dice nada.</li>
+<li><strong>Calcularlo tarde.</strong> Si te enterás en la segunda quincena del mes siguiente, los aumentos ya te comieron dos meses de margen.</li>
+</ul>
+
+<h2>Preguntas frecuentes sobre food cost y CMV</h2>
+<h3>¿Food cost y CMV son lo mismo?</h3>
+<p>No exactamente, aunque muchos usan los dos términos como sinónimos. El food cost se limita a la comida y se compara contra las ventas de comida. El CMV abarca toda la mercadería vendida y se compara contra las ventas totales. Si el local vende poca bebida, los números quedan cerca.</p>
+<h3>¿Qué es el CMV en gastronomía, en una frase?</h3>
+<p>Es el costo de la mercadería que vendiste en un período, y se calcula como inventario inicial + compras − inventario final.</p>
+<h3>¿Qué es el food cost y cómo se calcula rápido?</h3>
+<p>Es el porcentaje de tus ventas de comida que se va en insumos de cocina. Para un período, aplicás la fórmula de inventarios solo con comida y dividís por ventas de comida. Para un plato, dividís el costo de la porción por su precio de venta.</p>
+<h3>¿Los sueldos de la cocina entran en el food cost o en el CMV?</h3>
+<p>No. Los dos miden solo mercadería. La mano de obra se mide aparte, aunque conviene tenerla en cuenta al decidir precios, porque un plato con mucho trabajo puede tener un porcentaje bueno y dejarte poco.</p>
+<h3>¿Cada cuánto conviene calcularlos?</h3>
+<p>Al menos una vez por mes con inventario completo. Si tus precios se mueven mucho, podés sumar un control más seguido solo de los insumos que más pesan, sin contar todo el depósito.</p>
+
+<h2>Del remito al CMV: cómo ayuda ForkCast</h2>
+<p>Para que estos números sirvan necesitás compras y precios confiables, y ahí está la parte más pesada: pedidos sueltos por WhatsApp, listas de cada distribuidora en formatos distintos y remitos que hay que cotejar a mano. Si la información de compras llega tarde o incompleta, el cálculo también.</p>
+<p>Con <strong>ForkCast</strong> le comprás a todos tus proveedores desde un solo lugar, por web o WhatsApp, controlás lo que te entregaron, comparás precios y recibís alertas cuando un insumo aumenta. Además ves el costo por plato y el CMV con los precios reales de tus compras, así que un aumento como el del ejemplo te aparece cuando pasa. Podés empezar gratis y probarlo con tus platos más vendidos.</p>
       </div>
 
       <!-- CTA Banner -->
