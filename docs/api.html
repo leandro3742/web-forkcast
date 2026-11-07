@@ -470,6 +470,7 @@ orders = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
         }
       ],
       <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>,
+      <span class="text-brand-gold">"rejectionReason"</span>: <span class="text-blue-300">null</span>,
       <span class="text-brand-gold">"createdAt"</span>: <span class="text-brand-green">"2026-05-20T10:00:00Z"</span>
     }
   ],
@@ -674,7 +675,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
     <span class="text-brand-gold">"status"</span>: <span class="text-brand-green">"pending"</span>,
     <span class="text-brand-gold">"date"</span>: <span class="text-brand-green">"2026-05-20T12:00:00Z"</span>,
     <span class="text-brand-gold">"items"</span>: [...],
-    <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>
+    <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>,
+    <span class="text-brand-gold">"rejectionReason"</span>: <span class="text-blue-300">null</span>
   }
 }</code></pre>
               </div>
@@ -716,11 +718,25 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 </div>
               </div>
 
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
+                <div class="bg-brand-dark rounded-xl border border-brand-circle/30 overflow-hidden">
+                  <table class="w-full text-sm">
+                    <thead><tr class="border-b border-brand-circle/20"><th class="text-left px-4 py-2.5 text-xs text-gray-300">Campo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Tipo</th><th class="text-left px-4 py-2.5 text-xs text-gray-300">Req.</th></tr></thead>
+                    <tbody class="text-gray-200 text-xs">
+                      <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">status</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-white font-semibold">✓</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">rejectionReason</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5">Opcional, solo con <code>rejected</code>. Máx. 500 caracteres. Se le avisa al restaurante.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-xs text-gray-300 mt-2">La orden devuelta incluye <code class="text-brand-green text-xs">rejectionReason</code> (<code>string | null</code>); vuelve a <code>null</code> si la orden pasa de nuevo a <code>pending</code>.</p>
+              </div>
+
               <div>
                 <h3 class="text-sm font-semibold text-white mb-3">Respuestas</h3>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Estado actualizado</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Estado inválido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Estado inválido, o <code class="text-xs font-mono">rejectionReason</code> con un estado distinto de <code class="text-xs font-mono">rejected</code> o de más de 500 caracteres</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">El pedido tiene entregas pendientes: hay que cerrarlas antes de marcarlo entregado</span></div>
@@ -740,7 +756,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
   <span class="text-slate-400">-X</span> PUT \
   <span class="text-slate-400">-H</span> <span class="text-brand-gold">"X-API-Key: sk_live_xxxxxxxxxxxx"</span> \
   <span class="text-slate-400">-H</span> <span class="text-brand-gold">"Content-Type: application/json"</span> \
-  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{ "status": "delivered" }'</span></code></pre>
+  <span class="text-slate-400">-d</span> <span class="text-brand-gold">'{ "status": "rejected", "rejectionReason": "Sin stock de harina" }'</span></code></pre>
                 </div>
                 <div id="po-status-node" class="lang-panel">
                   <pre><code><span class="text-brand-green">await</span> fetch(
@@ -751,7 +767,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
       <span class="text-brand-gold">'X-API-Key'</span>: process.env.FORKCAST_API_KEY,
       <span class="text-brand-gold">'Content-Type'</span>: <span class="text-brand-gold">'application/json'</span>,
     },
-    body: JSON.stringify({ status: <span class="text-brand-gold">'delivered'</span> }),
+    body: JSON.stringify({ status: <span class="text-brand-gold">'rejected'</span>, rejectionReason: <span class="text-brand-gold">'Sin stock de harina'</span> }),
   }
 );</code></pre>
                 </div>
@@ -1483,6 +1499,7 @@ X-RateLimit-Reset: <span class="text-blue-300">1748347260</span></code></pre>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">date</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Fecha del pedido</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">items</td><td class="px-5 py-2.5">Item[]</td><td class="px-5 py-2.5">Productos incluidos</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">isBillable</td><td class="px-5 py-2.5">boolean</td><td class="px-5 py-2.5">Si la orden es facturable. Se siembra de la lista de precios al crear y solo el vendedor o el master pueden cambiarlo (vía endpoint interno) mientras la orden esté en <code>pending</code>.</td></tr>
+                    <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">rejectionReason</td><td class="px-5 py-2.5">string | null</td><td class="px-5 py-2.5">Motivo con el que el proveedor rechazó la orden. Solo con <code>rejected</code>; <code>null</code> en cualquier otro estado.</td></tr>
                     <tr class="border-b border-brand-circle/10"><td class="px-5 py-2.5 font-mono text-brand-green">createdAt</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Timestamp de creación</td></tr>
                     <tr><td class="px-5 py-2.5 font-mono text-brand-green">updatedAt</td><td class="px-5 py-2.5">ISO 8601</td><td class="px-5 py-2.5">Última actualización</td></tr>
                   </tbody>
