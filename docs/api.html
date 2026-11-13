@@ -556,7 +556,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
 
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
-              <p class="text-gray-200 leading-relaxed mb-6">Crea una nueva orden de compra en nombre del owner del API key. Si la key pertenece a un restaurante, la orden se crea como restaurante; si pertenece a un proveedor, como proveedor.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">Crea una nueva orden de compra en nombre del owner del API key. Si la key pertenece a un restaurante, la orden se crea como restaurante; si pertenece a un proveedor, como proveedor. Si la lista de precios tiene configurado un contacto de WhatsApp para recibir pedidos, el proveedor también recibe el aviso del pedido por WhatsApp (no cambia el contrato de la API).</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
@@ -871,7 +871,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                     </tbody>
                   </table>
                 </div>
-                <p class="text-xs text-gray-300 mt-2">Cada elemento de <code class="text-brand-green text-xs">orders[]</code> tiene la misma estructura que el body de <code class="text-brand-green text-xs">POST /purchase-orders</code>.</p>
+                <p class="text-xs text-gray-300 mt-2">Cada elemento de <code class="text-brand-green text-xs">orders[]</code> tiene la misma estructura que el body de <code class="text-brand-green text-xs">POST /purchase-orders</code>. Si la lista de precios tiene configurado un contacto de WhatsApp para recibir pedidos, el proveedor también recibe el aviso del pedido por WhatsApp (no cambia el contrato de la API).</p>
               </div>
 
               <div>
