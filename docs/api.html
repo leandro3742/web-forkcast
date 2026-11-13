@@ -568,7 +568,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">priceListId</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5 text-gray-400">—</td><td class="px-4 py-2.5">ID de lista de precios</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">franchiseId</td><td class="px-4 py-2.5">integer</td><td class="px-4 py-2.5 text-gray-400">—</td><td class="px-4 py-2.5">ID de franquicia (solo masters)</td></tr>
                       <tr class="border-b border-brand-circle/10"><td class="px-4 py-2.5 font-mono text-brand-green">date</td><td class="px-4 py-2.5">ISO 8601</td><td class="px-4 py-2.5 text-gray-400">—</td><td class="px-4 py-2.5">Fecha (default: ahora)</td></tr>
-                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">status</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-gray-400">—</td><td class="px-4 py-2.5">Estado inicial (default: pending)</td></tr>
+                      <tr><td class="px-4 py-2.5 font-mono text-brand-green">status</td><td class="px-4 py-2.5">string</td><td class="px-4 py-2.5 text-gray-400">—</td><td class="px-4 py-2.5">Estado inicial (default: <code>pending</code>). Solo se acepta otro valor en listas propias del restaurante (registrar una compra ya hecha); un pedido a un proveedor o a una lista del master siempre nace <code>pending</code></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -598,6 +598,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Orden creada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Datos inválidos</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200"><code class="text-xs font-mono">status</code> distinto de <code class="text-xs font-mono">pending</code> en un pedido a un proveedor</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Alguna lista de precios del pedido (la de la cabecera o la de un producto) no es propia ni está asignada al restaurante</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
                 </div>
               </div>
@@ -721,10 +723,13 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Estado actualizado</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Estado inválido</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso, o el cambio no le corresponde a quien llama: quien compra solo puede cancelar (<code class="text-xs font-mono">pending → cancelled</code>); aprobar, rechazar y entregar es de quien recibe el pedido</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">El pedido tiene entregas pendientes: hay que cerrarlas antes de marcarlo entregado</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">No se puede devolver a <code class="text-xs font-mono">pending</code> una orden aprobada con productos ya entregados</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Transición no permitida. Válidas: <code class="text-xs font-mono">pending → approved | rejected | delivered | cancelled</code> y <code class="text-xs font-mono">approved → pending | delivered | rejected</code>. <code class="text-xs font-mono">rejected</code>, <code class="text-xs font-mono">cancelled</code> y <code class="text-xs font-mono">delivered</code> son finales</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">La orden ya está en ese estado, o cambió de estado mientras se procesaba el pedido (reintentar tras volver a leerla)</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">No se puede rechazar una orden aprobada con productos ya entregados</span></div>
                 </div>
               </div>
             </div>
@@ -791,6 +796,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Orden actualizada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Items vacíos o inválidos</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso a esta orden</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Algún producto es de una lista de precios que no es propia ni está asignada al restaurante</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Orden no está en estado pending</span></div>
                 </div>
@@ -863,6 +869,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Todas las órdenes creadas</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Array vacío o items faltantes</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200"><code class="text-xs font-mono">status</code> distinto de <code class="text-xs font-mono">pending</code> en un pedido a un proveedor. El batch se rechaza completo</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Alguna lista de precios no es propia ni está asignada al restaurante. El batch se rechaza completo</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
                 </div>
               </div>
