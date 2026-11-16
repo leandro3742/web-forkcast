@@ -467,8 +467,17 @@ orders = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           <span class="text-brand-gold">"quantity"</span>: <span class="text-blue-300">10</span>,
           <span class="text-brand-gold">"unit"</span>: <span class="text-brand-green">"kg"</span>,
           <span class="text-brand-gold">"price"</span>: <span class="text-blue-300">850.00</span>
+        },
+        {
+          <span class="text-brand-gold">"name"</span>: <span class="text-brand-green">"Aceite de oliva"</span>,
+          <span class="text-brand-gold">"quantity"</span>: <span class="text-blue-300">6</span>,
+          <span class="text-brand-gold">"requestedQuantity"</span>: <span class="text-blue-300">10</span>,
+          <span class="text-brand-gold">"shortageReason"</span>: <span class="text-brand-green">"Sin stock"</span>,
+          <span class="text-brand-gold">"unit"</span>: <span class="text-brand-green">"l"</span>,
+          <span class="text-brand-gold">"price"</span>: <span class="text-blue-300">4200.00</span>
         }
       ],
+      <span class="text-brand-gold">"adjusted"</span>: <span class="text-blue-300">true</span>,
       <span class="text-brand-gold">"isBillable"</span>: <span class="text-blue-300">false</span>,
       <span class="text-brand-gold">"createdAt"</span>: <span class="text-brand-green">"2026-05-20T10:00:00Z"</span>
     }
@@ -492,6 +501,8 @@ orders = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <p class="text-gray-200 leading-relaxed mb-6">Obtiene el detalle completo de una orden de compra por ID. Solo podés acceder a órdenes que pertenecen al owner de tu API key.</p>
+
+              <p class="text-gray-200 leading-relaxed mb-6">Quien recibe el pedido puede confirmarlo con menos de lo pedido. En ese caso la orden trae <code class="text-brand-green text-xs">adjusted: true</code> y cada línea cambiada trae <code class="text-brand-green text-xs">requestedQuantity</code> (lo pedido) y <code class="text-brand-green text-xs">shortageReason</code> (motivo, puede ser <code class="text-xs font-mono">null</code>). En esas líneas <code class="text-brand-green text-xs">quantity</code> es lo confirmado y puede ser <code class="text-xs font-mono">0</code>: ese producto no se envía. Las líneas sin cambios no traen esos dos campos.</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Path params</h3>
@@ -726,13 +737,14 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Estado actualizado</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Estado inválido</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso, o el cambio no le corresponde a quien llama: quien compra solo puede cancelar (<code class="text-xs font-mono">pending → cancelled</code>); aprobar, rechazar y entregar es de quien recibe el pedido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso, o el cambio no le corresponde a quien llama: quien compra solo puede cancelar (<code class="text-xs font-mono">pending → cancelled</code>, o <code class="text-xs font-mono">approved → cancelled</code> si la orden fue confirmada con cambios y todavía no salió ninguna entrega); aprobar, rechazar y entregar es de quien recibe el pedido</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">El pedido tiene entregas pendientes: hay que cerrarlas antes de marcarlo entregado</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">No se puede devolver a <code class="text-xs font-mono">pending</code> una orden aprobada con productos ya entregados</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Transición no permitida. Válidas: <code class="text-xs font-mono">pending → approved | rejected | delivered | cancelled</code> y <code class="text-xs font-mono">approved → pending | delivered | rejected</code>. <code class="text-xs font-mono">rejected</code>, <code class="text-xs font-mono">cancelled</code> y <code class="text-xs font-mono">delivered</code> son finales</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">La orden ya está en ese estado, o cambió de estado mientras se procesaba el pedido (reintentar tras volver a leerla)</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">No se puede rechazar una orden aprobada con productos ya entregados</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Quien compra quiso cancelar una orden aprobada sin cambios (<code class="text-xs font-mono">adjusted: false</code>) o con una entrega ya hecha</span></div>
                 </div>
               </div>
             </div>
