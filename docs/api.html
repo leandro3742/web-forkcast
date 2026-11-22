@@ -556,6 +556,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <p class="text-gray-200 leading-relaxed mb-6">Crea una nueva orden de compra en nombre del owner del API key. Si la key pertenece a un restaurante, la orden se crea como restaurante; si pertenece a un proveedor, como proveedor.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">Una orden creada por la API se comporta igual que una creada desde la app: descuenta el stock del proveedor (si lo controla), le avisa por mail, por la app y por WhatsApp según lo que tenga configurado, y dispara el webhook <code class="text-brand-green text-xs">order.created</code>. Si el stock no alcanza responde <code class="text-xs">400</code> y la orden no se crea.</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
@@ -600,6 +601,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Datos inválidos</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200"><code class="text-xs font-mono">status</code> distinto de <code class="text-xs font-mono">pending</code> en un pedido a un proveedor</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Alguna lista de precios del pedido (la de la cabecera o la de un producto) no es propia ni está asignada al restaurante</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Stock insuficiente. La orden no se crea</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Pedido directo a un proveedor (<code class="text-xs font-mono">supplierId</code> sin <code class="text-xs font-mono">priceListId</code>) con el que el restaurante no tiene relación: el proveedor no le asignó ninguna lista</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
                 </div>
               </div>
@@ -776,6 +779,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <p class="text-gray-200 leading-relaxed mb-6">Reemplaza los items de una orden de compra existente. La orden debe estar en estado <code class="text-brand-gold bg-brand-dark px-1.5 py-0.5 rounded text-xs">pending</code> — si ya fue aprobada o entregada, retorna <code class="text-red-400">409</code>.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">El stock del proveedor sigue a los items: al editar se devuelve lo que la orden tenía reservado y se descuenta la versión nueva. El proveedor recibe el aviso de la modificación por la app, por mail y por WhatsApp.</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
@@ -797,6 +801,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Items vacíos o inválidos</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso a esta orden</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Algún producto es de una lista de precios que no es propia ni está asignada al restaurante</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Stock insuficiente para la versión nueva del pedido. No se cambia nada: ni los ítems ni el stock</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Orden no está en estado pending</span></div>
                 </div>
@@ -849,7 +854,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
 
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
-              <p class="text-gray-200 leading-relaxed mb-6">Crea múltiples órdenes de compra en una sola transacción. Si alguna falla, todas se revierten. Ideal para importaciones desde ERP o sistemas de facturación.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">Crea múltiples órdenes de compra en una sola transacción. Si alguna falla (validación, lista sin acceso, stock insuficiente, proveedor fuera de ventana), no se crea ninguna y no sale ningún aviso: se puede reintentar el lote sin duplicar. Ideal para importaciones desde ERP o sistemas de facturación.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">Cada orden del lote pasa por las mismas reglas y los mismos avisos que <code class="text-brand-green text-xs">POST /purchase-orders</code>: descuento de stock, mail, aviso en la app, WhatsApp y un webhook <code class="text-brand-green text-xs">order.created</code> por orden.</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
@@ -871,6 +877,8 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Array vacío o items faltantes</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200"><code class="text-xs font-mono">status</code> distinto de <code class="text-xs font-mono">pending</code> en un pedido a un proveedor. El batch se rechaza completo</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Alguna lista de precios no es propia ni está asignada al restaurante. El batch se rechaza completo</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Pedido directo a un proveedor (<code class="text-xs font-mono">supplierId</code> sin <code class="text-xs font-mono">priceListId</code>) con el que el restaurante no tiene relación: el proveedor no le asignó ninguna lista</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Stock insuficiente en alguna orden. El batch se rechaza completo y el stock no se toca</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
                 </div>
               </div>
