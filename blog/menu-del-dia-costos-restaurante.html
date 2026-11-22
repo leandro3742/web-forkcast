@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú ejecutivo: cómo calcular costos, precio y porciones</title>
+  <meta name="description" content="Cómo calcular el costo del menú del día, definir porciones en crudo y en limpio, fijar el precio y actualizarlo con la inflación. Con ejemplos en pesos.">
+  <meta name="keywords" content="menu ejecutivo costos, restaurante, gastronomia, gestion, ForkCast">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/blog/menu-del-dia-costos-restaurante.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.forkcast.tech/blog/menu-del-dia-costos-restaurante.html">
+  <meta property="og:title" content="Menú ejecutivo: cómo calcular costos, precio y porciones">
+  <meta property="og:description" content="Cómo calcular el costo del menú del día, definir porciones en crudo y en limpio, fijar el precio y actualizarlo con la inflación. Con ejemplos en pesos.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+  <meta property="article:published_time" content="2026-11-22">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menú ejecutivo: cómo calcular costos, precio y porciones">
+  <meta name="twitter:description" content="Cómo calcular el costo del menú del día, definir porciones en crudo y en limpio, fijar el precio y actualizarlo con la inflación. Con ejemplos en pesos.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <link rel="apple-touch-icon" href="../forkcast-logo.png">
+
+  <!-- Structured Data — BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Menú ejecutivo: cómo calcular costos, precio y porciones",
+    "description": "Cómo calcular el costo del menú del día, definir porciones en crudo y en limpio, fijar el precio y actualizarlo con la inflación. Con ejemplos en pesos.",
+    "datePublished": "2026-11-22",
+    "dateModified": "2026-11-22",
+    "author": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.forkcast.tech/forkcast-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.forkcast.tech/blog/menu-del-dia-costos-restaurante.html"
+    },
+    "keywords": "menu ejecutivo costos",
+    "wordCount": 2319,
+    "articleSection": "Costos"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #2A3C2E; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 600; color: #3D5A42; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .article-content ul { list-style-type: disc; }
+    .article-content ol { list-style-type: decimal; }
+    .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-content strong { color: #2A3C2E; }
+    .article-content a { color: #4A8C5C; text-decoration: underline; }
+    .article-content sup a { text-decoration: none; font-weight: 600; }
+    .article-content ol.fuentes { font-size: 0.875rem; }
+
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+  </style>
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="block hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="pt-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-green transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-brand-green transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-dark font-medium">Costos</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <main class="bg-brand-light pb-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <header class="pb-8 border-b border-gray-200 mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #C9A84C">Costos</span>
+          <span class="text-sm text-gray-400">12 min de lectura</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Menú ejecutivo: cómo calcular costos, precio y porciones</h1>
+        <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <time datetime="2026-11-22">22 de noviembre de 2026</time>
+          <span>|</span>
+          <span>Por ForkCast</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content">
+        <p>Para que el menú del día deje margen, primero tenés que conocer el costo real de cada componente (entrada, principal, guarnición, postre, pan y bebida) con porciones medidas en gramos. Después fijás el precio a partir de un porcentaje objetivo de mercadería y revisás ese número cada vez que cambia la lista de tu distribuidora. Tener claros los <strong>menú ejecutivo costos</strong> es lo que separa un menú que llena el salón al mediodía de uno que además deja plata. Acá vas a encontrar el paso a paso, con ejemplos en pesos y cuentas completas.</p><h2>Qué tiene que resolver un menú ejecutivo antes de ponerle precio</h2><p>El menú del día o ejecutivo no es una versión barata de la carta: es un producto distinto, con reglas propias. Pensalo como un producto que se vende por volumen, en una franja horaria corta, con un precio cerrado y un servicio rápido. Por eso el margen por unidad puede ser más ajustado que en un plato de carta, y la rentabilidad depende de la cantidad de cubiertos, de la velocidad de cocina y del aprovechamiento de insumos.</p><p>Antes de hacer números, definí tres cosas:</p><ul><li><strong>Qué incluye:</strong> ¿entrada, postre o las dos? ¿Bebida incluida o aparte? ¿Pan y café? Cada componente suma costo y tiene que estar en la planilla, aunque parezca menor.</li><li><strong>Cuántas opciones ofrecés:</strong> dos o tres principales que roten se costean y producen más fácil que cinco. Cada opción extra suma preparación previa y riesgo de sobrante.</li><li><strong>Qué rol cumple en tu negocio:</strong> si el menú sirve para llenar mesas y vender extras, podés aceptar una contribución por menú más baja. Si es la venta principal del mediodía, tiene que sostenerse solo.</li></ul><h2>Porciones: gramaje en crudo, en limpio y servido</h2><p>Un error al costear es mezclar pesos. Si la receta dice 180 g de cuadril, tenés que saber si son 180 g tal como llegan en el remito, ya limpios de grasa y nervios, o ya cocidos en el plato. Son tres números distintos y cada uno da un costo distinto.</p><p>El criterio práctico: definí la porción en <strong>peso limpio</strong> (lo que entra a la plancha o a la olla) y calculá el costo con el precio por kilo útil:</p><p><strong>Costo por kilo útil = precio por kilo / (1 − merma)</strong></p><p>La merma la medís vos, en tu cocina, con tus cortes. Pesá una pieza al recibirla, limpiala como la usás siempre y pesá lo que queda. Repetilo con varias entregas, porque puede cambiar según el proveedor y el lote.</p><p><em>Ejemplo ilustrativo:</em> comprás cuadril al Proveedor A a $14.000 por kilo en crudo. Al limpiarlo, de cada kilo te quedan 800 g utilizables, o sea una merma del 20%. El costo por kilo útil es $14.000 / (1 − 0,20) = $14.000 / 0,80 = $17.500. Si la porción del menú es de 180 g limpios, cuesta 0,18 × $17.500 = $3.150. En crudo, esa porción equivale a 180 / 0,80 = 225 g, y 0,225 × $14.000 da los mismos $3.150. Si hubieras costeado los 180 g con el precio en crudo, habrías calculado $2.520 y estarías perdiendo $630 por plato sin verlo.</p><p>Una vez definido el gramaje, hay que sostenerlo: balanza en la línea, porciones pesadas en la preparación previa y una foto del plato armado para que todo el equipo sirva igual. Una diferencia de 20 g por porción en el cuadril del ejemplo son 0,02 × $17.500 = $350 por menú; en 60 menús diarios, $21.000 por día que nadie registra.</p><h2>Cómo armar el costo completo del menú</h2><p>El costo del menú es la suma de todo lo que sale de cocina y barra para ese cubierto. Armá una ficha por cada combinación que vendés, con cada insumo, su gramaje limpio, su costo por kilo útil y su costo por porción. Incluí lo que se olvida fácil: aceite, sal, condimentos, el pan de la panera y la manteca.</p><p><em>Ejemplo ilustrativo:</em> un menú con sopa, cuadril con puré, flan, pan y bebida.</p><ul><li>Cuadril: 180 g limpios, $3.150 (calculado en la sección anterior).</li><li>Puré: papa a $1.020 por kilo en crudo con 15% de merma de pelado. Costo por kilo útil: $1.020 / 0,85 = $1.200. Porción de 200 g de papa limpia: 0,20 × $1.200 = $240. Manteca y leche: $160. Total guarnición: $400.</li><li>Sopa de verduras: $450 por porción, según su propia ficha.</li><li>Flan: $380 por porción.</li><li>Pan: $120.</li><li>Bebida de 500 ml: $700.</li><li>Aceite, sal y condimentos: $100.</li></ul><p>Costo total del menú: $3.150 + $400 + $450 + $380 + $120 + $700 + $100 = <strong>$5.300</strong>.</p><p>Si ofrecés varios principales a un mismo precio, armá una ficha por cada uno y calculá el costo promedio según lo que realmente se vende. <em>Ejemplo ilustrativo:</em> un día vendés 30 menús de cuadril a $5.300 de costo y 30 de pollo a $3.900; el costo promedio es ($5.300 × 30 + $3.900 × 30) / 60 = $276.000 / 60 = $4.600. Si el cuadril pasa a ser la mayor parte de la venta, el promedio sube. Por eso conviene mirar la mezcla real todas las semanas.</p><h2>Del costo al precio: margen objetivo y contribución</h2><p>Con el costo en mano, el precio sale de decidir qué porcentaje de ese precio querés que represente la mercadería. Ese porcentaje lo define tu negocio, no es una regla fija: depende de tu alquiler, tu estructura de personal, el volumen que esperás y el resto de la carta.</p><p><strong>Precio = costo del menú / porcentaje objetivo de mercadería</strong></p><p><em>Ejemplo ilustrativo:</em> si definís que la mercadería no supere el 35% del precio, con un costo de $5.300 el precio mínimo es $5.300 / 0,35 = $15.142,86, que redondeás a $15.200. Con ese precio, la mercadería representa $5.300 / $15.200 = 34,9%, y cada menú deja una contribución de $15.200 − $5.300 = $9.900 para cubrir sueldos, alquiler, servicios y ganancia.</p><p>Mirá siempre los dos números. El porcentaje te dice si el menú está equilibrado; la contribución en pesos, cuánto aporta cada cubierto. Un menú con más porcentaje de mercadería que se vende el doble puede dejar más plata a fin de mes que otro con un porcentaje más bajo.</p><p>Un control útil: dividí los costos fijos que le asignás al mediodía por la contribución por menú. <em>Ejemplo ilustrativo:</em> si le asignás $594.000 por día al turno y cada menú deja $9.900, necesitás vender $594.000 / $9.900 = 60 menús diarios para cubrirlo. Si tu salón no da para 60 cubiertos en ese horario, el problema no se arregla con volumen: tenés que revisar precio, porción o composición.</p>
+      </div>
+      <!-- Mid CTA -->
+      <aside class="my-10 rounded-2xl border border-brand-gold/40 bg-white p-6 sm:p-8">
+        <p class="text-lg font-bold text-brand-dark">¿Sabés cuánto te cuesta de verdad cada plato?</p>
+        <p class="mt-2 text-sm text-gray-600">ForkCast calcula el costo por plato y el CMV con los precios reales de tus compras, y te avisa cuando un proveedor sube un precio. Crear la cuenta es gratis.</p>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=mid&amp;utm_campaign=menu-del-dia-costos-restaurante" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-colors">Empezar gratis</a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-gray-300 text-brand-dark text-sm font-semibold hover:border-brand-gold transition-colors">Escribinos por WhatsApp</a>
+        </div>
+      </aside>
+      <div class="article-content"><h2>Precio y listas que cambian: cuándo y cómo actualizar</h2><p>En Argentina el menú ejecutivo vive con precios en movimiento: según el INDEC, el índice de precios al consumidor subió 2,2% en octubre de 2026 <sup><a href="#fuentes">1</a></sup>. Pero tu menú no se mueve con el promedio general sino con los precios de tus insumos, que en un mes pueden subir mucho más o mucho menos que el índice. El número que tenés que seguir es el de tus propias facturas.</p><p>Un método simple para no correr detrás de los aumentos:</p><ol><li><strong>Identificá los insumos que pesan:</strong> en el ejemplo, el cuadril es el 59% del costo ($3.150 de $5.300). Un aumento ahí mueve todo; uno en la sal, casi nada.</li><li><strong>Fijá un umbral de alerta:</strong> por ejemplo, revisar el precio cuando la mercadería se aleje más de dos puntos del porcentaje objetivo.</li><li><strong>Recalculá con cada lista nueva</strong> de los insumos principales, no una vez por mes.</li><li><strong>Decidí la respuesta:</strong> subir el precio, ajustar el gramaje, cambiar el corte, rotar la opción o pedir otra cotización.</li></ol><p><em>Ejemplo ilustrativo:</em> el Proveedor A sube el cuadril 8%, de $14.000 a $15.120 por kilo en crudo. Con la misma merma del 20%, el kilo útil pasa a $15.120 / 0,80 = $18.900 y la porción de 180 g a 0,18 × $18.900 = $3.402, o sea $252 más. El costo del menú sube de $5.300 a $5.552 y, con el precio de $15.200, la mercadería pasa a $5.552 / $15.200 = 36,5%. Para volver al 35% tendrías que cobrar $5.552 / 0,35 = $15.862,86, redondeado a $15.900. Otra salida: si el Proveedor B te ofrece el mismo corte a $14.300 por kilo con igual merma, el kilo útil queda en $17.875, la porción en $3.217,50 y el menú en $5.367,50, o sea un 35,3% sin tocar la pizarra.</p><p>Cambiar el precio todas las semanas puede confundir a la clientela fija del mediodía. Un criterio razonable es absorber una suba chica unos días mientras comparás proveedores y ajustar en saltos más espaciados. Lo que no conviene es enterarte del aumento cuando cerrás el mes.</p><h2>Producción, sobrantes y aprovechamiento</h2><p>El desperdicio es un costo que no aparece en la ficha del plato, pero sí en el resultado. En un menú del día, el riesgo está en producir de más para no quedarse corto.</p><p><em>Ejemplo ilustrativo:</em> preparás 70 porciones de guiso a $2.600 cada una y vendés 58. Sobran 12 porciones: 12 × $2.600 = $31.200. Si no las aprovechás, ese costo se reparte entre los menús vendidos: $31.200 / 58 = $537,93 extra por cada uno. Tu ficha decía $2.600, pero el costo efectivo fue $3.137,93 por guiso vendido.</p><p>Para bajar ese número:</p><ul><li><strong>Registrá las ventas por día y por opción</strong> durante varias semanas, porque la demanda puede variar según el día y el clima.</li><li><strong>Producí en tandas:</strong> una base al inicio del servicio y una segunda tanda según cómo venga la mañana, si el plato lo permite.</li><li><strong>Diseñá la rotación pensando en el aprovechamiento:</strong> los recortes de la limpieza del cuadril pueden ir a un relleno o a un guiso de otro día.</li><li><strong>Cerrá la opción cuando se termina,</strong> en lugar de sobreproducir por miedo a decir que no hay.</li></ul><h2>La mezcla de ventas: el menú como puerta de entrada al ticket</h2><p>El menú ejecutivo trae gente, y lo que esa gente suma también es parte del negocio. Calculá la contribución de cada extra (café, postre de carta, bebida más grande, cambio de guarnición con recargo) igual que la del menú.</p><p><em>Ejemplo ilustrativo:</em> ofrecés café a $2.500 con un costo de insumos de $400; cada café deja $2.100. Si de 60 menús diarios, 24 suman café, son 24 × $2.100 = $50.400 por día de contribución adicional. Con un menú que deja $9.900, esos cafés equivalen a $50.400 / $9.900 = 5,1 menús más sin ocupar una mesa extra.</p><ul><li><strong>Bebida incluida o aparte:</strong> incluirla sube el costo del menú pero simplifica la decisión del cliente; dejarla aparte baja el precio de pizarra y abre una venta con margen propio. Hacé las dos cuentas con tus números.</li><li><strong>Opción premium con recargo:</strong> un principal con lomo, por ejemplo, cobrando una diferencia que mantenga el mismo porcentaje de mercadería que el menú base.</li></ul><h2>El control semanal: pocos indicadores, siempre los mismos</h2><p>Con una planilla y las facturas de la semana alcanza para seguir estos números:</p><ol><li><strong>Menús vendidos por día y por opción.</strong></li><li><strong>Costo teórico por menú:</strong> el de las fichas, recalculado con los últimos precios de compra.</li><li><strong>Costo real de mercadería del turno:</strong> lo comprado para el menú, ajustado por lo que había en cámara al inicio y al final de la semana, dividido por los menús vendidos.</li><li><strong>Diferencia entre teórico y real:</strong> si el real es bastante más alto, hay porciones pasadas, mermas mal medidas, sobrantes que se tiran o mercadería que no llegó como dice el remito.</li><li><strong>Contribución total del mediodía,</strong> sumando la de los extras.</li></ol><p>Parte de esa diferencia se origina antes de la cocina. Ejemplo ilustrativo: si recibís 9 kg de cuadril y el remito dice 10, pagás 10 kg por 9 kg reales, así que cada kilo te cuesta 10 / 9 = 1,111 veces lo facturado, o sea un 11,1% más de lo que dice la ficha. Controlar peso y cantidades al recibir también es costear.</p><h2>Preguntas frecuentes</h2><h3>¿Qué porcentaje de mercadería conviene para un menú ejecutivo?</h3><p>No hay un número que sirva para todos. Definí un objetivo, calculá cuántos menús necesitás vender con esa contribución para cubrir el turno y fijate si es alcanzable con tu salón y tu cocina.</p><h3>¿Cada cuánto tengo que recalcular el costo del menú?</h3><p>Cada vez que cambia el precio de un insumo con peso en la ficha, no según el calendario. Con precios en movimiento, como muestra el alza mensual de 2,2% del IPC de octubre de 2026 según el INDEC <sup><a href="#fuentes">1</a></sup>, esperar al cierre del mes puede significar varias semanas con menos margen del que creés.</p><h3>¿Conviene bajar la porción o subir el precio?</h3><p>Si la porción ya es justa, achicarla se nota y puede afectar la vuelta del cliente. Una alternativa intermedia es cambiar el principal de algunos días por opciones de menor costo y mantener el precio.</p><h3>¿Cómo calculo la merma si cada entrega viene distinta?</h3><p>Medila en varias entregas, usá un promedio y separala por proveedor. Para comparar proveedores, usá siempre el costo por kilo útil y no el precio por kilo de la lista.</p><h2>Cómo te ayuda ForkCast con el costo del menú</h2><p>Todo lo anterior depende de tener a mano los precios reales de compra, y actualizados. ForkCast es una plataforma para que los restaurantes le compren a todos sus proveedores desde un solo lugar, por web o WhatsApp, y controlen lo que les entregan contra lo que pidieron. Con esos precios reales podés comparar proveedores, recibir alertas cuando un insumo sube y ver el costo por plato y el CMV calculados con lo que realmente pagaste.</p><p>Del lado de las distribuidoras, ForkCast permite recibir pedidos ordenados por WhatsApp y web, manejar listas de precios por cliente y entregas con repartidor, y facturar lo realmente entregado. Para quien arma el menú ejecutivo, eso significa que el remito, la factura y la ficha del plato coinciden, y que la decisión de subir el precio, cambiar el corte o pedir otra cotización se toma con datos del día.</p>
+<h2 id="fuentes">Fuentes</h2>
+<ol class="fuentes">
+<li>Según el INDEC, el índice de precios al consumidor registró un alza mensual de 2,2% en octubre de 2026. Fuentes: <a href="https://www.indec.gob.ar/uploads/informesdeprensa/ipc_11_269335F5BA6B.pdf" target="_blank" rel="noopener nofollow">INDEC (Instituto Nacional de Estadística y Censos)</a>, <a href="https://www.iprofesional.com/economia/468967-cuales-fueron-los-rubros-que-mas-aumentaron-en-octubre-2026" target="_blank" rel="noopener nofollow">iProfesional</a>.</li>
+</ol>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-12 rounded-2xl bg-brand-dark p-8 sm:p-10 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ordená tus compras con ForkCast</h2>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">Restaurantes: pedile a todos tus proveedores desde un solo lugar y compará precios, gratis. Distribuidoras: recibí pedidos ordenados por WhatsApp y web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=menu-del-dia-costos-restaurante" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+            Empezar gratis
+          </a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-dark mb-8">Más artículos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/blog/calcular-precio-plato-restaurante.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el precio de un plato en Argentina sin perder margen</h3>
+          </div>
+        </a>
+
+        <a href="/blog/planilla-costo-por-plato.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Planilla de costo por plato: que columnas lleva y como mantenerla al dia</h3>
+          </div>
+        </a>
+
+        <a href="/blog/como-calcular-food-cost.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el food cost de tu restaurante paso a paso</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
