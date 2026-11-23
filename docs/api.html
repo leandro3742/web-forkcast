@@ -555,7 +555,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
 
           <div class="grid lg:grid-cols-2 gap-10 items-start">
             <div>
-              <p class="text-gray-200 leading-relaxed mb-6">Crea una nueva orden de compra en nombre del owner del API key. Si la key pertenece a un restaurante, la orden se crea como restaurante; si pertenece a un proveedor, como proveedor.</p>
+              <p class="text-gray-200 leading-relaxed mb-6">Crea una nueva orden de compra a nombre del restaurante dueño del API key. Requiere una key de restaurante: con una key de proveedor responde <span class="text-red-400 font-mono">403</span> (el proveedor recibe pedidos, no los crea).</p>
 
               <div class="mb-6">
                 <h3 class="text-sm font-semibold text-white mb-3">Body (JSON)</h3>
@@ -598,7 +598,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Orden creada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Datos inválidos</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido, o la key es de proveedor</span></div>
                 </div>
               </div>
             </div>
@@ -790,7 +790,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">200</span><span class="text-gray-200">Orden actualizada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Items vacíos o inválidos</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso a esta orden</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Sin acceso a esta orden, o la key es de proveedor</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">404</span><span class="text-gray-200">Orden no encontrada</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">409</span><span class="text-gray-200">Orden no está en estado pending</span></div>
                 </div>
@@ -863,7 +863,7 @@ order = res.json()[<span class="text-brand-gold">"data"</span>]</code></pre>
                 <div class="space-y-2 text-sm">
                   <div class="flex items-center gap-3"><span class="text-brand-green font-mono font-bold">201</span><span class="text-gray-200">Todas las órdenes creadas</span></div>
                   <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">400</span><span class="text-gray-200">Array vacío o items faltantes</span></div>
-                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido</span></div>
+                  <div class="flex items-center gap-3"><span class="text-red-400 font-mono font-bold">403</span><span class="text-gray-200">Scope write requerido, o la key es de proveedor</span></div>
                 </div>
               </div>
             </div>
