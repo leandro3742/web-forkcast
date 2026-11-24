@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentabilidad de un restaurante: cómo calcularla por plato</title>
+  <meta name="description" content="Aprendé a calcular costo, food cost y margen de cada plato con mermas reales, comparar proveedores y ajustar precios con inflación. Ejemplos en pesos.">
+  <meta name="keywords" content="rentabilidad restaurante, restaurante, gastronomia, gestion, ForkCast">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/blog/calcular-rentabilidad-restaurante.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.forkcast.tech/blog/calcular-rentabilidad-restaurante.html">
+  <meta property="og:title" content="Rentabilidad de un restaurante: cómo calcularla por plato">
+  <meta property="og:description" content="Aprendé a calcular costo, food cost y margen de cada plato con mermas reales, comparar proveedores y ajustar precios con inflación. Ejemplos en pesos.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+  <meta property="article:published_time" content="2026-11-24">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rentabilidad de un restaurante: cómo calcularla por plato">
+  <meta name="twitter:description" content="Aprendé a calcular costo, food cost y margen de cada plato con mermas reales, comparar proveedores y ajustar precios con inflación. Ejemplos en pesos.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <link rel="apple-touch-icon" href="../forkcast-logo.png">
+
+  <!-- Structured Data — BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Rentabilidad de un restaurante: cómo calcularla por plato",
+    "description": "Aprendé a calcular costo, food cost y margen de cada plato con mermas reales, comparar proveedores y ajustar precios con inflación. Ejemplos en pesos.",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.forkcast.tech/forkcast-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.forkcast.tech/blog/calcular-rentabilidad-restaurante.html"
+    },
+    "keywords": "rentabilidad restaurante",
+    "wordCount": 2593,
+    "articleSection": "Costos"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #2A3C2E; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 600; color: #3D5A42; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .article-content ul { list-style-type: disc; }
+    .article-content ol { list-style-type: decimal; }
+    .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-content strong { color: #2A3C2E; }
+    .article-content a { color: #4A8C5C; text-decoration: underline; }
+    .article-content sup a { text-decoration: none; font-weight: 600; }
+    .article-content ol.fuentes { font-size: 0.875rem; }
+
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+  </style>
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="block hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="pt-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-green transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-brand-green transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-dark font-medium">Costos</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <main class="bg-brand-light pb-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <header class="pb-8 border-b border-gray-200 mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #C9A84C">Costos</span>
+          <span class="text-sm text-gray-400">13 min de lectura</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Rentabilidad de un restaurante: cómo calcularla por plato</h1>
+        <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <time datetime="2026-11-24">24 de noviembre de 2026</time>
+          <span>|</span>
+          <span>Por ForkCast</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content">
+        <p>Para calcular la rentabilidad de un restaurante plato por plato necesitás tres números por cada ítem de la carta: el costo real de la porción (con mermas y precios actualizados de tus compras), el precio de venta y la cantidad que vendés. Con eso sacás el food cost de cada plato, su margen de contribución en pesos y su peso dentro de la carta. La rentabilidad restaurante no se mide solo en el resultado del mes: se construye plato por plato. Con listas de precios que cambian seguido, hacer bien esta cuenta y mantenerla al día es lo que separa una carta que deja plata de una que solo factura.</p><h2>Qué medís cuando hablás de rentabilidad por plato</h2><p>Cada plato tiene dos indicadores que conviene mirar juntos. El primero es el <strong>food cost</strong>, o costo de materia prima como porcentaje del precio: cuánto de cada peso que cobrás se va en insumos. El segundo es el <strong>margen de contribución</strong>: en ingeniería de menú, es el precio de venta menos el costo de la materia prima del plato <sup><a href="#fuentes">2</a></sup>.</p><p>La diferencia importa. El porcentaje te dice qué tan eficiente es la receta. El margen en pesos te dice cuánto aporta cada unidad vendida para pagar sueldos, alquiler y servicios, y para dejar ganancia. Un plato con food cost bajo puede aportar pocos pesos si su precio es bajo, y un plato con food cost alto puede aportar mucho si el precio lo acompaña. A eso se suma la <strong>cantidad vendida</strong>: un plato con gran margen que casi nadie pide aporta poco al total del mes. Por eso el análisis cruza costo, precio y ventas, y no se queda con una sola de esas variables.</p><h2>La base de todo: la ficha técnica de cada plato</h2><p>No podés costear lo que no está definido. La ficha técnica (o receta estándar) es el documento donde queda escrito qué lleva cada plato, en qué cantidad y cómo se prepara. Sin ella, el costo depende de quién esté en la plancha ese día.</p><p>Una ficha útil para costear tiene, como mínimo:</p><ul><li><strong>Nombre del plato y rendimiento</strong>: cuántas porciones salen de la receta.</li><li><strong>Cada insumo con su cantidad</strong>, aclarando si es en crudo (tal como llega en el remito) o limpia (después de desgrasar, pelar o porcionar).</li><li><strong>Unidad de compra y unidad de uso</strong>: comprás el aceite por bidón de 5 litros y lo usás por mililitro; la ficha tiene que hacer esa conversión.</li><li><strong>Guarnición, salsas y decoración</strong>: el chimichurri, el limón y el pan de la panera también cuestan.</li><li><strong>Foto del emplatado</strong>, para que la porción que se sirve coincida con la porción costeada.</li></ul><p>Un detalle fácil de pasar por alto: las preparaciones intermedias (fondos, salsas, masas, aderezos de la casa) necesitan su propia ficha. Primero costeás un litro de salsa y después usás ese costo por mililitro en cada plato que la lleva. Así, cuando sube un insumo de la salsa, el cambio llega a todos los platos que la usan.</p><h2>Mermas: el costo que no figura en la factura</h2><p>El precio por kilo que te pasa la distribuidora no es lo que te cuesta el kilo que llega al plato. Entre lo que entra por la puerta y lo que se sirve hay desgrase, huesos, cáscaras, recortes, pérdida por cocción y producto que se tira. </p><p>Para que tu costeo refleje la realidad, trabajá con el <strong>costo por kilo útil</strong>:</p><p><strong>Costo por kilo útil = precio por kilo / (1 − merma)</strong></p><p>La merma se expresa en decimal: un 20% es 0,20. Para medirla, pesás la pieza como llega, la limpiás como la usa tu cocina, pesás lo aprovechable y calculás qué porcentaje se perdió. Conviene repetir la medición cada tanto, porque la merma de un mismo corte cambia según el proveedor, el tamaño de la pieza y el uso que le da tu cocina.</p><p>Ejemplo ilustrativo: comprás cuadril a $14.000 el kilo. Pesás una pieza de 5 kg en crudo y, después de limpiarla, te quedan 4 kg aprovechables. Perdiste 1 kg sobre 5, o sea, una merma del 20%. El costo por kilo útil es $14.000 / (1 − 0,20) = $14.000 / 0,80 = $17.500. Si en la ficha técnica la porción figura en crudo, usás $14.000 el kilo; si figura limpia, usás $17.500. Mezclar los dos criterios distorsiona el costo del plato.</p><h2>Paso a paso: costo por porción, food cost y margen</h2><p>Con la ficha técnica y las mermas medidas, el cálculo es una suma ordenada. Para cada insumo multiplicás la cantidad de la porción por su costo unitario: por kilo útil si la cantidad es limpia y por kilo en crudo si la cantidad es en crudo. Sumás todo y obtenés el costo de la porción. Después:</p><ul><li><strong>Food cost del plato</strong> = costo de la porción / precio de venta × 100.</li><li><strong>Margen de contribución</strong> = precio de venta − costo de la porción.</li></ul><p>Ejemplo ilustrativo: milanesa de cuadril con puré, precio en carta $16.000.</p><ul><li>Cuadril: 200 g limpios × $17.500 por kilo útil = $3.500.</li><li>Huevo para el rebozado: 1 unidad, de un maple de 30 a $7.500 = $250.</li><li>Pan rallado: 60 g a $3.000 el kilo = $180.</li><li>Aceite de fritura asignado por porción: $300.</li><li>Papa para el puré: 300 g en crudo a $1.200 el kilo = $360 (la cantidad ya está en crudo, así que no se ajusta por merma).</li><li>Manteca: 20 g a $12.000 el kilo = $240.</li><li>Leche: 50 ml a $1.400 el litro = $70.</li><li>Limón y condimentos: $100.</li></ul><p>Costo de la porción: $3.500 + $250 + $180 + $300 + $360 + $240 + $70 + $100 = $5.000. Food cost: $5.000 / $16.000 × 100 = 31,25%. Margen de contribución: $16.000 − $5.000 = $11.000 por plato vendido.</p><p>Fijate que el cuadril explica el 70% del costo del plato ($3.500 sobre $5.000). Ese es el insumo que tenés que vigilar de cerca: una variación en su precio o en su merma mueve el resultado mucho más que cualquier cambio en el pan rallado.</p>
+      </div>
+      <!-- Mid CTA -->
+      <aside class="my-10 rounded-2xl border border-brand-gold/40 bg-white p-6 sm:p-8">
+        <p class="text-lg font-bold text-brand-dark">¿Sabés cuánto te cuesta de verdad cada plato?</p>
+        <p class="mt-2 text-sm text-gray-600">ForkCast calcula el costo por plato y el CMV con los precios reales de tus compras, y te avisa cuando un proveedor sube un precio. Crear la cuenta es gratis.</p>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=mid&amp;utm_campaign=calcular-rentabilidad-restaurante" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-colors">Empezar gratis</a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-gray-300 text-brand-dark text-sm font-semibold hover:border-brand-gold transition-colors">Escribinos por WhatsApp</a>
+        </div>
+      </aside>
+      <div class="article-content"><h2>Comparar proveedores por costo útil, no por precio de lista</h2><p>Cuando comparás listas, la tentación es elegir el precio por kilo más bajo. Pero lo que te importa es cuánto te cuesta lo que llega al plato, y eso depende de la merma de cada producto.</p><p>Ejemplo ilustrativo: el Proveedor A vende cuadril a $14.000 el kilo y, con sus piezas, medís una merma del 20%. El Proveedor B lo vende a $13.000 el kilo, pero sus piezas vienen con más grasa y la merma que medís es del 28%.</p><ul><li>Proveedor A: $14.000 / 0,80 = $17.500 por kilo útil.</li><li>Proveedor B: $13.000 / 0,72 = $18.056 por kilo útil (redondeado).</li></ul><p>El proveedor con el precio de lista más bajo sale $556 más caro por kilo aprovechable. En la porción de 200 g de la milanesa, son unos $111 más por plato. Multiplicado por todas las porciones del mes, la diferencia deja de ser un detalle.</p><p>Para que la comparación sea justa, sumá dos controles más:</p><ul><li><strong>Lo que efectivamente llega</strong>: controlá el remito contra lo pedido y pesá la mercadería al recibirla. Si pagás 10 kg y llegan 9,5 kg, tu costo real por kilo subió.</li><li><strong>La regularidad</strong>: una merma que cambia mucho de una entrega a otra complica el costeo y la producción, aunque el precio sea bueno.</li></ul><h2>Clasificar la carta: popularidad y margen</h2><p>Con el costo y el margen de cada plato resueltos, el siguiente paso es mirar la carta como conjunto. El método de ingeniería de menú de Michael Kasavana y Donald Smith clasifica los platos según su popularidad y su rentabilidad, medida como margen de contribución <sup><a href="#fuentes">1</a></sup>. Al cruzar alta y baja popularidad con margen alto y bajo quedan cuatro grupos, que acá vamos a llamar así:</p><ul><li><strong>Estrella</strong>: popular y con margen alto. Se cuida y se destaca.</li><li><strong>Caballo de batalla</strong>: popular pero con margen bajo. Se revisa la receta, la porción o el precio.</li><li><strong>Enigma</strong>: margen alto pero poco pedido. Se trabaja su ubicación en la carta, su descripción o la recomendación del salón.</li><li><strong>Perro</strong>: poco popular y con margen bajo. Candidato a reformular o sacar.</li></ul><p>Para separar alto de bajo necesitás dos umbrales. Para el margen, podés usar el margen de contribución promedio ponderado por ventas. Para la popularidad, un criterio práctico es considerar popular a un plato si vende al menos el 70% de lo que vendería si todos los platos se repartieran las ventas por igual.</p><p>Ejemplo ilustrativo: una carta reducida de cuatro platos principales, con las ventas de un mes.</p><ul><li>Milanesa de cuadril: precio $16.000, costo $5.000, margen $11.000, 400 unidades.</li><li>Bife de chorizo: precio $24.000, costo $10.800, margen $13.200, 150 unidades.</li><li>Sorrentinos: precio $13.000, costo $3.250, margen $9.750, 300 unidades.</li><li>Salmón grillado: precio $26.000, costo $15.600, margen $10.400, 50 unidades.</li></ul><p>Total vendido: 900 unidades. Margen total: (400 × $11.000) + (150 × $13.200) + (300 × $9.750) + (50 × $10.400) = $4.400.000 + $1.980.000 + $2.925.000 + $520.000 = $9.825.000. Margen promedio ponderado: $9.825.000 / 900 = $10.917 (redondeado). Umbral de popularidad: con cuatro platos, el reparto parejo sería el 25% de las ventas; el 70% de eso es 17,5%, es decir, 157,5 unidades sobre 900.</p><ul><li>Milanesa: 400 unidades (popular) y $11.000 de margen (alto): <strong>estrella</strong>.</li><li>Bife de chorizo: 150 unidades (poco popular) y $13.200 de margen (alto): <strong>enigma</strong>.</li><li>Sorrentinos: 300 unidades (popular) y $9.750 de margen (bajo): <strong>caballo de batalla</strong>.</li><li>Salmón: 50 unidades (poco popular) y $10.400 de margen (bajo): <strong>perro</strong>.</li></ul><p>De ahí salen las decisiones: proteger la milanesa, darle visibilidad al bife, revisar porción o precio de los sorrentinos y repensar el salmón, que además inmoviliza un insumo caro y perecedero. Hacé este análisis por categoría (entradas con entradas, principales con principales), porque comparar un postre con un plato principal no tiene sentido.</p><h2>Inflación: cuándo y cómo actualizar costos y precios</h2><p>Un costeo hecho hace tres meses puede estar muy lejos de la realidad. Con listas que cambian seguido, la ficha técnica tiene que usar el precio de la última compra, no el de la primera vez que armaste la carta.</p><p>Ejemplo ilustrativo: el cuadril de la milanesa pasa de $14.000 a $16.800 el kilo (un 20% más). Con la misma merma del 20%, el kilo útil pasa a $16.800 / 0,80 = $21.000, y la porción de 200 g limpios a $4.200. El costo del plato sube $700: de $5.000 a $5.700. Si mantenés el precio en $16.000, el food cost sube a 35,6% y el margen baja a $10.300.</p><p>Tenés dos caminos para definir el nuevo precio:</p><ul><li><strong>Mantener el food cost objetivo</strong>: precio = costo / food cost. Para volver al 31,25%: $5.700 / 0,3125 = $18.240.</li><li><strong>Mantener el margen en pesos</strong>: precio = costo + margen. Para seguir ganando $11.000: $5.700 + $11.000 = $16.700.</li></ul><p>El primer criterio protege la proporción; el segundo protege los pesos y permite un aumento menor en carta. Cuál elegir depende de cómo se mueven tus otros gastos y de cuánto aumento tolera tu clientela en ese plato. Para no correr detrás de los precios, definí un umbral de alerta por plato (por ejemplo, revisar el precio cuando el food cost se aleja más de 2 puntos de tu objetivo) y seguí de cerca los insumos que más pesan en cada receta. Antes de subir, fijate si podés ajustar la guarnición o cambiar de proveedor para ese insumo.</p><h2>Del costo teórico al real: controlar con el CMV</h2><p>Todo lo anterior es el costo <em>teórico</em>: lo que deberían costar los platos si la cocina siguiera la ficha al pie de la letra. El costo <em>real</em> aparece cuando comparás lo que consumiste en el período contra lo que vendiste. Para eso se usa el CMV (costo de mercadería vendida), que como indicador de gestión se arma así: stock inicial + compras del período − stock final.</p><p>Ejemplo ilustrativo: al inicio del mes tenías $2.000.000 en mercadería, compraste $9.500.000 y al cierre contaste $2.300.000. El CMV es $2.000.000 + $9.500.000 − $2.300.000 = $9.200.000. Si vendiste $28.000.000 en comida, el food cost real es $9.200.000 / $28.000.000 = 32,9%. Si multiplicás las unidades vendidas de cada plato por su costo de ficha, el costo teórico da $8.400.000, un 30% de las ventas.</p><p>La diferencia, $800.000 o 2,9 puntos, es plata que se fue por algún lado. Lo que conviene revisar:</p><ol><li><strong>Porciones más grandes</strong> que las de la ficha.</li><li><strong>Mermas mayores</strong> que las medidas, por cambios de proveedor o de pieza.</li><li><strong>Mercadería que no llegó completa</strong> y se pagó igual, por no controlar el remito.</li><li><strong>Precios desactualizados</strong> en las fichas, que hacen que el teórico parezca mejor de lo que es.</li><li><strong>Producto descartado</strong> por vencimiento o mala rotación, comidas del personal o cortesías sin registrar.</li></ol><p>Hacé esta comparación todos los meses. Si la brecha crece, empezá por los platos que más vendés y por los insumos que más pesan.</p><h2>Preguntas frecuentes</h2><h3>¿Cada cuánto conviene recalcular el costo de los platos?</h3><p>Lo ideal es actualizar el costo cada vez que cambia el precio de compra de un insumo importante. Si lo hacés a mano, un criterio razonable es revisar todas las fichas una vez por mes, y los platos con insumos de precio muy variable (carnes, pescados, verduras de estación) cada vez que llega una lista nueva.</p><h3>¿Tengo que incluir la mano de obra en el costo del plato?</h3><p>Para el food cost y el margen de contribución, no: esos indicadores miden solo la materia prima. La mano de obra, el alquiler y los servicios se cubren con la suma de los márgenes de todos los platos. Si un plato lleva mucho tiempo de preparación, analizalo aparte, sin mezclarlo con el costeo de insumos.</p><h3>¿Qué hago con un plato que vende mucho pero deja poco margen?</h3><p>Antes de subir el precio, revisá la ficha: porción, guarnición, insumo principal y proveedor. A veces un ajuste de gramaje o un cambio de corte recupera margen sin que la clientela lo note. Si el margen sigue bajo, queda el aumento de precio, y como el plato es popular, conviene hacerlo de a poco.</p><h3>¿Cómo costeo las bebidas y los cafés?</h3><p>Con la misma lógica: una ficha por bebida con cada componente (café en gramos, leche en mililitros, azúcar si se entrega) y su costo unitario. En el vino por copa, dividís el precio de la botella por las copas que salen y sumás lo que perdés cuando una botella abierta no se termina de vender.</p><h2>Cómo ayuda ForkCast a calcular la rentabilidad por plato</h2><p>Un costeo vale lo que valen sus datos de entrada, y se debilita con precios de compra viejos, listas desparramadas en mensajes y remitos que nadie controla. ForkCast reúne las compras a todos tus proveedores en un solo lugar, por web o WhatsApp, y te deja controlar lo que realmente te entregan. Con esos precios reales de compra, la plataforma calcula el costo por plato y el CMV, así que tus números reflejan lo que pagaste de verdad y no una lista de hace meses.</p><p>También podés comparar el precio del mismo insumo entre proveedores y recibir alertas cuando un precio cambia, para reaccionar antes de que un aumento se coma el margen de tus platos más vendidos. Del otro lado, las distribuidoras reciben los pedidos ordenados por WhatsApp y web, manejan listas de precios por cliente y entregas con repartidor, y facturan lo realmente entregado, así el remito y la factura coinciden con lo que llegó a tu cocina.</p>
+<h2 id="fuentes">Fuentes</h2>
+<ol class="fuentes">
+<li>El método de ingeniería de menú de Michael Kasavana y Donald Smith clasifica los platos según su popularidad y su rentabilidad (margen de contribución). Fuentes: <a href="https://repositorio.utn.edu.ec/bitstream/123456789/17895/2/02%20LGAS%20121%20TRABAJO%20DE%20GRADO.pdf" target="_blank" rel="noopener nofollow">Universidad Técnica del Norte (Ecuador)</a>, <a href="https://digitalcommons.fiu.edu/record/17973/files/V13n195e.pdf" target="_blank" rel="noopener nofollow">Florida International University</a>.</li>
+<li>En ingeniería de menú, el margen de contribución de un plato es su precio de venta menos el costo de su materia prima. Fuentes: <a href="https://repositorio.utn.edu.ec/bitstream/123456789/17895/2/02%20LGAS%20121%20TRABAJO%20DE%20GRADO.pdf" target="_blank" rel="noopener nofollow">Universidad Técnica del Norte (Ecuador)</a>, <a href="https://digitalcommons.fiu.edu/record/17973/files/V13n195e.pdf" target="_blank" rel="noopener nofollow">Florida International University</a>.</li>
+</ol>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-12 rounded-2xl bg-brand-dark p-8 sm:p-10 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ordená tus compras con ForkCast</h2>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">Restaurantes: pedile a todos tus proveedores desde un solo lugar y compará precios, gratis. Distribuidoras: recibí pedidos ordenados por WhatsApp y web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=calcular-rentabilidad-restaurante" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+            Empezar gratis
+          </a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-dark mb-8">Más artículos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/blog/reducir-costes-restaurante.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Cómo reducir costes en un restaurante sin perder calidad</h3>
+          </div>
+        </a>
+
+        <a href="/blog/calcular-precio-plato-restaurante.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Como calcular el precio de un plato en Argentina sin perder margen</h3>
+          </div>
+        </a>
+
+        <a href="/blog/planilla-costo-por-plato.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #C9A84C">Costos</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Planilla de costo por plato: que columnas lleva y como mantenerla al dia</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
