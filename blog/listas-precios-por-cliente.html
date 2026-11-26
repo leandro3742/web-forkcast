@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listas de precios por cliente: cómo manejarlas bien</title>
+  <meta name="description" content="Cómo armar, actualizar y comunicar listas de precios por cliente en una distribuidora gastronómica, con ejemplos en pesos y criterios claros.">
+  <meta name="keywords" content="listas de precios por cliente, restaurante, gastronomia, gestion, ForkCast">
+  <meta name="author" content="ForkCast">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.forkcast.tech/blog/listas-precios-por-cliente.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.forkcast.tech/blog/listas-precios-por-cliente.html">
+  <meta property="og:title" content="Listas de precios por cliente: cómo manejarlas bien">
+  <meta property="og:description" content="Cómo armar, actualizar y comunicar listas de precios por cliente en una distribuidora gastronómica, con ejemplos en pesos y criterios claros.">
+  <meta property="og:image" content="https://www.forkcast.tech/forkcast-logo.png">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="ForkCast">
+  <meta property="article:published_time" content="2026-11-26">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Listas de precios por cliente: cómo manejarlas bien">
+  <meta name="twitter:description" content="Cómo armar, actualizar y comunicar listas de precios por cliente en una distribuidora gastronómica, con ejemplos en pesos y criterios claros.">
+  <meta name="twitter:image" content="https://www.forkcast.tech/forkcast-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../forkcast-logo.png">
+  <link rel="apple-touch-icon" href="../forkcast-logo.png">
+
+  <!-- Structured Data — BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Listas de precios por cliente: cómo manejarlas bien",
+    "description": "Cómo armar, actualizar y comunicar listas de precios por cliente en una distribuidora gastronómica, con ejemplos en pesos y criterios claros.",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForkCast",
+      "url": "https://www.forkcast.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.forkcast.tech/forkcast-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.forkcast.tech/blog/listas-precios-por-cliente.html"
+    },
+    "keywords": "listas de precios por cliente",
+    "wordCount": 2444,
+    "articleSection": "Proveedores"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              dark: '#2A3C2E',
+              darker: '#1E2E22',
+              green: '#4A8C5C',
+              gold: '#C9A84C',
+              'gold-light': '#D4B85A',
+              light: '#F5F5F0',
+              circle: '#3D5A42',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .article-content h2 { font-size: 1.5rem; font-weight: 700; color: #2A3C2E; margin-top: 2rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-content h3 { font-size: 1.25rem; font-weight: 600; color: #3D5A42; margin-top: 1.5rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .article-content ul { list-style-type: disc; }
+    .article-content ol { list-style-type: decimal; }
+    .article-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .article-content strong { color: #2A3C2E; }
+    .article-content a { color: #4A8C5C; text-decoration: underline; }
+    .article-content sup a { text-decoration: none; font-weight: 600; }
+    .article-content ol.fuentes { font-size: 0.875rem; }
+
+    .wpp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+  </style>
+  <!-- Google Analytics 4 (Consent Mode v2: sin cookies hasta que el visitante acepta) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var fcConsent = null;
+    try { fcConsent = localStorage.getItem('fc_cookie_consent'); } catch (e) {}
+    gtag('consent', 'default', {
+      analytics_storage: fcConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-P26D808QF6');
+    // Eventos de conversión: clic en registro, WhatsApp y email
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (h.indexOf('app.forkcast.tech/register') !== -1) gtag('event', 'sign_up_click', { link_url: h });
+      else if (h.indexOf('wa.me/') !== -1) gtag('event', 'contact_whatsapp', { link_url: h });
+      else if (h.indexOf('mailto:') === 0) gtag('event', 'contact_email', { link_url: h });
+    });
+    // Aviso de cookies: se muestra hasta que el visitante elige
+    document.addEventListener('DOMContentLoaded', function () {
+      if (fcConsent === 'granted' || fcConsent === 'denied') return;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Aviso de cookies');
+      bar.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#2A3C2E;color:#F5F5F0;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.5 Inter,system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between';
+      bar.innerHTML = '<span style="flex:1 1 260px">Usamos cookies para medir cómo se usa el sitio. <a href="/legal/privacidad" style="color:#C9A84C;text-decoration:underline">Más información</a></span>' +
+        '<span style="display:flex;gap:8px"><button type="button" data-fc="denied" style="background:transparent;color:#F5F5F0;border:1px solid #3D5A42;border-radius:10px;padding:8px 14px;font-weight:600;cursor:pointer">Rechazar</button>' +
+        '<button type="button" data-fc="granted" style="background:#C9A84C;color:#2A3C2E;border:0;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer">Aceptar</button></span>';
+      bar.addEventListener('click', function (e) {
+        var v = e.target.getAttribute && e.target.getAttribute('data-fc');
+        if (!v) return;
+        try { localStorage.setItem('fc_cookie_consent', v); } catch (err) {}
+        gtag('consent', 'update', { analytics_storage: v });
+        bar.remove();
+      });
+      document.body.appendChild(bar);
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P26D808QF6"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-circle/30 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white flex items-center gap-2">
+        <img src="../forkcast-logo.png" alt="ForkCast" class="h-8 w-8 rounded">
+        ForkCast
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="bg-brand-gold text-brand-dark px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-brand-gold" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-circle/30 bg-brand-dark">
+      <div class="px-4 py-4 space-y-3 text-sm font-medium text-gray-300">
+        <a href="/blog/" class="block hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="block hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="block hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="block hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#precios" class="block hover:text-brand-gold transition-colors">Precios</a>
+        <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="block bg-brand-gold text-brand-dark text-center px-4 py-2 rounded-lg hover:bg-brand-gold-light transition-colors font-semibold">Solicita una demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="pt-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-green transition-colors">Inicio</a>
+        <span class="mx-2">/</span>
+        <a href="/blog/" class="hover:text-brand-green transition-colors">Blog</a>
+        <span class="mx-2">/</span>
+        <span class="text-brand-dark font-medium">Proveedores</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article -->
+  <main class="bg-brand-light pb-20">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <header class="pb-8 border-b border-gray-200 mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full text-white" style="background-color: #5B8C8A">Proveedores</span>
+          <span class="text-sm text-gray-400">13 min de lectura</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-dark leading-tight">Listas de precios por cliente: cómo manejarlas bien</h1>
+        <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+          <time datetime="2026-11-26">26 de noviembre de 2026</time>
+          <span>|</span>
+          <span>Por ForkCast</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="article-content">
+        <p>Las <strong>listas de precios por cliente</strong> te sirven para cobrarle a cada restaurante según lo que realmente te compra, cómo te paga y cuánto te cuesta atenderlo. En una distribuidora gastronómica funcionan bien cuando partís de una lista base, armás pocos grupos de clientes con reglas claras, actualizás todo junto cuando cambian tus costos y dejás por escrito qué precio vale en cada pedido. En esta nota vas a encontrar cómo segmentar, cómo calcular cada lista, cómo actualizarlas con inflación, cómo tratar productos con merma y cómo comunicar los cambios sin generar conflictos con tus clientes.</p><h2>Qué es una lista de precios por cliente y para qué sirve</h2><p>Una lista de precios por cliente es el conjunto de precios que se le aplica a un restaurante o a un grupo de restaurantes en particular. No es un descuento que se negocia en cada llamada ni un precio que el equipo comercial recuerda de memoria: es una tabla con fecha de vigencia, asociada a la ficha del cliente, que se usa para cotizar, tomar el pedido, armar el remito y facturar.</p><p>Sirve para tres cosas concretas:</p><ul><li><strong>Cuidar el margen:</strong> no todos los clientes te cuestan lo mismo. Un restaurante que pide dos veces por semana, en cantidad y con pago a 7 días, no puede tener el mismo precio que uno que pide poco, todos los días y paga a 45 días.</li><li><strong>Ganar velocidad:</strong> cuando entra un pedido por WhatsApp a las 7 de la mañana, quien lo carga no tiene que preguntarle a nadie qué precio corresponde.</li><li><strong>Evitar discusiones:</strong> si el precio sale de una lista vigente y conocida, la conversación con la persona encargada de compras del restaurante pasa a ser sobre producto y entrega, no sobre si “la semana pasada me lo cobraste distinto”.</li></ul><h2>Cómo segmentar a tus clientes antes de armar las listas</h2><p>No empieces por los precios. Primero definí los grupos y recién después los números. Para segmentar, mirá variables que puedas medir con tus propios datos de ventas y cobranzas:</p><ul><li><strong>Volumen mensual comprado</strong>, en pesos o en unidades de los productos principales.</li><li><strong>Frecuencia y tamaño de pedido:</strong> diez pedidos chicos cuestan más en armado y reparto que dos pedidos grandes por el mismo total.</li><li><strong>Plazo y comportamiento de pago:</strong> no es lo mismo contado contra entrega que cuenta corriente a 30 días, ni un cliente que paga en fecha que uno que se atrasa.</li><li><strong>Zona de entrega:</strong> la distancia y el horario de recepción cambian tu costo logístico.</li><li><strong>Mix de productos:</strong> quien compra solo los productos con menos margen no te aporta lo mismo que quien compra la línea completa.</li></ul><p>Con esas variables, lo práctico es trabajar con entre tres y cinco listas, no con una por cliente. Muchas listas individuales parecen flexibles, pero después nadie sabe cuál está actualizada. Si un cliente necesita una condición especial, conviene resolverla con una regla puntual sobre su lista (por ejemplo, un precio fijo en un solo producto por un período) y no armando una lista nueva.</p><p>Dejá escrito también qué tiene que pasar para que un cliente cambie de grupo: por ejemplo, tres meses seguidos por encima de cierto volumen para subir, o atrasos repetidos en los pagos para bajar. Así la decisión no depende del humor del día.</p><h2>Cómo construir las listas a partir de una lista base</h2><p>La estructura más fácil de mantener es una <strong>lista base</strong> calculada sobre tu costo de reposición, con listas derivadas que salen de aplicar un porcentaje o una regla sobre esa base. Cuando actualizás la base, todas las demás se mueven solas y no tenés que tocar cientos de precios a mano.</p><p>Ejemplo ilustrativo: una distribuidora define tres listas. La Lista C es la base; la Lista B tiene 4% menos que la base y exige un pedido mínimo de $150.000; la Lista A tiene 8% menos y exige un pedido mínimo de $400.000 con pago a 7 días. Para el queso cremoso, con un precio base de $9.500 por kilo:</p><ul><li>Lista C: $9.500 por kilo.</li><li>Lista B: $9.500 × 0,96 = $9.120 por kilo.</li><li>Lista A: $9.500 × 0,92 = $8.740 por kilo.</li></ul><p>Un restaurante en Lista B que pide 20 kilos paga 20 × $9.120 = $182.400, que supera el mínimo de $150.000. Si el pedido fuera de 15 kilos, serían 15 × $9.120 = $136.800 y no llegaría al mínimo. Para ese caso, la regla tiene que estar definida de antemano: se le aplica la Lista C, se le suma un cargo de envío o se le pide que complete el pedido.</p><p>Algunos criterios para que la estructura no se desarme:</p><ul><li>Fijá un <strong>piso de margen por producto</strong>. Si un descuento de lista deja un artículo por debajo de ese piso, ese artículo queda afuera del descuento.</li><li>Separá los <strong>productos de precio muy volátil</strong> (carnes, verduras, lácteos frescos) en una sección propia de la lista, con actualización más frecuente.</li><li>Definí redondeos (por ejemplo, a la decena de pesos) para que los precios se lean fácil en un mensaje o en un remito.</li></ul><h2>Actualizar listas en un contexto de inflación</h2><p>Con precios que suben todos los meses, una lista que no se actualiza pierde margen. Según el INDEC, el índice de precios al consumidor subió 2,2% en octubre de 2026 <sup><a href="#fuentes">2</a></sup>. Ese índice acumuló 26,3% entre enero y octubre <sup><a href="#fuentes">5</a></sup>. Del lado mayorista, la inflación fue de 1,6% en octubre de 2026 <sup><a href="#fuentes">4</a></sup>. Esos números son promedios generales: tus insumos pueden moverse más o menos, por eso la referencia para actualizar tiene que ser tu propio costo de reposición, no un índice.</p><p>Ejemplo ilustrativo: una bolsa de harina de 25 kilos te cuesta $14.000 y la vendés en lista base con un recargo de 30% sobre el costo: $14.000 × 1,30 = $18.200. Tu proveedor aumenta 3% y el costo pasa a $14.000 × 1,03 = $14.420. Si no tocás la lista, tu ganancia por bolsa baja de $4.200 ($18.200 − $14.000) a $3.780 ($18.200 − $14.420), y el recargo real cae de 30% a 26,2% ($3.780 / $14.420). Para mantener el 30%, el nuevo precio base tiene que ser $14.420 × 1,30 = $18.746, y la Lista A pasa a $18.746 × 0,92 = $17.246,32, que redondeado a la decena queda en $17.250.</p><p>Para que las actualizaciones no sean un caos:</p><ol><li><strong>Elegí una frecuencia fija</strong> para la lista general (por ejemplo, el primer día hábil de cada quincena) y una frecuencia más corta para los productos volátiles.</li><li><strong>Definí un disparador:</strong> si el costo de reposición de un producto sube más que el porcentaje que vos fijes, se actualiza fuera de fecha.</li><li><strong>Actualizá la base y dejá que las listas derivadas se recalculen</strong>, en vez de editar cada lista por separado.</li><li><strong>Guardá el historial</strong> de cada versión con su fecha de vigencia, para poder responder cualquier reclamo con el precio exacto que regía ese día.</li></ol>
+      </div>
+      <!-- Mid CTA -->
+      <aside class="my-10 rounded-2xl border border-brand-gold/40 bg-white p-6 sm:p-8">
+        <p class="text-lg font-bold text-brand-dark">Recibí los pedidos de tus clientes ordenados</p>
+        <p class="mt-2 text-sm text-gray-600">Con ForkCast tus clientes te piden por WhatsApp o web con su lista de precios, y vos ves pedidos, stock y entregas en un solo lugar.</p>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=mid&amp;utm_campaign=listas-precios-por-cliente" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-gold text-brand-dark text-sm font-semibold hover:bg-brand-gold-light transition-colors">Empezar gratis</a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-gray-300 text-brand-dark text-sm font-semibold hover:border-brand-gold transition-colors">Escribinos por WhatsApp</a>
+        </div>
+      </aside>
+      <div class="article-content"><h2>Productos con merma: carnes y cortes limpios</h2><p>En carnes y otros productos que se limpian antes de usarse, al restaurante le conviene comparar no solo el precio por kilo en crudo, sino cuánto le cuesta el kilo que realmente va al plato. Si tu lista no aclara si el precio es por kilo en crudo o por kilo limpio, el cliente va a comparar mal y vas a perder ventas o recibir reclamos.</p><p>La cuenta es: costo por kilo útil = precio por kilo / (1 − merma).</p><p>Ejemplo ilustrativo: la Lista B tiene dos opciones de lomo. El lomo con cordón se vende a $22.000 por kilo en crudo y el restaurante pierde 20% en la limpieza; el costo por kilo útil es $22.000 / (1 − 0,20) = $22.000 / 0,80 = $27.500. El lomo limpio se vende a $26.500 por kilo, ya sin merma de limpieza. Aunque el precio de lista del lomo limpio parece más alto, al restaurante le sale $1.000 menos por kilo útil. Siguiendo con el ejemplo ilustrativo, para un cuadril a $14.000 por kilo en crudo con una merma supuesta de 15%, el kilo útil cuesta $14.000 / 0,85 = $16.470,59.</p><p>Criterios para la lista:</p><ul><li>Indicá en cada ítem si el precio es <strong>en crudo o limpio</strong>, y la unidad (kilo, pieza, caja).</li><li>Si vendés el mismo corte con distinto grado de limpieza, cargalos como productos separados, con códigos distintos.</li><li>Para piezas de peso variable, aclará que se cobra el peso real entregado, y que ese peso figura en el remito.</li></ul><h2>Criterios claros y documentados para cada lista</h2><p>Si tenés precios distintos para clientes distintos, conviene que cada diferencia se pueda explicar con un criterio comercial concreto: volumen, plazo de pago, zona, tamaño de pedido. La Ley 27.442 de Defensa de la Competencia menciona, entre las conductas que pueden constituir prácticas restrictivas de la competencia, imponer condiciones discriminatorias para la adquisición o enajenación de bienes o servicios sin razones fundadas en los usos y costumbres comerciales <sup><a href="#fuentes">1</a></sup>. Esto no es asesoramiento legal: si tenés dudas sobre tu caso, consultalo con un profesional. Desde lo operativo, lo que sí podés hacer es ordenar tu política de precios.</p><p>Con un documento interno simple alcanza:</p><ul><li>Qué listas existen y qué condición define a cada una.</li><li>Qué pasa si un cliente no cumple el pedido mínimo o el plazo de pago de su lista.</li><li>Quién puede aprobar una excepción y por cuánto tiempo.</li><li>Cada cuánto se revisa en qué lista está cada cliente.</li></ul><p>Ese documento también ordena al equipo: cuando alguien del área comercial quiere ofrecer un precio especial para cerrar una venta, sabe cuál es el camino y no termina armando una lista paralela en una planilla personal.</p><h2>Errores frecuentes al manejar listas de precios por cliente</h2><p>Estos son problemas que pueden aparecer cuando las listas se manejan en planillas sueltas y mensajes:</p><ul><li><strong>Pedidos confirmados con precio viejo.</strong> El cliente pide el lunes con la lista anterior y la mercadería sale el miércoles con la lista nueva.</li><li><strong>Remito y factura que no coinciden.</strong> Se factura lo pedido en lugar de lo entregado, o se aplica una lista distinta a la del remito.</li><li><strong>Descuentos acumulados sin control.</strong> Lista A, más un descuento por pronto pago, más una bonificación por volumen, y el producto termina vendiéndose por debajo del costo.</li><li><strong>Clientes que nunca cambian de lista.</strong> Un restaurante que hace meses bajó su volumen sigue con los precios del grupo de mayor volumen.</li><li><strong>Listas enviadas en PDF sin fecha.</strong> El cliente guarda el archivo y lo usa como referencia semanas después.</li></ul><p>Para el primer caso, la regla tiene que estar escrita y comunicada: por ejemplo, que se respeta el precio vigente al momento de confirmar el pedido.</p><p>Ejemplo ilustrativo: un restaurante confirma el lunes 10 kilos de cuadril a $14.000 por kilo, en total $140.000. El martes entra en vigencia una lista con el cuadril a $14.700. Si la regla es “precio al confirmar”, el remito del miércoles sale por $140.000; si la regla es “precio al entregar”, sale por 10 × $14.700 = $147.000. La diferencia de $7.000 no es grave en sí misma: el conflicto aparece cuando el cliente no sabe de antemano cuál de las dos reglas aplica.</p><h2>Cómo comunicar los cambios de lista a los restaurantes</h2><p>Del otro lado, los restaurantes también miran cada aumento: en octubre de 2026, el rubro alimentos del índice de precios al consumidor subió 2% <sup><a href="#fuentes">3</a></sup>. Quien compra para una cocina puede comparar proveedores y necesita recalcular sus costos. Comunicar bien ayuda a reducir reclamos y a diferenciarte.</p><ul><li><strong>Avisá con anticipación</strong> y con la fecha exacta de entrada en vigencia, aunque sean dos o tres días.</li><li><strong>Mandá aparte lo que cambió</strong>, además de la lista completa: a quien compra le sirve ver rápido qué productos subieron y cuánto.</li><li><strong>Usá siempre el mismo canal</strong> y el mismo formato, para que el cliente sepa dónde buscar la versión vigente.</li><li><strong>Explicá los cambios grandes</strong> con una línea concreta (por ejemplo, que subió el costo de reposición de un producto), sin entrar en discusiones.</li><li><strong>Si un cliente cambia de lista</strong>, avisale antes y contale qué condición lo llevó a ese cambio y qué tendría que pasar para volver.</li></ul><h2>Preguntas frecuentes</h2><h3>¿Cuántas listas de precios conviene tener en una distribuidora?</h3><p>Como criterio práctico, entre tres y cinco, derivadas de una lista base. Con menos, no reflejás las diferencias reales de costo entre clientes; con muchas más, se vuelve difícil mantenerlas actualizadas y aparecen errores.</p><h3>¿Cada cuánto tengo que actualizar las listas de precios por cliente?</h3><p>Depende de cuánto se muevan tus costos. Una opción ordenada es combinar una actualización general con fecha fija, otra más frecuente para productos volátiles como carnes y verduras, y un disparador para actualizar fuera de fecha cuando un costo sube más de lo que definiste.</p><h3>¿Qué precio respeto si el cliente pidió antes del aumento?</h3><p>El que diga tu política escrita. Lo importante es que la regla (precio al confirmar o precio al entregar) esté definida, comunicada y se aplique igual a todos los clientes de una misma lista.</p><h3>¿Cómo evito que los descuentos se acumulen y vendan debajo del costo?</h3><p>Definí un piso de margen por producto y una regla de prioridad: por ejemplo, que el descuento de lista y el de pronto pago no se sumen en los productos de menor margen. Revisá cada tanto las ventas por producto y por lista para detectar artículos que quedaron debajo del piso.</p><h2>Cómo ayuda ForkCast</h2><p>ForkCast es una plataforma que conecta a los restaurantes con sus proveedores. Del lado de la distribuidora, permite recibir pedidos ordenados por WhatsApp y web, manejar listas de precios por cliente, organizar las entregas con el reparto y facturar lo realmente entregado. Eso resuelve varios de los problemas de esta nota: el pedido entra con la lista que le corresponde a ese cliente y la factura sale por lo que efectivamente llegó al restaurante.</p><p>Del lado de los restaurantes, ForkCast les permite comprarles a todos sus proveedores desde un solo lugar, controlar lo que reciben, comparar precios entre proveedores, recibir alertas cuando un precio cambia y ver el costo por plato y el CMV con los precios reales de sus compras. Para una distribuidora, tener clientes con esa información a mano es un motivo más para mantener listas claras, actualizadas y fáciles de explicar.</p>
+<h2 id="fuentes">Fuentes</h2>
+<ol class="fuentes">
+<li>La Ley 27.442 de Defensa de la Competencia menciona, entre las conductas que pueden constituir prácticas restrictivas de la competencia, imponer condiciones discriminatorias para la adquisición o enajenación de bienes o servicios sin razones fundadas en los usos y costumbres comerciales. Fuentes: <a href="https://www.boletinoficial.gob.ar/detalleAviso/primera/183602/20180515" target="_blank" rel="noopener nofollow">Boletín Oficial de la República Argentina</a>, <a href="https://www.argentina.gob.ar/normativa/nacional/ley-27442-310241/texto" target="_blank" rel="noopener nofollow">Argentina.gob.ar (Información Legislativa)</a>.</li>
+<li>Según el INDEC, el índice de precios al consumidor subió 2,2% en octubre de 2026. Fuentes: <a href="https://www.infobae.com/economia/2026/11/12/la-inflacion-en-octubre-fue-de-22-y-acumulo-331-en-los-ultimos-doce-meses/" target="_blank" rel="noopener nofollow">Infobae</a>, <a href="https://www.lacapital.com.ar/economia/la-inflacion-se-acelero-fuerte-octubre-y-volvio-superar-el-2-n10291888.html" target="_blank" rel="noopener nofollow">La Capital</a>.</li>
+<li>En octubre de 2026, el rubro alimentos del índice de precios al consumidor subió 2%. Fuentes: <a href="https://www.ambito.com/economia/la-inflacion-se-acelero-al-22-octubre-y-alcanzo-su-mayor-nivel-seis-meses-n6344589" target="_blank" rel="noopener nofollow">Ámbito</a>, <a href="https://www.lacapital.com.ar/economia/la-inflacion-se-acelero-fuerte-octubre-y-volvio-superar-el-2-n10291888.html" target="_blank" rel="noopener nofollow">La Capital</a>.</li>
+<li>Según el INDEC, la inflación mayorista fue de 1,6% en octubre de 2026. Fuentes: <a href="https://www.infobae.com/economia/2026/11/17/la-inflacion-mayorista-en-octubre-fue-de-16-y-acumulo-298-en-los-ultimos-doce-meses/" target="_blank" rel="noopener nofollow">Infobae</a>, <a href="https://www.iprofesional.com/economia/469371-la-inflacion-mayorista-se-desacelero-en-octubre-y-milei-lo-celebro-fuerte-caida" target="_blank" rel="noopener nofollow">iProfesional</a>.</li>
+<li>El índice de precios al consumidor acumuló 26,3% entre enero y octubre de 2026. Fuentes: <a href="https://www.ambito.com/economia/la-inflacion-se-acelero-al-22-octubre-y-alcanzo-su-mayor-nivel-seis-meses-n6344589" target="_blank" rel="noopener nofollow">Ámbito</a>, <a href="https://www.lacapital.com.ar/economia/la-inflacion-se-acelero-fuerte-octubre-y-volvio-superar-el-2-n10291888.html" target="_blank" rel="noopener nofollow">La Capital</a>.</li>
+</ol>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-12 rounded-2xl bg-brand-dark p-8 sm:p-10 text-center">
+        <h2 class="text-2xl font-bold text-white mb-3">Ordená tus compras con ForkCast</h2>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">Restaurantes: pedile a todos tus proveedores desde un solo lugar y compará precios, gratis. Distribuidoras: recibí pedidos ordenados por WhatsApp y web.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://app.forkcast.tech/register?utm_source=blog&amp;utm_medium=cta&amp;utm_campaign=listas-precios-por-cliente" class="inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-brand-dark font-semibold rounded-xl hover:bg-brand-gold-light transition-colors">
+            Empezar gratis
+          </a>
+          <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-3.5 text-white font-semibold rounded-xl border border-gray-600 hover:border-brand-gold hover:text-brand-gold transition-colors">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Related articles -->
+      
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-dark mb-8">Más artículos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <a href="/blog/proveedores-hosteleria-como-elegir.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #5B8C8A">Proveedores</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Proveedores de hostelería: cómo elegirlos y comparar sus tarifas</h3>
+          </div>
+        </a>
+
+        <a href="/blog/proveedores-gastronomicos-buenos-aires.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #5B8C8A">Proveedores</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Proveedores gastronomicos en Buenos Aires: como encontrarlos y elegirlos</h3>
+          </div>
+        </a>
+
+        <a href="/blog/proveedores-gastronomicos-cordoba.html" class="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-green hover:shadow-lg transition-all">
+          <div class="h-32 flex items-center justify-center text-white text-sm font-semibold" style="background-color: #5B8C8A">Proveedores</div>
+          <div class="p-5">
+            <h3 class="text-base font-semibold text-brand-dark group-hover:text-brand-green transition-colors leading-snug">Proveedores gastronomicos en Cordoba: como armar tu red de compras</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/59898361013?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20saber%20m%C3%A1s%20sobre%20ForkCast" target="_blank" rel="noopener" class="wpp-float" aria-label="Contactar por WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-brand-darker text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">&copy; 2026 ForkCast. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/blog/" class="hover:text-brand-gold transition-colors">Blog</a>
+        <a href="/#restaurantes" class="hover:text-brand-gold transition-colors">Restaurantes</a>
+        <a href="/#franquicias" class="hover:text-brand-gold transition-colors">Franquicias</a>
+        <a href="/#proveedores" class="hover:text-brand-gold transition-colors">Proveedores</a>
+        <a href="/#contacto" class="hover:text-brand-gold transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
